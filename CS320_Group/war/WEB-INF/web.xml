@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>HomePageServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.HomePageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModuleDataServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleDataServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GuessingGameServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.GuessingGameServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MultiplyNumbersServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.MultiplyNumbersServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModuleListServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleListServlet</servlet-class>
+  </servlet>
+  
+  <!-- AJAX servlets. -->
+  <servlet>
+    <servlet-name>ModuleDataAjaxServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ajax.ModuleDataAjaxServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NextGuessAjaxServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ajax.NextGuessAjaxServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MultiplyNumbersAjaxServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ajax.MultiplyNumbersAjaxServlet</servlet-class>
+  </servlet>
+
+  <!-- Servlet mappings -->
+  <servlet-mapping>
+    <servlet-name>HomePageServlet</servlet-name>
+    <url-pattern>/homePage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModuleDataServlet</servlet-name>
+    <url-pattern>/moduleData</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GuessingGameServlet</servlet-name>
+    <url-pattern>/guessingGame</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MultiplyNumbersServlet</servlet-name>
+    <url-pattern>/multiplyNumbers</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModuleListServlet</servlet-name>
+    <url-pattern>/moduleList</url-pattern>
+  </servlet-mapping>
+  
+  <!--  AJAX servlet mappings. -->
+  <servlet-mapping>
+    <servlet-name>ModuleDataAjaxServlet</servlet-name>
+    <url-pattern>/ajax/moduleData</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NextGuessAjaxServlet</servlet-name>
+    <url-pattern>/ajax/nextGuess</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MultiplyNumbersAjaxServlet</servlet-name>
+    <url-pattern>/ajax/multiplyNumbers</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>homePage.html</welcome-file>
+  </welcome-file-list>
+</web-app>
