@@ -2,15 +2,12 @@ package edu.ycp.cs320.lab02a_tgerst.servlet;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.ycp.cs320.lab02a_tgerst.controller.GuessingGameController;
-import edu.ycp.cs320.lab02a_tgerst.controller.NumbersController;
-import edu.ycp.cs320.lab02a_tgerst.model.GuessingGame;
-import edu.ycp.cs320.lab02a_tgerst.model.Numbers;
 
 public class ModuleDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,11 +35,7 @@ public class ModuleDataServlet extends HttpServlet {
 		// result of calculation goes here
 		Double result = null;
 		
-		Numbers model = new Numbers();
 		
-		NumbersController controller = new NumbersController();
-		
-		controller.setModel(model);
 		
 		// decode POSTed form parameters and dispatch to controller
 		try {
@@ -60,14 +53,6 @@ public class ModuleDataServlet extends HttpServlet {
 			// thus, always call a controller method to operate on the data
 			else {
 				
-				model.setNum1(first);
-				System.out.println(model.getNum1());
-				model.setNum2(second);
-				System.out.println(model.getNum2());
-				model.setNum3(third);
-				System.out.println(model.getNum3());
-				model.setResult(controller.add(first, second, third));
-				System.out.println(model.getResult());
 
 			}
 		} catch (NumberFormatException e) {
@@ -84,7 +69,6 @@ public class ModuleDataServlet extends HttpServlet {
 		//req.setAttribute("second", req.getParameter("second"));
 		//req.setAttribute("third", req.getParameter("third"));
 		
-		req.setAttribute("info", model);
 		
 		// add result objects as attributes
 		// this adds the errorMessage text and the result to the response

@@ -2,12 +2,12 @@ package edu.ycp.cs320.lab02a_tgerst.servlet.ajax;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.ycp.cs320.lab02a_tgerst.controller.NumbersController;
 
 public class ModuleDataAjaxServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -37,12 +37,9 @@ public class ModuleDataAjaxServlet extends HttpServlet {
 		}
 		
 		// Use a controller to process the request
-		NumbersController controller = new NumbersController();
-		Double result = controller.add(first, second, third);
 		
 		// Send back a response
 		resp.setContentType("text/plain");
-		resp.getWriter().println(result.toString());
 	}
 
 	private Double getDouble(HttpServletRequest req, String name) {
