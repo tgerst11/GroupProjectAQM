@@ -14,8 +14,6 @@ public class testModule {
 	private int id;
 	private String name,status;
 	
-	
-	
 	@Before
 	public void setUp() {
 		banana = new Module();
@@ -35,4 +33,7 @@ public class testModule {
 		assertEquals(banana.getName(), name);
 		assertEquals(banana.getStatus(), status);
 	}
+	
+	
+	
 }
