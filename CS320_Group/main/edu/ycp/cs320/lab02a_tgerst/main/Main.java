@@ -26,6 +26,7 @@ public class Main {
 		System.out.println("Git commit example");
 		System.out.println("Mikayla :). Hi David!");
 		System.out.println("Trevor:");
+		System.out.println("Trevor  :)");
 		
         // The use of server.join() the will make the current thread join and
         // wait until the server is done executing.
