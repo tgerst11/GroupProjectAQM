@@ -7,8 +7,6 @@ public class Module {
 	private String name,status;
 	private Location position;
 	
-	
-	
 	//constructor
 	public Module(int id, String name, String status, Location position) {
 		this.id = id;

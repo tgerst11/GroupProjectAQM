@@ -6,9 +6,14 @@ public class Location{
 	private double longitude, latitude;
 	private char horizontalDirection, verticalDirection;
 	
+	public Location(double longitude, double latitude, char horizontalDirection, char verticalDirection) {
+	    this.longitude = longitude;
+		this.latitude = latitude;
+		this.horizontalDirection = horizontalDirection;
+	    this.verticalDirection = verticalDirection;
+	  }
 	
-	
-	
+
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
