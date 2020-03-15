@@ -15,14 +15,6 @@
     <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleDataServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>GuessingGameServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.GuessingGameServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>MultiplyNumbersServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.MultiplyNumbersServlet</servlet-class>
-  </servlet>
-  <servlet>
     <servlet-name>ModuleListServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleListServlet</servlet-class>
   </servlet>
@@ -31,14 +23,6 @@
   <servlet>
     <servlet-name>ModuleDataAjaxServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ajax.ModuleDataAjaxServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>NextGuessAjaxServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ajax.NextGuessAjaxServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>MultiplyNumbersAjaxServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ajax.MultiplyNumbersAjaxServlet</servlet-class>
   </servlet>
 
   <!-- Servlet mappings -->
@@ -51,14 +35,6 @@
     <url-pattern>/moduleData</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>GuessingGameServlet</servlet-name>
-    <url-pattern>/guessingGame</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>MultiplyNumbersServlet</servlet-name>
-    <url-pattern>/multiplyNumbers</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
     <servlet-name>ModuleListServlet</servlet-name>
     <url-pattern>/moduleList</url-pattern>
   </servlet-mapping>
@@ -67,14 +43,6 @@
   <servlet-mapping>
     <servlet-name>ModuleDataAjaxServlet</servlet-name>
     <url-pattern>/ajax/moduleData</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>NextGuessAjaxServlet</servlet-name>
-    <url-pattern>/ajax/nextGuess</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>MultiplyNumbersAjaxServlet</servlet-name>
-    <url-pattern>/ajax/multiplyNumbers</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
