@@ -1,5 +1,7 @@
 package edu.ycp.cs320.lab02a_tgerst.methods;
 
+import java.util.ArrayList;
+
 public class ServerSystem {
 	//no attributes on UML diagram
 	
@@ -8,6 +10,7 @@ public class ServerSystem {
 	}
 	
 	public String testModules() {
+		return null;
 		// TODO: Method to test state of modules.
 	}
 	
@@ -24,6 +27,7 @@ public class ServerSystem {
 	}
 	
 	public ArrayList getModuleHistory() {
+		return null;
 		// TODO: Method that returns module readings history
 	}
 	
