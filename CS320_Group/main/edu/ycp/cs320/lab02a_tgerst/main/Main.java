@@ -25,7 +25,6 @@ public class Main {
 		System.out.println("RUNNING: web server on port 8081");
 		System.out.println("Git commit example");
 		System.out.println("Mikayla :). Hi David!");
-		System.out.println("Trevor:");
 		System.out.println("Trevor  :)");
 		System.out.println("Tracy is my gucci girl");
 		
