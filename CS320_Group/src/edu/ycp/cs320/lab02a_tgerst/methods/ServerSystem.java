@@ -6,7 +6,7 @@ public class ServerSystem {
 	//no attributes on UML diagram
 	
 	public void readModulesData() {
-		// TODO: Method to read module data and send to jsp?
+		// TODO: Method to read module data and send to jsp
 	}
 	
 	public String testModules() {
@@ -19,11 +19,11 @@ public class ServerSystem {
 	}
 	
 	public void validateData() {
-		// TODO: ??
+		// TODO: Method to check to see if data is an outlier. If it is, then create an alert.
 	}
 	
 	public void isAlert() {
-		// TODO: ??
+		// TODO: Still don't know what this does :)
 	}
 	
 	public ArrayList getModuleHistory() {

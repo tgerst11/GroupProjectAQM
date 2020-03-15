@@ -1,6 +1,4 @@
 package testModule;
-//package edu.ycp.cs320.lab02a_tgerst.(testModule);
-
 
 import static org.junit.Assert.*;
 
