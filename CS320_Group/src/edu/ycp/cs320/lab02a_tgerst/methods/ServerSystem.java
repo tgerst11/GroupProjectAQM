@@ -8,7 +8,7 @@ public class ServerSystem {
 	}
 	
 	public String testModules() {
-		// TODO: Method to test state of modules
+		// TODO: Method to test state of modules.
 	}
 	
 	public void storeModuleData() {
