@@ -64,15 +64,15 @@
 				</th>
 				<tr>
 					<td class="label">Latitude</td>
-					<td>35.6762° N</td>
+					<td>${location0}</td>
 				</tr>
 				<tr>
 					<td class="label">Longitude</td>
-					<td>139.6503° E</td>
+					<td>${location1}</td>
 				</tr>
 				<tr>
 					<td class="label">Altitude</td>
-					<td>29,029 feet</td>
+					<td>${location2}</td>
 				</tr>
 			</table>
 		</div>
@@ -84,35 +84,35 @@
 				</th>
 				<tr>
 					<td class="label">Carbon Dioxide</td>
-					<td>0.04%</td>
+					<td>${reading0}</td>
 				</tr>
 				<tr>
 					<td class="label">Nitrogen</td>
-					<td>78%</td>
+					<td>${reading1}</td>
 				</tr>
 				<tr>
 					<td class="label">Oxygen</td>
-					<td>21%</td>
+					<td>${reading2}</td>
 				</tr>
 				<tr>
 					<td class="label">Argon</td>
-					<td>0.9%</td>
+					<td>${reading3}</td>
 				</tr>
 				<tr>
 					<td class="label">Methane</td>
-					<td>0.000187%</td>
+					<td>${reading4}</td>
 				</tr>
 				<tr>
 					<td class="label">Neon</td>
-					<td>0.0018%</td>
+					<td>${reading5}</td>
 				</tr>
 				<tr>
 					<td class="label">Helium</td>
-					<td>0.0005%</td>
+					<td>${reading6}</td>
 				</tr>
 				<tr>
 					<td class="label">Krypton</td>
-					<td>0.0001%</td>
+					<td>${reading7}</td>
 				</tr>
 			</table>
 		</div>
