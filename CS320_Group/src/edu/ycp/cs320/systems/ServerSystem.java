@@ -1,9 +1,15 @@
-package edu.ycp.cs320.lab02a_tgerst.methods;
+package edu.ycp.cs320.systems;
 
 import java.util.ArrayList;
 
+import edu.ycp.cs320.lab02a_tgerst.model.Module;
+
 public class ServerSystem {
-	//no attributes on UML diagram
+	private Module module;
+	
+	public void setModel(Module module) {
+		this.module = module;
+	}
 	
 	public void readModulesData() {
 		// TODO: Method to read module data and send to jsp

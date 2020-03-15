@@ -10,7 +10,7 @@
                 #button {
                         margin-bottom: 10px;
         		}
-        
+        <%--insert error color for when login isn't right --%>
         </style>
 		
 	</head>
