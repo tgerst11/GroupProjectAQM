@@ -1,7 +1,7 @@
 package edu.ycp.cs320.lab02a_tgerst.model;
 
 public class Module {
-	//attributrs
+	//attributes
 	private int id;
 	private String name,status;
 	
