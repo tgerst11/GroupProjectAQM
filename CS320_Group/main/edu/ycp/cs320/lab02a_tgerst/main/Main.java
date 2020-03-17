@@ -14,6 +14,8 @@ public class Main {
 		System.out.println("CREATING: web server on port 8081");
 		Server server = launcher.launch(true, 8081, warFile.getAbsolutePath(), "/lab02a_tgerst");
 
+		System.out.println("SUP NERDS");
+		
         // Start things up!		
 		System.out.println("STARTING: web server on port 8081");
 		server.start();
