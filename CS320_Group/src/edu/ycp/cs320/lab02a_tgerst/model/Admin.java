@@ -36,5 +36,16 @@ public class Admin {
 		return email;
 	}
 	
+	public void editModule() {
+		//Todo
+	}
 	
+	public void addModule() {
+		//Todo
+	}
+	
+	public void requestData() {
+		//Todo
+	}
+
 }
