@@ -52,7 +52,7 @@ public class ModuleListServlet extends HttpServlet {
 			// thus, always call a controller method to operate on the data
 			else {
 				
-
+				
 			}
 		} catch (NumberFormatException e) {
 			errorMessage = "Invalid double";
