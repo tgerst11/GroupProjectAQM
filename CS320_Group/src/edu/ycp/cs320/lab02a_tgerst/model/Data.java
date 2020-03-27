@@ -22,23 +22,23 @@ public class Data{
 	}
 	
 	//SET
-	public void setpercentHumidity(float percentHumidity) {
+	public void setPercentHumidity(float percentHumidity) {
 		this.percentHumidity = percentHumidity;
 	}
 	
-	public void settemperature(float temperature) {
+	public void setTemperature(float temperature) {
 		this.temperature = temperature;
 	}
 	
-	public void setairPressure(float airPressure) {
+	public void setAirPressure(float airPressure) {
 		this.airPressure = airPressure;
 	}
 	
-	public void setvoc(float voc) {
+	public void setVoc(float voc) {
 		this.voc = voc;
 	}
 	
-	public void setaltitude(float altitude) {
+	public void setAltitude(float altitude) {
 		this.altitude = altitude;
 	}
 	
