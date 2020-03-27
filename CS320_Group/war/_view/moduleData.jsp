@@ -18,11 +18,11 @@
 		}
 		#header{
 			font-size: 150%;
-                        font-weight: bold;
-                        color: #32a852;
+            font-weight: bold;
+            color: #32a852;
 			margin-top: 20px;
 			margin-bottom: 20px;
-                        border-bottom: 2px solid #32a852;
+            border-bottom: 2px solid #32a852;
 		}
 		#data{
 			margin-left: 200px;
@@ -36,10 +36,28 @@
 		#button {
             margin-bottom: 10px;
         }
+        #login {
+					float: right;
+		}
 		</style>
 	</head>
 
 	<body>
+		<div id = "login">
+			<form action="${pageContext.servletContext.contextPath}/homePage" method="get">
+				<table>
+					<tr>
+						<td class="label">Username:</td>
+						<td><input type="text" name="first" size="12" value="${login.username}" /></td>
+					</tr>
+					<tr>
+						<td class="label">Password:</td>
+						<td><input type="text" name="second" size="12" value="${login.password}" /></td>
+					</tr>
+				</table>
+				<input type="Submit" name="submit" value="Login">
+			</form>
+		</div>
 		<div id = "button">
 			<form action="${pageContext.servletContext.contextPath}/homePage" method="get">
 					<input name="direct" type="submit" value="Home Page" />
