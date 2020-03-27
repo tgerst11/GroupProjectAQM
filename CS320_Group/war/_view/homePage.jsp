@@ -104,6 +104,7 @@
       
         		#login {
         			float: left;
+        			font-weight: bold;
         		}
         		
         		
