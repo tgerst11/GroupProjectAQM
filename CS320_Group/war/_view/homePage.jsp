@@ -165,8 +165,7 @@
 		<form action="${pageContext.servletContext.contextPath}/homePage" method="get">
 			</form>
 			<div class = "welcome">
-			Viewing Air Quality Data for Susquehanna Valley, PA 
-			
+				Viewing Air Quality Data for Susquehanna Valley, PA 			
 			</div>
 			
 
