@@ -10,29 +10,25 @@
 		
                 /*
                 #button {
-                        margin-bottom: 10px;
+                    margin-bottom: 10px;
                    
-                */
+                	*/
          
-        		body{
-        		/*
-        		Play around with resizing
-        		*/
-        		background-color:#00000;
+        			body{
+        			/*
+        			Play around with resizing
+        			*/
+        			background-color:#00000;
         	
-        		background-image: url(././images/background.jpg);
-        		/*
-        		change depending on place?
-        		*/
+        			background-image: url(././images/background.jpg);
+        			/*
+        			change depending on place?
+        			*/
         		
-        		background-size:cover;
-        		background-repeat:no-repeat;
-        		
-        	
-        		
-        		
+        			background-size:cover;
+        			background-repeat:no-repeat;  		
         		}
-        		
+        				
         		.header{
         			padding: 0px;
         		
@@ -45,9 +41,6 @@
         		
         			list-style-type:none;
         			font-family: sans-serif;
-        	
-        		
-        	
         		}
         		
         		ul li a{
@@ -70,12 +63,10 @@
         			text-align: center;
        				font-size: 20px;
         			margin-right: 2px;
-        		
         		}
         		
         		ul li ul li{
         			display: none;
-        		
         		}
         		
         		ul li:hover ul li{
@@ -106,9 +97,6 @@
         			float: left;
         			font-weight: bold;
         		}
-        		
-        		
-        	
         </style>
 
 		
