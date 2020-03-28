@@ -11,8 +11,20 @@
     <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.HomePageServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>ModuleDataServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleDataServlet</servlet-class>
+    <servlet-name>ModuleDataHarrisburgServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleDataHarrisburgServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModuleDataYorkServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleDataYorkServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModuleDataHersheyServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleDataHersheyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModuleDataLancasterServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleDataLancasterServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ModuleListServlet</servlet-name>
@@ -31,8 +43,20 @@
     <url-pattern>/homePage</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>ModuleDataServlet</servlet-name>
-    <url-pattern>/moduleData</url-pattern>
+    <servlet-name>ModuleDataHarrisburgServlet</servlet-name>
+    <url-pattern>/moduleDataHarrisburg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModuleDataYorkServlet</servlet-name>
+    <url-pattern>/moduleDataYork</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModuleDataHersheyServlet</servlet-name>
+    <url-pattern>/moduleDataHershey</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModuleDataLancasterServlet</servlet-name>
+    <url-pattern>/moduleDataLancaster</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ModuleListServlet</servlet-name>

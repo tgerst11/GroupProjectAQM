@@ -13,8 +13,7 @@
                     margin-bottom: 10px;
                    
                 	*/
-         
-        			body{
+        		body{
         			/*
         			Play around with resizing
         			*/
@@ -110,10 +109,10 @@
         <ul>
         <li> <a href = "${pageContext.servletContext.contextPath}/moduleList"> Module List </a>
         	<ul>
-	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleData"> Harrisburg, PA </a></li>
-	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleData"> York, PA </a></li>
-	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleData"> Hershey, PA </a></li>
-	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleData"> Lancaster, PA </a></li>
+	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataHarrisburg"> Harrisburg, PA </a></li>
+	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataYork"> York, PA </a></li>
+	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataHershey"> Hershey, PA </a></li>
+	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataLancaster"> Lancaster, PA </a></li>
         	</ul>
         <li> <a href = "${pageContext.servletContext.contextPath}/homePage"> Home </a></li>
        </ul>

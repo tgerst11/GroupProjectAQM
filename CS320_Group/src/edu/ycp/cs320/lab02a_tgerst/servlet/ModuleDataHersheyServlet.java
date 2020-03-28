@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class ModuleDataServlet extends HttpServlet {
+public class ModuleDataHersheyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -50,7 +50,7 @@ public class ModuleDataServlet extends HttpServlet {
 		System.out.println("ModuleData Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/moduleData.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/moduleDataHershey.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -82,7 +82,7 @@ public class ModuleDataServlet extends HttpServlet {
 		//req.setAttribute("result", model.getResult());
 		
 		// Forward to view to render the result HTML document
-		req.getRequestDispatcher("/_view/moduleData.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/moduleDataHershey.jsp").forward(req, resp);
 	}
 
 	// gets double from the request with attribute named s
