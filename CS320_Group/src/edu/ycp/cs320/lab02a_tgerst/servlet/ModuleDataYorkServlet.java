@@ -17,19 +17,19 @@ public class ModuleDataYorkServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		ArrayList<String> Location = new ArrayList();
-		Location.add("35.6762° N");
-		Location.add("139.6503° E");
-		Location.add("5,000 feet");
+		Location.add("65.6762° N");
+		Location.add("65.6503° E");
+		Location.add("650 feet");
 		
 		ArrayList<String> Reading = new ArrayList();
-		Reading.add("0.04%");
-		Reading.add("78%");
-		Reading.add("21%");
-		Reading.add("0.9%");
-		Reading.add("0.000187%");
-		Reading.add("0.0018%");
-		Reading.add("0.0005%");
-		Reading.add("0.0001%");
+		Reading.add("0.065%");
+		Reading.add("65%");
+		Reading.add("65%");
+		Reading.add("0.65%");
+		Reading.add("0.000657%");
+		Reading.add("0.00165%");
+		Reading.add("0.00065%");
+		Reading.add("0.00065%");
 		
 
 		

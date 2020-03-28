@@ -10,6 +10,26 @@
 			color: red;
 		}
 		
+		/*
+                #button {
+                    margin-bottom: 10px;
+                   
+                	*/
+        		body{
+        			/*
+        			Play around with resizing
+        			*/
+        			background-color:#00000;
+        	
+        			background-image: url(././images/york.jpg);
+        			/*
+        			change depending on place?
+        			*/
+        		
+        			background-size:cover;
+        			background-repeat:no-repeat;  		
+        		}
+		
 		td.label {
 			text-align: right;
 		}
