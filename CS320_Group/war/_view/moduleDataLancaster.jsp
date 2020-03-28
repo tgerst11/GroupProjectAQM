@@ -10,6 +10,13 @@
 			color: red;
 		}
 		
+		body{
+			background-color:#00000;
+        	background-image: url(././images/lancaster.jpg);
+        	background-size:contain;
+        	background-repeat:no-repeat;  		
+		}
+		
 		td.label {
 			text-align: right;
 		}

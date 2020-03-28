@@ -25,6 +25,7 @@
         			*/
         		
         			background-size:cover;
+        			background-height: 768px;
         			background-repeat:no-repeat;  		
         		}
         				

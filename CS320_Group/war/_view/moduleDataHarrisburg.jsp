@@ -12,8 +12,7 @@
 		
 		header{
         			padding: 0px;
-        		
-        
+
         		}
         		
         		ul{
