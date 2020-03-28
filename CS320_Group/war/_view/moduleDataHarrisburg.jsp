@@ -10,6 +10,51 @@
 			color: red;
 		}
 		
+		header{
+        			padding: 0px;
+        		
+        
+        		}
+        		
+        		ul{
+        			margin: 0px;
+        			padding: 0px;
+        		
+        			list-style-type:none;
+        			font-family: sans-serif;
+        		}
+        		
+        		ul li a{
+        			text-decoration:none;
+        			color: white;
+        			display: block;
+        		}
+        		
+        		ul li a:hover{
+        			background:gray;
+        		}
+        		
+        		ul li{
+        			float:right;
+        			width: 200px;
+        			height:40px;
+        			background-color:black;
+        			opacity: .8;
+        			line-height:40px;
+        			text-align: center;
+       				font-size: 20px;
+        			margin-right: 2px;
+        		}
+        		
+        		ul li ul li{
+        			display: none;
+        		}
+        		
+        		ul li:hover ul li{
+        			display: block;
+        		}
+        		
+		
 		/*
                 #button {
                     margin-bottom: 10px;
@@ -37,10 +82,12 @@
   			border: 1px solid black;
 		}
 		#header{
+			
 			font-size: 150%;
             font-weight: bold;
             color: #00000;
 			margin-top: 20px;
+
 			margin-bottom: 20px;
             border-bottom: 2px solid black;
 		}
@@ -57,12 +104,27 @@
             margin-bottom: 10px;
         }
         #login {
-					float: right;
+					float: left;
 		}
 		</style>
 	</head>
 
 	<body>
+	
+	<div class = "header">
+        <ul>
+        <li> <a href = "${pageContext.servletContext.contextPath}/moduleList"> Module List </a>
+        	<ul>
+	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataHarrisburg"> Harrisburg, PA </a></li>
+	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataYork"> York, PA </a></li>
+	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataHershey"> Hershey, PA </a></li>
+	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataLancaster"> Lancaster, PA </a></li>
+        	</ul>
+        <li> <a href = "${pageContext.servletContext.contextPath}/homePage"> Home </a></li>
+       </ul>
+	
+	</div>
+	
 		<div id = "login">
 			<form action="${pageContext.servletContext.contextPath}/homePage" method="get">
 				<table>
@@ -78,6 +140,8 @@
 				<input type="Submit" name="submit" value="Login">
 			</form>
 		</div>
+		
+		<!--
 		<div id = "button">
 			<form action="${pageContext.servletContext.contextPath}/homePage" method="get">
 					<input name="direct" type="submit" value="Home Page" />
@@ -88,6 +152,7 @@
 					<input name="direct" type="submit" value="Module List" />
 			</form>
 		</div>
+		-->
 		
 		<c:if test="${! empty errorMessage}">
 			<div class="error">${errorMessage}</div>
