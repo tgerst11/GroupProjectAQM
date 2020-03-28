@@ -85,9 +85,6 @@
 			
 			font-size: 150%;
             font-weight: bold;
-            color: #00000;
-			margin-top: 20px;
-
 			margin-bottom: 20px;
             border-bottom: 2px solid black;
 		}
@@ -110,7 +107,9 @@
 	</head>
 
 	<body>
-	
+	<div id="header">
+				Module Data 
+			</div>
 	<div class = "header">
         <ul>
         <li> <a href = "${pageContext.servletContext.contextPath}/moduleList"> Module List </a>
@@ -157,9 +156,7 @@
 		<c:if test="${! empty errorMessage}">
 			<div class="error">${errorMessage}</div>
 		</c:if>
-			<div id="header">
-				Module Data 
-			</div>
+			
 		<div id = "location">
 			<table>
 				<th>
