@@ -13,7 +13,7 @@
 		body{
 			background-color:#00000;
         	background-image: url(././images/lancaster.jpg);
-        	background-size:contain;
+        	background-size:cover;
         	background-repeat:no-repeat;  
         			
 		}
