@@ -10,11 +10,31 @@
 			color: red;
 		}
 		
+		/*
+                #button {
+                    margin-bottom: 10px;
+                   
+                	*/
+        		body{
+        			/*
+        			Play around with resizing
+        			*/
+        			background-color:#00000;
+        	
+        			background-image: url(././images/hersheyPic5.jpg);
+        			/*
+        			change depending on place?
+        			*/
+        		
+        			background-size:cover;
+        			background-repeat:no-repeat;  		
+        		}
+		
 		td.label {
 			text-align: right;
 		}
 		table, th, td {
-  			border: 1px solid black;
+  			border: 1px solid white;
 		}
 		#header{
 			font-size: 150%;
@@ -28,16 +48,19 @@
 			margin-left: 200px;
 			margin-top: 0px;
 			float: middle;
+			color: #FFFFFF;
 		}
 		#location{
 			margin-left: 0px;
 			float: left;
+			color: #FFFFFF;
 		}
 		#button {
             margin-bottom: 10px;
         }
         #login {
-					float: right;
+				float: right;
+				color: #FFFFFF;
 		}
 		</style>
 	</head>
@@ -133,6 +156,5 @@
 					<td>${reading7}</td>
 				</tr>
 			</table>
-		</div>
 	</body>
 </html>
