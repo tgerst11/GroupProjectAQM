@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Module Data</title>
+		<title>Module Data Lancaster, PA</title>
 		<style type="text/css">
 		.error {
 			color: red;
@@ -107,7 +107,7 @@
 
 	<body>
 	<div id="header">
-				Module Data 
+				Module Data Lancaster, PA
 			</div>
 	<div class = "header">
         <ul>
