@@ -30,6 +30,10 @@
     <servlet-name>ModuleListServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleListServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AddModuleServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.AddModuleServlet</servlet-class>
+  </servlet>
   
   <!-- AJAX servlets. -->
   <servlet>
@@ -61,6 +65,10 @@
   <servlet-mapping>
     <servlet-name>ModuleListServlet</servlet-name>
     <url-pattern>/moduleList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddModuleServlet</servlet-name>
+    <url-pattern>/addModule</url-pattern>
   </servlet-mapping>
   
   <!--  AJAX servlet mappings. -->
