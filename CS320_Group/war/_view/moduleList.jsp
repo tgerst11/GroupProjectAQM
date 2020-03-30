@@ -15,6 +15,7 @@
 			}
 			table, th, td {
   				border: 1px solid black;
+  				float: center;
 			}
 			#list {
 				font-size: 300%;
@@ -23,6 +24,20 @@
 			#login {
 					float: right;
 			}
+			body{
+        			/*
+        			Play around with resizing
+        			*/
+        			background-color:#00000;
+        	
+        			background-image: url(././images/background.jpg);
+        			/*
+        			change depending on place?
+        			*/
+        		
+        			background-size:cover;
+        			background-repeat:no-repeat;  		
+        		}
 		</style>
 	</head>
 
@@ -55,8 +70,8 @@
 				</th>
 				<tr>
 					<td>
-						<form action="${pageContext.servletContext.contextPath}/moduleData" method="get">
-							<input name="direct" type="submit" value="Module 1" />
+						<form action="${pageContext.servletContext.contextPath}/moduleDataHarrisburg" method="get">
+							<input name="direct" type="submit" value="Harrisurg PA" />
 						</form>
 					</td>
 					<td>
@@ -65,8 +80,8 @@
 				</tr>
 				<tr>
 					<td>
-						<form action="${pageContext.servletContext.contextPath}/moduleData" method="get">
-							<input name="direct" type="submit" value="Module 2" />
+						<form action="${pageContext.servletContext.contextPath}/moduleDataHerhsy" method="get">
+							<input name="direct" type="submit" value="Hershey PA" />
 						</form>
 					</td>
 					<td>
@@ -75,8 +90,18 @@
 				</tr>
 				<tr>
 					<td>
-						<form action="${pageContext.servletContext.contextPath}/moduleData" method="get">
-							<input name="direct" type="submit" value="Module 3" />
+						<form action="${pageContext.servletContext.contextPath}/moduleDataLancaster" method="get">
+							<input name="direct" type="submit" value="Lancasater PA" />
+						</form>
+					</td>
+					<td>
+						Active
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form action="${pageContext.servletContext.contextPath}/moduleDataYork" method="get">
+							<input name="direct" type="submit" value="York PA" />
 						</form>
 					</td>
 					<td>

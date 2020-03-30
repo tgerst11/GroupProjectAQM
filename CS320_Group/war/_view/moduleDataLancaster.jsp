@@ -82,7 +82,7 @@
 		}
 		#header{
 			
-			font-size: 150%;
+			font-size: 200%;
             font-weight: bold;
 			margin-bottom: 20px;
             border-bottom: 2px solid black;
