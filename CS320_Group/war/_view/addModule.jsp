@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>CS320 Add Book</title>
+		<title>Add Module</title>
 		<style type="text/css">
 			.error {
 				color: red;
@@ -42,7 +42,7 @@
 				</tr>
 				<tr>
 					<td class="label">Longitude:</td>
-					<td><input type="text" name="module_longitude" size="50" value="${module_longitude}" /></td>
+					<td><input type="text" name="module_longitude" size="20" value="${module_longitude}" /></td>
 				</tr>							
 			</table>
 			
