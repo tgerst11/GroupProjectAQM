@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Home Page of the York College AQM</title>
+		<title>Admin Page</title>
 		
 		<style type="text/css">
 		
@@ -251,21 +251,20 @@
 		</div>
 		<div class = "form-area">
 	
-		<form action="${pageContext.servletContext.contextPath}/homePage" method="post">
+		<form action="">
 		<p>Username:</p>
-		<input type="text" name="username" placeholder="Enter username" size="12" value="${username}"/>
+		<input type="text" name="first" placeholder="Enter username" size="12" value="${login.username}"/>
 		<p>Password:</p>
-		<input type="text" name="password" placeholder="Enter password" size="12" value="${password}" />
-		<input type="submit" name = "submit" value= "Sign In">
+		<input type="text" name="second" placeholder="Enter password" size="12" value="${login.password}" />
+		<input type="submit" value= "Sign In">
 		</form>
 		<!-- 
-		<form action="${pageContext.servletContext.contextPath}/homePage" method="post">
 				<table>
 					<tr>
 						<td class="label">Username:</td>
-						<td><input type="text" name="username" size="12" value="${username}" /></td>
+						<td><input type="text" name="first" size="12" value="${login.username}" /></td>
 						<td class="label">Password:</td>
-						<td><input type="text" name="password" size="12" value="${password}" /></td>
+						<td><input type="text" name="second" size="12" value="${login.password}" /></td>
 					</tr>
 				</table>
 				
@@ -277,13 +276,12 @@
 					
 				</div>
 				-->
-		</form>
 				
 				
 				
 				
 		</div>
-		<form action="${pageContext.servletContext.contextPath}/homePage" method="post">
+		<form action="${pageContext.servletContext.contextPath}/homePage" method="get">
 			</form>
 		
 			

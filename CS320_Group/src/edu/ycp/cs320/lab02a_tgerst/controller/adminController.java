@@ -1,22 +1,29 @@
 package edu.ycp.cs320.lab02a_tgerst.controller;
 
-
-import edu.ycp.cs320.lab02a_tgerst.model.Admin;
-
 public class adminController {
 	//create a Numbers model
-	private Admin admin;
+	private String username;
+	private String password;
+	private String email;
 	
-	public void setModel(Admin admin) {
+	public adminController(String username, String password) {
 		//create the model
-		this.admin = admin;
+		this.username = username;
+		this.password = password;
+	}
+	
+	public adminController(String username, String password, String email) {
+		//create the model
+		this.username = username;
+		this.password = password;
+		this.email = email;
 	}
 	
 	public boolean checkUsername() {
 		//UPDATE
 		//pull username from the database
 		String username = "UPDATE";
-		if(admin.getUsername() == username)
+		if(this.username == username)
 		{
 			return true;
 		}
@@ -27,7 +34,7 @@ public class adminController {
 		//UPDATE
 		//pull password from the database
 		String password = "UPDATE";
-		if(admin.getPassword() == password)
+		if(this.password == password)
 		{
 			return true;
 		}
@@ -36,9 +43,9 @@ public class adminController {
 	
 	public boolean checkEmail() {
 		//UPDATE
-		//pull username from the database
+		//pull email from the database
 		String email = "UPDATE";
-		if(admin.getEmail() == email)
+		if(this.email == email)
 		{
 			return true;
 		}
