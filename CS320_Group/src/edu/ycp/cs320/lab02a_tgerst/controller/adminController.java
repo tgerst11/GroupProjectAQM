@@ -22,4 +22,17 @@ public class adminController {
 		}
 		return false;
 	}
+	
+	public boolean checkPassword() {
+		//UPDATE
+		//pull password from the database
+		String password = "UPDATE";
+		if(admin.getPassword() == password)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+
 }
