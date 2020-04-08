@@ -34,5 +34,14 @@ public class adminController {
 		return false;
 	}
 	
-
+	public boolean checkEmail() {
+		//UPDATE
+		//pull username from the database
+		String email = "UPDATE";
+		if(admin.getEmail() == email)
+		{
+			return true;
+		}
+		return false;
+	}
 }
