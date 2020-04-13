@@ -14,8 +14,7 @@ public class HomePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	adminController controller;
-	String username;
-	String password;
+
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -43,13 +42,9 @@ public class HomePageServlet extends HttpServlet {
 	
 		try {
 		
-			if (req.getParameter("submit") != null) {
-				username = getInitParameter(req.getParameter("username"));
-				password = getInitParameter(req.getParameter("password"));
-				System.out.println(username);
-				System.out.println(password);
-				System.out.println("IMPORTED");
-			}
+			String username = getStringFromParameter(req,"username");
+			String password = getStringFromParameter(req,"password");
+			
 			// check for errors in the form data before using is in a calculation
 			if (username == null || password == null) {
 				errorMessage = "Please specify both the username and password";
@@ -59,6 +54,8 @@ public class HomePageServlet extends HttpServlet {
 			// the view does not alter data, only controller methods should be used for that
 			// thus, always call a controller method to operate on the data
 			else {
+				
+				
 				controller = new adminController(username, password);
 				
 				if(controller.checkUsername() == true && controller.checkPassword())
@@ -86,4 +83,8 @@ public class HomePageServlet extends HttpServlet {
 		req.getRequestDispatcher("/_view/homePage.jsp").forward(req, resp);
 		System.out.println("HOME PAGE");
 	}
+	private String getStringFromParameter(HttpServletRequest req, String name) {
+		return req.getParameter(name);
+	}
+	
 }
