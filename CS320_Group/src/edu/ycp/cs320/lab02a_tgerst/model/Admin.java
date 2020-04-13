@@ -10,7 +10,8 @@ public class Admin {
 		this.password = password;
 		this.email = email;
 	}
-	
+
+
 	public void setUsername(String username){
 		this.username = username;
 	}

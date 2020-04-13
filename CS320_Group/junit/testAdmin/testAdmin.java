@@ -18,7 +18,8 @@ public class testAdmin{
 		password = "oranges44";
 		email    = "jsmith@ycp.edu";
 		
-		user = new Admin(username, password, email);	
+		user = new Admin(username, password, email);
+		
 	}
 	
 	@Test
