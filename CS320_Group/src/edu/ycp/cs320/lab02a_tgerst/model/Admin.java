@@ -5,10 +5,8 @@ public class Admin {
 	private String username,password,email;
 	
 	//constructor
-	public Admin(String username, String password, String email) {
-		this.username = username;
-		this.password = password;
-		this.email = email;
+	public Admin() {
+
 	}
 
 

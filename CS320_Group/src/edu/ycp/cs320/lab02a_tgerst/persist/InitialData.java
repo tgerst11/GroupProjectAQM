@@ -5,41 +5,42 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import edu.ycp.cs320.lab02a_tgerst.model.Admin;
+
 
 public class InitialData {
-	/*
+	
 	// reads initial Author data from CSV file and returns a List of Authors
-		public static List<Author> getAuthors() throws IOException {
-			List<Author> authorList = new ArrayList<Author>();
-			ReadCSV readAuthors = new ReadCSV("authors.csv");
+		public static List<Admin> getAdmins() throws IOException {
+			List<Admin> adminList = new ArrayList<Admin>();
+			ReadCSV readAdmins = new ReadCSV("account.csv");
 			try {
 				// auto-generated primary key for authors table
-				Integer authorId = 1;
 				while (true) {
-					List<String> tuple = readAuthors.next();
+					List<String> tuple = readAdmins.next();
 					if (tuple == null) {
 						break;
 					}
 					Iterator<String> i = tuple.iterator();
-					Author author = new Author();
+					Admin admin = new Admin();
 
 					// read author ID from CSV file, but don't use it
 					// it's there for reference purposes, just make sure that it is correct
 					// when setting up the BookAuthors CSV file				
-					Integer.parseInt(i.next());
 					// auto-generate author ID, instead
-					author.setAuthorId(authorId++);				
-					author.setLastname(i.next());
-					author.setFirstname(i.next());
-					authorList.add(author);
+					admin.setUsername(i.next());			
+					admin.setPassword(i.next());
+					admin.setEmail(i.next());
+					adminList.add(admin);
 				}
-				System.out.println("authorList loaded from CSV file");
-				return authorList;
+				System.out.println("adminList loaded from CSV file");
+				return adminList;
 			} finally {
-				readAuthors.close();
+				readAdmins.close();
 			}
 		}
 		
+		/*
 		// reads initial Book data from CSV file and returns a List of Books
 		public static List<Book> getBooks() throws IOException {
 			List<Book> bookList = new ArrayList<Book>();
