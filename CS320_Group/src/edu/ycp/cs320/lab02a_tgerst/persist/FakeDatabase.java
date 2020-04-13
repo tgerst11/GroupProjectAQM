@@ -15,5 +15,16 @@ public class FakeDatabase implements IDatabase {
 //		System.out.println(authorList.size() + " authors");
 //		System.out.println(bookList.size() + " books");
 	}
+	
+	/*
+	public void readInitialData() {
+		try {
+			authorList.addAll(InitialData.getAuthors());
+			bookList.addAll(InitialData.getBooks());
+		} catch (IOException e) {
+			throw new IllegalStateException("Couldn't read initial data", e);
+		}
+	}
+	*/
 
 }
