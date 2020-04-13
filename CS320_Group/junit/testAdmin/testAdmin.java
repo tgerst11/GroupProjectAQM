@@ -20,6 +20,12 @@ public class testAdmin{
 		
 		user = new Admin();
 		
+		user.setEmail(email);
+		
+		user.setPassword(password);
+		
+		user.setUsername(username);
+		
 	}
 	
 	@Test
