@@ -24,32 +24,32 @@ public class testData {
 		voc = 103.4f;
 		altitude = 12.3F;
 		
-		banana = new Data(percentHumidity, temperature,airPressure,voc, altitude);
+		banana = new Data();
 	}
 
 	@Test
 	public void testPercentHumidity() {
-		assertEquals(banana.getpercentHumidity(), percentHumidity, 0);
+		assertEquals(banana.getPercentHumidity(), percentHumidity, 0);
 	}
 	
 	@Test
 	public void testTemperature() {
-		assertEquals(banana.gettemperature(), temperature, 0);
+		assertEquals(banana.getTemperature(), temperature, 0);
 	}
 	
 	@Test
 	public void testAirPressure() {
-		assertEquals(banana.getairPressure(), airPressure, 0);
+		assertEquals(banana.getAirPressure(), airPressure, 0);
 	}	
 	
 	@Test
 	public void testVoc() {
-		assertEquals(banana.getvoc(), voc, 0);
+		assertEquals(banana.getVOC(), voc, 0);
 	}
 	
 	@Test
 	public void testAltitude() {
-		assertEquals(banana.getaltitude(), altitude, 0);	
+		assertEquals(banana.getAltitude(), altitude, 0);	
 	}
 	
 }

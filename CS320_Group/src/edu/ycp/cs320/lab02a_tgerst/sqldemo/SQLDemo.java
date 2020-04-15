@@ -228,7 +228,7 @@ public class SQLDemo {
 				System.out.println("Importing data for table: <" + tableName + ">");
 				if (tableName.toLowerCase().equals("books"))
 				{
-					buf.append("insert into " + tableName + " (title, isbn, published) values (");
+					buf.append("insert into " + tableName + " (time, humidity, temp, air_pressure, voc, module_id) values (");
 				}
 				else if (tableName.toLowerCase().equals("authors"))
 				{

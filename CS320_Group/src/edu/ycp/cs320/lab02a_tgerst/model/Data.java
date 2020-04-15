@@ -2,6 +2,8 @@ package edu.ycp.cs320.lab02a_tgerst.model;
 
 public class Data{
 	
+	private int data_id;
+	
 	private float percentHumidity;
 	
 	private float temperature;
@@ -12,16 +14,24 @@ public class Data{
 	
 	private float altitude;
 	
-	public Data(float percentHumidity, float temperature, float airPressure, float voc, float altitude)
+	private String time;
+	
+	private int module_id;
+	
+	public Data()
 	{
-		this.percentHumidity = percentHumidity;
-		this.temperature = temperature;
-		this.airPressure = airPressure; 
-		this.voc = voc;
-		this.altitude = altitude;
+
 	}
 	
 	//SET
+	public void setModuleID(int module_id) {
+		this.module_id = module_id;
+	}
+	
+	public void setDataID(int data_id) {
+		this.data_id = data_id;
+	}
+	
 	public void setPercentHumidity(float percentHumidity) {
 		this.percentHumidity = percentHumidity;
 	}
@@ -34,7 +44,7 @@ public class Data{
 		this.airPressure = airPressure;
 	}
 	
-	public void setVoc(float voc) {
+	public void setVOC(float voc) {
 		this.voc = voc;
 	}
 	
@@ -42,29 +52,41 @@ public class Data{
 		this.altitude = altitude;
 	}
 	
+	public void setTime(String time) {
+		this.time = time;
+	}
+	
 	//GET
-	public float getpercentHumidity() {
+	public float getPercentHumidity() {
 		return percentHumidity;
 	}
 	
-	public float gettemperature() {
+	public float getTemperature() {
 		return temperature;
 	}
 	
-	public float getairPressure() {
+	public float getAirPressure() {
 		return airPressure;
 	}
 	
-	public float getvoc() {
+	public float getVOC() {
 		return voc;
 	}
 	
-	public float getaltitude() {
+	public float getAltitude() {
 		return altitude;
 	}
+	
+	public String getTime() {
+		return time;
+	}
 
+	public int getDataID() {
+		return data_id;
+	}
 	
-	
-	
+	public int getModuleID() {
+		return module_id;
+	}
 }
 

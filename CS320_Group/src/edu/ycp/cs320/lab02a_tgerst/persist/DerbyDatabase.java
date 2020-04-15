@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.ycp.cs320.lab02a_tgerst.model.Admin;
+import edu.ycp.cs320.lab02a_tgerst.model.Data;
 
 
 public class DerbyDatabase implements IDatabase {
@@ -88,12 +89,15 @@ public class DerbyDatabase implements IDatabase {
 	}
 
 	
-	//  creates the Authors and Books tables
+	//  creates the tables
 	public void createTables() {
 		executeTransaction(new Transaction<Boolean>() {
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
 				PreparedStatement stmt1 = null;			
+				PreparedStatement stmt2 = null;
+				PreparedStatement stmt3 = null;
+				PreparedStatement stmt4 = null;
 			
 				try {
 					stmt1 = conn.prepareStatement(
@@ -107,10 +111,27 @@ public class DerbyDatabase implements IDatabase {
 					
 					System.out.println("Admins table created");
 									
-										
+					stmt2 = conn.prepareStatement(
+							"create table data (" +								
+							"	data_id integer primary key " +
+							"		generated always as identity (start with 1, increment by 1), " +
+							"	time varchar(40)," +
+							"	humidity float," +
+							"	temp float," +
+							"	air_pressure float," +
+							"	voc float," +
+							"	module_id integer" +
+							")"
+					);	
+					
+					stmt2.executeUpdate();
+						
+					System.out.println("Data table created");
+					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(stmt1);
+					DBUtil.closeQuietly(stmt2);
 				}
 			}
 		});
@@ -122,16 +143,18 @@ public class DerbyDatabase implements IDatabase {
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
 				List<Admin> adminList;
-				
+				List<Data> dataList;
 				
 				try {
 					adminList     = InitialData.getAdmins();
+					dataList      = InitialData.getData();
 									
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);
 				}
 
 				PreparedStatement insertAdmin     = null;
+				PreparedStatement insertData     = null;
 
 				try {
 					// must completely populate Authors table before populating BookAuthors table because of primary keys
@@ -146,10 +169,23 @@ public class DerbyDatabase implements IDatabase {
 					
 					System.out.println("Admins table populated");
 									
+					insertData = conn.prepareStatement("insert into data (time, humidity, temp, air_pressure, voc, module_id) values (?, ?, ?, ?, ?, ?)");
+					for (Data data : dataList) {
+						insertData.setString(1, data.getTime());
+						insertData.setFloat(2, data.getPercentHumidity());
+						insertData.setFloat(3, data.getTemperature());
+						insertData.setFloat(4, data.getAirPressure());
+						insertData.setFloat(5, data.getVOC());
+						insertData.setInt(6, data.getModuleID());
+						insertData.addBatch();
+					}
+					insertData.executeBatch();
 					
+					System.out.println("Data table populated");
 					return true;
 				} finally {
-					DBUtil.closeQuietly(insertAdmin);				
+					DBUtil.closeQuietly(insertAdmin);	
+					DBUtil.closeQuietly(insertData);
 				}
 			}
 		});
