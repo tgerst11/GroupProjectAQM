@@ -12,6 +12,7 @@ import java.util.List;
 import edu.ycp.cs320.lab02a_tgerst.model.Admin;
 import edu.ycp.cs320.lab02a_tgerst.model.Data;
 import edu.ycp.cs320.lab02a_tgerst.model.Location;
+import edu.ycp.cs320.lab02a_tgerst.model.Module;
 
 
 public class DerbyDatabase implements IDatabase {
@@ -130,13 +131,13 @@ public class DerbyDatabase implements IDatabase {
 					System.out.println("Data table created");
 					
 					stmt3 = conn.prepareStatement(
-							"create table location (" +								
+							"create table locations (" +								
 							"	location_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +
 							"	longitude float," +
 							"	latitude float," +
-							"	vertical_direction Char," +
-							"	horizontal_direction Char," +
+							"	vertical_direction varchar(40)," +
+							"	horizontal_direction varchar(40)," +
 							"	module_id integer" +
 							")"
 					);	
@@ -144,6 +145,19 @@ public class DerbyDatabase implements IDatabase {
 					stmt3.executeUpdate();
 						
 					System.out.println("Location table created");
+					
+					stmt4 = conn.prepareStatement(
+							"create table modules (" +								
+							"	module_id integer," +
+							"	location_id integer," +
+							"	name varchar(40)," +
+							"	status varchar(40)" +
+							")"
+					);	
+					
+					stmt4.executeUpdate();
+						
+					System.out.println("Module table created");
 					
 					return true;
 				} finally {
@@ -164,19 +178,22 @@ public class DerbyDatabase implements IDatabase {
 				List<Admin> adminList;
 				List<Data> dataList;
 				List<Location> locationList;
+				List<Module> moduleList;
 				
 				try {
 					adminList     = InitialData.getAdmins();
 					dataList      = InitialData.getData();
-					locationList  = InitialData.getLocation();
+					locationList  = InitialData.getLocations();
+					moduleList    = InitialData.getModules();
 									
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);
 				}
 
-				PreparedStatement insertAdmin     = null;
-				PreparedStatement insertData     = null;
+				PreparedStatement insertAdmin        = null;
+				PreparedStatement insertData         = null;
 				PreparedStatement insertLocation     = null;
+				PreparedStatement insertModule       = null;
 
 				try {
 					// must completely populate Authors table before populating BookAuthors table because of primary keys
@@ -205,7 +222,7 @@ public class DerbyDatabase implements IDatabase {
 					
 					System.out.println("Data table populated");
 					
-					insertLocation = conn.prepareStatement("insert into location (longitude, latitude, vertical_direction, horizontal_direction, module_id) values (?, ?, ?, ?, ?)");
+					insertLocation = conn.prepareStatement("insert into locations (longitude, latitude, vertical_direction, horizontal_direction, module_id) values (?, ?, ?, ?, ?)");
 					for (Location location : locationList) {
 						insertLocation.setDouble(1, location.getLongitude());
 						insertLocation.setDouble(2, location.getLatitude());
@@ -217,11 +234,25 @@ public class DerbyDatabase implements IDatabase {
 					insertLocation.executeBatch();
 					
 					System.out.println("Location table populated");
+					
+					insertModule = conn.prepareStatement("insert into modules (module_id, location_id, name, status) values (?, ?, ?, ?)");
+					for (Module module : moduleList) {
+						insertModule.setDouble(1, module.getModuleId());
+						insertModule.setDouble(2, module.getLocationId());
+						insertModule.setString(3, module.getName());
+						insertModule.setString(4, module.getStatus());
+						insertModule.addBatch();
+					}
+					insertModule.executeBatch();
+					
+					System.out.println("Module table populated");
+					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(insertAdmin);	
 					DBUtil.closeQuietly(insertData);
 					DBUtil.closeQuietly(insertLocation);
+					DBUtil.closeQuietly(insertModule);
 				}
 			}
 		});

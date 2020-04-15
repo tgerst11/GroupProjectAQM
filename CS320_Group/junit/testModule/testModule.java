@@ -29,12 +29,12 @@ public class testModule {
 		verticalDirection = "N";
 
 		position = new Location();
-		banana = new Module(id, name, status, position);
+		banana = new Module();
 	}
 
 	@Test
-	public void testId() {
-		assertEquals(banana.getId(), id);
+	public void testModuleId() {
+		assertEquals(banana.getModuleId(), id);
 
 	}
 	

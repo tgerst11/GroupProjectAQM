@@ -8,6 +8,7 @@ import java.util.List;
 import edu.ycp.cs320.lab02a_tgerst.model.Admin;
 import edu.ycp.cs320.lab02a_tgerst.model.Data;
 import edu.ycp.cs320.lab02a_tgerst.model.Location;
+import edu.ycp.cs320.lab02a_tgerst.model.Module;
 
 
 public class InitialData {
@@ -26,10 +27,6 @@ public class InitialData {
 					Iterator<String> i = tuple.iterator();
 					Admin admin = new Admin();
 
-					// read author ID from CSV file, but don't use it
-					// it's there for reference purposes, just make sure that it is correct
-					// when setting up the BookAuthors CSV file				
-					// auto-generate author ID, instead
 					admin.setUsername(i.next());	
 					admin.setPassword(i.next());
 					admin.setEmail(i.next());
@@ -77,8 +74,8 @@ public class InitialData {
 			}
 		}
 		
-		// reads initial BookAuthor data from CSV file and returns a List of BookAuthors
-		public static List<Location> getLocation() throws IOException {
+		// reads initial Location data from CSV file and returns a List of Locations
+		public static List<Location> getLocations() throws IOException {
 			List<Location> locationList = new ArrayList<Location>();
 			ReadCSV readLocation = new ReadCSV("location.csv");
 			try {
@@ -106,6 +103,32 @@ public class InitialData {
 				return locationList;
 			} finally {
 				readLocation.close();
+			}
+		}
+		
+		// reads initial Module data from CSV file and returns a List of Modules
+		public static List<Module> getModules() throws IOException {
+			List<Module> moduleList = new ArrayList<Module>();
+			ReadCSV readModules = new ReadCSV("module.csv");
+			try {
+				while (true) {
+					List<String> tuple = readModules.next();
+					if (tuple == null) {
+						break;
+					}
+					Iterator<String> i = tuple.iterator();
+					Module module = new Module();
+
+					module.setModuleId(Integer.parseInt(i.next()));	
+					module.setLocationId(Integer.parseInt(i.next()));	
+					module.setName(i.next());
+					module.setStatus(i.next());
+					moduleList.add(module);
+				}
+				System.out.println("moduleList loaded from CSV file");
+				return moduleList;
+			} finally {
+				readModules.close();
 			}
 		}
 }

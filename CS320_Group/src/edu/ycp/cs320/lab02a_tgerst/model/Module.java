@@ -3,20 +3,21 @@ package edu.ycp.cs320.lab02a_tgerst.model;
 public class Module {
 
 	//attributes
-	private int id;
+	private int module_id, location_id;
 	private String name,status;
 	private Location position;
 	
 	//constructor
-	public Module(int id, String name, String status, Location position) {
-		this.id = id;
-		this.name = name;
-		this.status = status;
-		this.position = position;
-	  }
+	public Module() {
+
+	}
 	
-	public void setId(int id){
-		this.id = id;
+	public void setModuleId(int module_id){
+		this.module_id = module_id;
+	}
+	
+	public void setLocationId(int location_id){
+		this.location_id = location_id;
 	}
 	
 	public void setName(String name) {
@@ -32,8 +33,12 @@ public class Module {
 	}
 	
 	
-	public int getId() {
-		return id;
+	public int getModuleId() {
+		return module_id;
+	}
+	
+	public int getLocationId() {
+		return location_id;
 	}
 	
 	public String getName() {
