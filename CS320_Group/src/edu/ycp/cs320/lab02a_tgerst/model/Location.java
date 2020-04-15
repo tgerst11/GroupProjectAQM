@@ -4,13 +4,11 @@ package edu.ycp.cs320.lab02a_tgerst.model;
 public class Location{
 	
 	private double longitude, latitude;
-	private char horizontalDirection, verticalDirection;
+	private String horizontalDirection, verticalDirection;
+	private int module_id, location_id;
 	
-	public Location(double longitude, double latitude, char horizontalDirection, char verticalDirection) {
-	    this.longitude = longitude;
-		this.latitude = latitude;
-		this.horizontalDirection = horizontalDirection;
-	    this.verticalDirection = verticalDirection;
+	public Location() {
+
 	  }
 	
 
@@ -22,12 +20,20 @@ public class Location{
 		this.latitude = latitude;
 	}
 	
-	public void setHorizontalDirection(char horizontalDirection) {
+	public void setHorizontalDirection(String horizontalDirection) {
 		this.horizontalDirection = horizontalDirection;
 	}
 	
-	public void setVerticalDirection(char verticalDirection) {
+	public void setVerticalDirection(String verticalDirection) {
 		this.verticalDirection = verticalDirection;
+	}
+	
+	public void setModuleID(int module_id) {
+		this.module_id = module_id;
+	}
+	
+	public void setLocationID(int location_id) {
+		this.location_id = location_id;
 	}
 	
 	public double getLongitude() {
@@ -38,16 +44,19 @@ public class Location{
 		return latitude;
 	}
 	
-	public char getHorizontalDirection() {
+	public String getHorizontalDirection() {
 		return horizontalDirection;
 	}
 	
-	public char getVerticalDirection() {
+	public String getVerticalDirection() {
 		return verticalDirection;
 	}
 	
+	public int getModuleID() {
+		return module_id;
+	}
 	
-	
-	
-	
+	public int getLocationID() {
+		return location_id;
+	}
 }

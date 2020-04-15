@@ -11,6 +11,7 @@ import java.util.List;
 
 import edu.ycp.cs320.lab02a_tgerst.model.Admin;
 import edu.ycp.cs320.lab02a_tgerst.model.Data;
+import edu.ycp.cs320.lab02a_tgerst.model.Location;
 
 
 public class DerbyDatabase implements IDatabase {
@@ -128,10 +129,28 @@ public class DerbyDatabase implements IDatabase {
 						
 					System.out.println("Data table created");
 					
+					stmt3 = conn.prepareStatement(
+							"create table location (" +								
+							"	location_id integer primary key " +
+							"		generated always as identity (start with 1, increment by 1), " +
+							"	longitude float," +
+							"	latitude float," +
+							"	vertical_direction Char," +
+							"	horizontal_direction Char," +
+							"	module_id integer" +
+							")"
+					);	
+					
+					stmt3.executeUpdate();
+						
+					System.out.println("Location table created");
+					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(stmt1);
 					DBUtil.closeQuietly(stmt2);
+					DBUtil.closeQuietly(stmt3);
+					DBUtil.closeQuietly(stmt4);
 				}
 			}
 		});
@@ -144,10 +163,12 @@ public class DerbyDatabase implements IDatabase {
 			public Boolean execute(Connection conn) throws SQLException {
 				List<Admin> adminList;
 				List<Data> dataList;
+				List<Location> locationList;
 				
 				try {
 					adminList     = InitialData.getAdmins();
 					dataList      = InitialData.getData();
+					locationList  = InitialData.getLocation();
 									
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);
@@ -155,6 +176,7 @@ public class DerbyDatabase implements IDatabase {
 
 				PreparedStatement insertAdmin     = null;
 				PreparedStatement insertData     = null;
+				PreparedStatement insertLocation     = null;
 
 				try {
 					// must completely populate Authors table before populating BookAuthors table because of primary keys
@@ -182,10 +204,24 @@ public class DerbyDatabase implements IDatabase {
 					insertData.executeBatch();
 					
 					System.out.println("Data table populated");
+					
+					insertLocation = conn.prepareStatement("insert into location (longitude, latitude, vertical_direction, horizontal_direction, module_id) values (?, ?, ?, ?, ?)");
+					for (Location location : locationList) {
+						insertLocation.setDouble(1, location.getLongitude());
+						insertLocation.setDouble(2, location.getLatitude());
+						insertLocation.setString(3, location.getVerticalDirection());
+						insertLocation.setString(4, location.getHorizontalDirection());
+						insertLocation.setInt(5, location.getModuleID());
+						insertLocation.addBatch();
+					}
+					insertLocation.executeBatch();
+					
+					System.out.println("Location table populated");
 					return true;
 				} finally {
 					DBUtil.closeQuietly(insertAdmin);	
 					DBUtil.closeQuietly(insertData);
+					DBUtil.closeQuietly(insertLocation);
 				}
 			}
 		});

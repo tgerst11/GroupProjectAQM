@@ -7,6 +7,7 @@ import java.util.List;
 
 import edu.ycp.cs320.lab02a_tgerst.model.Admin;
 import edu.ycp.cs320.lab02a_tgerst.model.Data;
+import edu.ycp.cs320.lab02a_tgerst.model.Location;
 
 
 public class InitialData {
@@ -42,7 +43,7 @@ public class InitialData {
 		}
 		
 		
-		// reads initial Book data from CSV file and returns a List of Books
+		// reads initial Data from CSV file and returns a List of Data
 		public static List<Data> getData() throws IOException {
 			List<Data> dataList = new ArrayList<Data>();
 			ReadCSV readData = new ReadCSV("data.csv");
@@ -57,13 +58,10 @@ public class InitialData {
 					Iterator<String> i = tuple.iterator();
 					Data data = new Data();
 					
-					// read book ID from CSV file, but don't use it
-					// it's there for reference purposes, just make sure that it is correct
-					// when setting up the BookAuthors CSV file
-					// auto-generate book ID, instead
+					// auto-generate Data ID, instead
 					Integer.parseInt(i.next());
-					//skip over data_id
 					data.setDataID(dataID++);
+					
 					data.setTime(i.next());
 					data.setPercentHumidity(Float.parseFloat(i.next()));
 					data.setTemperature(Float.parseFloat(i.next()));
@@ -80,26 +78,34 @@ public class InitialData {
 		}
 		
 		// reads initial BookAuthor data from CSV file and returns a List of BookAuthors
-		/*public static List<BookAuthor> getBookAuthors() throws IOException {
-			List<BookAuthor> bookAuthorList = new ArrayList<BookAuthor>();
-			ReadCSV readBookAuthors = new ReadCSV("book_authors.csv");
+		public static List<Location> getLocation() throws IOException {
+			List<Location> locationList = new ArrayList<Location>();
+			ReadCSV readLocation = new ReadCSV("location.csv");
 			try {
+				Integer locationID = 1;
 				while (true) {
-					List<String> tuple = readBookAuthors.next();
+					List<String> tuple = readLocation.next();
 					if (tuple == null) {
 						break;
 					}
 					Iterator<String> i = tuple.iterator();
-					BookAuthor bookAuthor = new BookAuthor();
-					bookAuthor.setBookId(Integer.parseInt(i.next()));				
-					bookAuthor.setAuthorId(Integer.parseInt(i.next()));
-					bookAuthorList.add(bookAuthor);
+					Location location = new Location();
+					
+					// auto-generate Data ID, instead
+					Integer.parseInt(i.next());
+					location.setLocationID(locationID++);
+					
+					location.setLatitude(Double.parseDouble(i.next()));
+					location.setLongitude(Double.parseDouble(i.next()));
+					location.setVerticalDirection(i.next());
+					location.setHorizontalDirection(i.next());
+					location.setModuleID(Integer.parseInt(i.next()));
+					locationList.add(location);
 				}
-				System.out.println("bookAuthorList loaded from CSV file");			
-				return bookAuthorList;
+				System.out.println("locationList loaded from CSV file");			
+				return locationList;
 			} finally {
-				readBookAuthors.close();
+				readLocation.close();
 			}
 		}
-		*/
 }

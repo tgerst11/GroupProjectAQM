@@ -14,7 +14,7 @@ public class testModule {
 	private String name,status;
 	private Location position;
 	private double longitude, latitude;
-	private char horizontalDirection, verticalDirection;
+	private String horizontalDirection, verticalDirection;
 	
 	@Before
 	public void setUp() {
@@ -25,10 +25,10 @@ public class testModule {
 		
 		longitude = 66.666;
 		latitude = 444.4444;
-		horizontalDirection = 'E';
-		verticalDirection = 'N';
+		horizontalDirection = "E";
+		verticalDirection = "N";
 
-		position = new Location(longitude, latitude, horizontalDirection, verticalDirection);
+		position = new Location();
 		banana = new Module(id, name, status, position);
 	}
 
