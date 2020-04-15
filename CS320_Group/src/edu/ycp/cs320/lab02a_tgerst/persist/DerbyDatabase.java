@@ -78,7 +78,7 @@ public class DerbyDatabase implements IDatabase {
 	// TODO: Change it here and in SQLDemo.java under CS320_LibraryExample_Lab06->edu.ycp.cs320.sqldemo
 	// TODO: DO NOT PUT THE DB IN THE SAME FOLDER AS YOUR PROJECT - that will cause conflicts later w/Git
 	private Connection connect() throws SQLException {
-		Connection conn = DriverManager.getConnection("jdbc:derby:C:/CS320-2020-LibraryExample-DB/library.db;create=true");		
+		Connection conn = DriverManager.getConnection("jdbc:derby:C:/CS320-GroupProject/data.db;create=true");		
 		
 		// Set autocommit() to false to allow the execution of
 		// multiple queries/statements as part of the same transaction.
@@ -99,7 +99,7 @@ public class DerbyDatabase implements IDatabase {
 					stmt1 = conn.prepareStatement(
 						"create table admins (" +								
 						"	username varchar(40)," +
-						"	password varchar(40)" +
+						"	password varchar(40)," +
 						"	email varchar(40)" +
 						")"
 					);	
@@ -164,6 +164,6 @@ public class DerbyDatabase implements IDatabase {
 		System.out.println("Loading initial data...");
 		db.loadInitialData();
 		
-		System.out.println("Library DB successfully initialized!");
+		System.out.println("Data DB successfully initialized!");
 	}
 }

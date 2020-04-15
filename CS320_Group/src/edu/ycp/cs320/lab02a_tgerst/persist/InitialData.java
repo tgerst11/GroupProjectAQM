@@ -28,7 +28,7 @@ public class InitialData {
 					// it's there for reference purposes, just make sure that it is correct
 					// when setting up the BookAuthors CSV file				
 					// auto-generate author ID, instead
-					admin.setUsername(i.next());			
+					admin.setUsername(i.next());	
 					admin.setPassword(i.next());
 					admin.setEmail(i.next());
 					adminList.add(admin);
