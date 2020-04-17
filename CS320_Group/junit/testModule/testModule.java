@@ -13,8 +13,6 @@ public class testModule {
 	private int id, loc;
 	private String name,status;
 	private Location position;
-	private double longitude, latitude;
-	private String horizontalDirection, verticalDirection;
 	
 	@Before
 	public void setUp() {
@@ -23,7 +21,6 @@ public class testModule {
 		loc = 2;
 		name = "emusk";
 		status = "Corona time";
-
 		position = new Location();
 		banana = new Module();
 		
