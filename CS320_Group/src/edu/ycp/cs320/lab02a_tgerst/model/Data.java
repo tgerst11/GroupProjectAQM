@@ -18,10 +18,7 @@ public class Data{
 	
 	private int module_id;
 	
-	public Data()
-	{
-
-	}
+	public Data(){}
 	
 	//SET
 	public void setModuleID(int module_id) {

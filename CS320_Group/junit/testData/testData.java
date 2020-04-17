@@ -35,7 +35,7 @@ public class testData {
 		
 	}
 
-
+	
 	@Test
 	public void testPercentHumidity() {
 		assertEquals(banana.getPercentHumidity(), percentHumidity,0);
