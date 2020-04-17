@@ -41,9 +41,21 @@
 					<td><input type="text" name="module_latitude" size="20" value="${module_latitude}" /></td>
 				</tr>
 				<tr>
+					<td class="label">Horizontal Direction:</td>
+					<td><input type="text" name="horizontal_direction" size="20" value="${horizontal_direction}" /></td>
+				</tr>
+				<tr>
 					<td class="label">Longitude:</td>
 					<td><input type="text" name="module_longitude" size="20" value="${module_longitude}" /></td>
-				</tr>							
+				</tr>	
+				<tr>
+					<td class="label">Vertical Direction:</td>
+					<td><input type="text" name="vertical_direction" size="20" value="${vertical_direction}" /></td>
+				</tr>
+				<tr>
+					<td class="label">Status:</td>
+					<td><input type="text" name="status" size="20" value="${status}" /></td>
+				</tr>						
 			</table>
 			
 			<input type="Submit" name="submitaddmodule" value="Add Module to Database">
