@@ -10,7 +10,7 @@ import edu.ycp.cs320.lab02a_tgerst.model.Module;
 
 public class testModule {
 	private Module banana;
-	private int id;
+	private int id, loc;
 	private String name,status;
 	private Location position;
 	private double longitude, latitude;
@@ -20,21 +20,29 @@ public class testModule {
 	public void setUp() {
 		
 		id = 7;
+		loc = 2;
 		name = "emusk";
 		status = "Corona time";
-		
-		longitude = 66.666;
-		latitude = 444.4444;
-		horizontalDirection = "E";
-		verticalDirection = "N";
 
 		position = new Location();
 		banana = new Module();
+		
+		banana.setLocationId(loc);
+		banana.setModuleId( id);
+		banana.setName(name);
+		banana.setPosition(position);
+		banana.setStatus(status);
 	}
 
 	@Test
 	public void testModuleId() {
 		assertEquals(banana.getModuleId(), id);
+
+	}
+	
+	@Test
+	public void testLocationId() {
+		assertEquals(banana.getLocationId(), loc);
 
 	}
 	
@@ -55,34 +63,4 @@ public class testModule {
 		assertEquals(banana.getLocation(), position);
 		
 	}
-	
-	@Test
-	public void testLatitude() {
-		assertTrue(banana.getLocation().getLatitude() == latitude);
-
-		
-	}
-	
-	@Test
-	public void testLongitude() {
-		assertTrue(banana.getLocation().getLongitude() == longitude);
-
-		
-	}
-	
-	@Test
-	public void testHorizontalDirection() {
-		assertEquals(banana.getLocation().getHorizontalDirection(), horizontalDirection);
-
-		
-	}
-	
-	
-	@Test
-	public void tetVerticalDirection() {
-		assertEquals(banana.getLocation().getVerticalDirection(), verticalDirection);
-
-		
-	}
-	
 }
