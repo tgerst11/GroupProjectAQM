@@ -53,9 +53,26 @@
 					<td><input type="text" name="vertical_direction" size="20" value="${vertical_direction}" /></td>
 				</tr>
 				<tr>
-					<td class="label">Status:</td>
-					<td><input type="text" name="status" size="20" value="${status}" /></td>
-				</tr>						
+					<label for="horizontal_direction">Horizontal Direction:  </label>
+						<select id="horizontal_direction">
+					  		<option value="E">E</option>
+					  		<option value="W">W</option>
+					</select>
+				</tr>
+				<tr>
+					<label for="vertical_direction">Vertical Direction:  </label>
+						<select id="vertial_direction">
+					  		<option value="N">N</option>
+					  		<option value="S">S</option>
+					</select>
+				</tr>
+				<tr>
+					<label for="status">Status:  </label>
+						<select id="status">
+					  		<option value="on">on</option>
+					  		<option value="off">off</option>
+					</select>
+				</tr>					
 			</table>
 			
 			<input type="Submit" name="submitaddmodule" value="Add Module to Database">
