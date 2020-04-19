@@ -238,8 +238,8 @@ public class DerbyDatabase implements IDatabase {
 					insertModule = conn.prepareStatement("insert into modules (module_id, location_id, name, status) values (?, ?, ?, ?)");
 					for (Module module : moduleList) {
 						insertModule.setDouble(1, module.getModuleId());
-						insertModule.setDouble(2, module.getLocationId());
-						insertModule.setString(3, module.getName());
+						insertModule.setObject(2, module.getCoordinates());
+						insertModule.setObject(3, module.getCity());
 						insertModule.setString(4, module.getStatus());
 						insertModule.addBatch();
 					}

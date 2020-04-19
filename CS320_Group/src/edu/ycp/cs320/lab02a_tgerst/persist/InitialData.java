@@ -120,8 +120,8 @@ public class InitialData {
 					Module module = new Module();
 
 					module.setModuleId(Integer.parseInt(i.next()));	
-					module.setLocationId(Integer.parseInt(i.next()));	
-					module.setName(i.next());
+					module.setCoordinates(Integer.parseInt(i.next()));	
+					module.setCity(i.next());
 					module.setStatus(i.next());
 					moduleList.add(module);
 				}

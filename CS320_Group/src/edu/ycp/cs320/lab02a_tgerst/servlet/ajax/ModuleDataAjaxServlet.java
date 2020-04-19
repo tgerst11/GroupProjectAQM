@@ -59,4 +59,6 @@ public class ModuleDataAjaxServlet extends HttpServlet {
 		resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		resp.getWriter().println(message);
 	}
+
+	
 }
