@@ -7,26 +7,20 @@ import java.net.URLEncoder;
 import java.util.Scanner;
 
 import org.json.JSONObject;
-
 import edu.ycp.cs320.lab02a_tgerst.model.Module;
 
 public class apiParseData {
-	public static void main(String[] args) {
-		try {
-			apiParseData.call();
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-	}//end main
+	private Module mod;
 	
-	public static Module call() throws Exception{
+	public void setModel(Module model) {
+		this.mod = model;
+	}
+	
+	public void call() throws Exception{
 		//AirVisual API key: 7e0e33b0-3788-49d8-bdd4-692e0397a293
-		System.out.println("Enter a City ");
-		Scanner keyboard = new Scanner(System.in);
-		String input = keyboard.nextLine();
-		input = URLEncoder.encode(input, "UTF-8").replaceAll("\\+", "%20");
-		String url = "http://api.airvisual.com/v2/city?city=" + input + "&state=California&country=USA&key=7e0e33b0-3788-49d8-bdd4-692e0397a293";
+
+		//input = URLEncoder.encode(input, "UTF-8").replaceAll("\\+", "%20");
+		String url = "http://api.airvisual.com/v2/city?city=Los%20Angeles&state=California&country=USA&key=7e0e33b0-3788-49d8-bdd4-692e0397a293";
 		
 		URL api = new URL(url);
 		
@@ -37,10 +31,10 @@ public class apiParseData {
 		//investigate this line further... is it needed?
 		//conn.setRequestProperty("User-Agent", "Mozilla/5.0");
 		
-		int responseNumber = conn.getResponseCode();
+		//int responseNumber = conn.getResponseCode();
 		
 		//for testing purposes
-		System.out.println("Sending GET request to "+ url + "..... Response Code: "+ responseNumber);
+		//System.out.println("Sending GET request to "+ url + "..... Response Code: "+ responseNumber);
 		
 		//Read the file returned
 		BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -52,10 +46,9 @@ public class apiParseData {
 		}
 		
 		reader.close();
-		keyboard.close();
-		
-		//print out original format
-		System.out.println(response.toString());
+				
+		//print out original format... testing
+		//System.out.println(response.toString());
 		
 		
 		//parse JSON Object
@@ -79,7 +72,6 @@ public class apiParseData {
 		Object aqi = pollution.get("aqius");
 		Object mainPol = pollution.get("mainus");
 		
-		Module mod = new Module();
 		mod.setCity(city);
 		mod.setState(state);
 		mod.setCountry(country);
@@ -92,7 +84,6 @@ public class apiParseData {
 		mod.setWindSpeed(windSpeed);
 		mod.setWindDir(windDirection);
 		mod.setMainPol(mainPol);
-		
 		/*
 		System.out.println("city- "+ city);
 		System.out.println("state- "+ state);
@@ -107,8 +98,6 @@ public class apiParseData {
 		System.out.println("wind direction-" + windDirection);
 		System.out.println("main pollutant-"+ mainPol);
 		*/
-		
-		return mod;
 		
 		
 	}

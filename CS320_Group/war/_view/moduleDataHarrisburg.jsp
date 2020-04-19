@@ -162,16 +162,16 @@
 					Location
 				</th>
 				<tr>
-					<td class="label">Latitude</td>
-					<td>${location0}</td>
+					<td class="label">City</td>
+					<td>${module.city}</td>
 				</tr>
 				<tr>
-					<td class="label">Longitude</td>
-					<td>${location1}</td>
+					<td class="label">State</td>
+					<td>${module.state}</td>
 				</tr>
 				<tr>
-					<td class="label">Altitude</td>
-					<td>${location2}</td>
+					<td class="label">Country</td>
+					<td>${module.country}</td>
 				</tr>
 			</table>
 		</div>
@@ -182,36 +182,36 @@
 					Data Reading
 				</th>
 				<tr>
-					<td class="label">Carbon Dioxide</td>
-					<td>${reading0}</td>
+					<td class="label">AQI</td>
+					<td>${module.AQI}</td>
 				</tr>
 				<tr>
-					<td class="label">Nitrogen</td>
-					<td>${reading1}</td>
+					<td class="label">Main Pollutant</td>
+					<td>${module.mainPol}</td>
 				</tr>
 				<tr>
-					<td class="label">Oxygen</td>
-					<td>${reading2}</td>
+					<td class="label">Humidity</td>
+					<td>${module.humidity}</td>
 				</tr>
 				<tr>
-					<td class="label">Argon</td>
-					<td>${reading3}</td>
+					<td class="label">Wind Speed</td>
+					<td>${module.windSpeed}</td>
 				</tr>
 				<tr>
-					<td class="label">Methane</td>
-					<td>${reading4}</td>
+					<td class="label">Wind Direction</td>
+					<td>${module.windDir}</td>
 				</tr>
 				<tr>
-					<td class="label">Neon</td>
-					<td>${reading5}</td>
+					<td class="label">Coordinates</td>
+					<td>${module.coordinates}</td>
 				</tr>
 				<tr>
-					<td class="label">Helium</td>
-					<td>${reading6}</td>
+					<td class="label">Pressure</td>
+					<td>${module.pressure}</td>
 				</tr>
 				<tr>
-					<td class="label">Krypton</td>
-					<td>${reading7}</td>
+					<td class="label">Temperature</td>
+					<td>${module.temp}</td>
 				</tr>
 			</table>
 		</div>

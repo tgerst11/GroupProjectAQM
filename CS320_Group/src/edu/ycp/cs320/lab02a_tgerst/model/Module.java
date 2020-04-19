@@ -6,7 +6,7 @@ public class Module {
 	private int module_id;
 	//need to implement a status
 	private String status;
-	private Object coordinates, timestamp, windSpeed, windDir, humidity,pressure, aqi, temp, city, state, country, mainPol;
+	private Object coordinates, timestamp, windSpeed, windDir, humidity,pressure, AQI, temp, city, state, country, mainPol;
 	
 	//constructor
 	public Module() {
@@ -72,10 +72,10 @@ public class Module {
 	
 	//AQI
 	public void setAQI(Object aqi) {
-		this.aqi = aqi;
+		this.AQI = aqi;
 	}
 	public Object getAQI() {
-		return aqi;
+		return AQI;
 	}
 	
 	//Atmospheric Pressure
