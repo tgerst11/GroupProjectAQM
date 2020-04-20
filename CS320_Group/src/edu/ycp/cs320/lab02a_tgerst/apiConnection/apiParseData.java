@@ -71,7 +71,7 @@ public class apiParseData {
 		Object windDirection = weather.get("wd");
 		Object aqi = pollution.get("aqius");
 		Object mainPol = pollution.get("mainus");
-		
+	 
 		mod.setCity(city);
 		mod.setState(state);
 		mod.setCountry(country);
