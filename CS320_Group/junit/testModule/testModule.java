@@ -107,6 +107,11 @@ public class testModule {
 	}
 	
 	@Test
+	public void testCountry() {
+		assertEquals(banana.getCountry(), country);
+	}
+	
+	@Test
 	public void testStatus() {
 		assertEquals(banana.getStatus(), status);
 	}
