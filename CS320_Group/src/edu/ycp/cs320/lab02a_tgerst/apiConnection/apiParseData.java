@@ -6,6 +6,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Scanner;
 
+
+
 import org.json.JSONObject;
 import edu.ycp.cs320.lab02a_tgerst.model.Module;
 
@@ -72,6 +74,7 @@ public class apiParseData {
 		Object aqi = pollution.get("aqius");
 		Object mainPol = pollution.get("mainus");
 		
+		
 		mod.setCity(city);
 		mod.setState(state);
 		mod.setCountry(country);
@@ -84,6 +87,12 @@ public class apiParseData {
 		mod.setWindSpeed(windSpeed);
 		mod.setWindDir(windDirection);
 		mod.setMainPol(mainPol);
+		
+		
+		
+		
+		
+		
 		/*
 		System.out.println("city- "+ city);
 		System.out.println("state- "+ state);
