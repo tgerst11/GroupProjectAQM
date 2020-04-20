@@ -14,7 +14,6 @@ public class testModule {
 	private int id, loc;
 	private String name,status;
 	//private Location position;
-	private apiParseData api;
 	private Object coordinates, timestamp, windSpeed, windDir, humidity,pressure, AQI, temp, city, state, country, mainPol;
 	
 	@Before
@@ -43,7 +42,6 @@ public class testModule {
 		mainPol = "p2";
 		
 		banana = new Module();
-		api = new apiParseData();
 		
 		//banana.setLocationId(loc);
 		//banana.setName(name);
