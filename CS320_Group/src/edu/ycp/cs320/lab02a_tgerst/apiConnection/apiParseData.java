@@ -6,6 +6,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Scanner;
 
+
+
 import org.json.JSONObject;
 import edu.ycp.cs320.lab02a_tgerst.model.Module;
 
@@ -48,7 +50,7 @@ public class apiParseData {
 		reader.close();
 				
 		//print out original format... testing
-		//System.out.println(response.toString());
+		System.out.println(response.toString());
 		
 		
 		//parse JSON Object
