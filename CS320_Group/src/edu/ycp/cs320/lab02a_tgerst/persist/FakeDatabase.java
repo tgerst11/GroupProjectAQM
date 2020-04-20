@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.ycp.cs320.lab02a_tgerst.model.Admin;
+
 public class FakeDatabase implements IDatabase {
 	
 	// Fake database constructor - initializes the DB
@@ -14,6 +16,12 @@ public class FakeDatabase implements IDatabase {
 		
 //		System.out.println(authorList.size() + " authors");
 //		System.out.println(bookList.size() + " books");
+	}
+
+	@Override
+	public List<Admin> validateCred(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	/*
