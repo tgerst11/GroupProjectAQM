@@ -50,7 +50,7 @@ public class apiParseData {
 		reader.close();
 				
 		//print out original format... testing
-		System.out.println(response.toString());
+		//System.out.println(response.toString());
 		
 		
 		//parse JSON Object
