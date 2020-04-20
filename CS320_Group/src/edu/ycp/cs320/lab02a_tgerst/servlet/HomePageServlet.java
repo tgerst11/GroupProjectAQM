@@ -58,11 +58,6 @@ public class HomePageServlet extends HttpServlet {
 				
 				controller = new adminController(username, password);
 				
-				if(controller.checkUsername() == true && controller.checkPassword())
-				{
-					req.getRequestDispatcher("/_view/adminPage.jsp").forward(req, resp);
-					System.out.println("ADMIN PAGE");
-				}
 			}		
 		} catch (NumberFormatException e) {
 			errorMessage = "Invalid Entry";
