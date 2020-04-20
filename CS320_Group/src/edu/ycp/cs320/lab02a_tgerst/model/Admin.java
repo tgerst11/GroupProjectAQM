@@ -9,7 +9,7 @@ public class Admin {
 
 	}
 
-
+	//yolo
 	public void setUsername(String username){
 		this.username = username;
 	}
