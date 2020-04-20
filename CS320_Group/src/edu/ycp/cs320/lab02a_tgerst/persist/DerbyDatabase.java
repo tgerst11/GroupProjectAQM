@@ -258,6 +258,14 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
+	//SQL Methods
+	
+	@Override
+	public List<Admin> validateCred(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	// The main method creates the database tables and loads the initial data.
 	public static void main(String[] args) throws IOException {
 		System.out.println("Creating tables...");
@@ -269,4 +277,6 @@ public class DerbyDatabase implements IDatabase {
 		
 		System.out.println("Data DB successfully initialized!");
 	}
+
+	
 }
