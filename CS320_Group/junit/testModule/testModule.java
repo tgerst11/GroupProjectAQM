@@ -16,7 +16,7 @@ public class testModule {
 	
 	@Before
 	public void setUp() {
-		
+		//SUP
 		id = 7;
 		loc = 2;
 		name = "emusk";
