@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import edu.ycp.cs320.lab02a_tgerst.model.Admin;
 import edu.ycp.cs320.lab02a_tgerst.model.Data;
 import edu.ycp.cs320.lab02a_tgerst.model.Location;
@@ -263,7 +262,56 @@ public class DerbyDatabase implements IDatabase {
 	@Override
 	public List<Admin> validateCred(String username, String password) {
 		// TODO Auto-generated method stub
-		return null;
+		return executeTransaction(new Transaction<List<Admin>>() {
+			@Override
+			public List<Admin> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					stmt = conn.prepareStatement(
+							"select admins.* " +
+							"  from  admins " +
+							"  where admins.username = ? " +
+							"    and admins.password = ?"
+					);
+					stmt.setString(1, username);
+					stmt.setString(2, password);
+					
+					List<Admin> result = new ArrayList<Admin>();
+					
+					resultSet = stmt.executeQuery();
+					
+					// for testing that a result was returned
+					Boolean found = false;
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						Admin admin = new Admin();
+						loadAdmin(admin, resultSet, 1);
+						
+						result.add(admin);
+					}
+					
+					// check if the title was found
+					if (!found) {
+
+					}
+					
+					return result;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
+	}
+	
+	private void loadAdmin(Admin admin, ResultSet resultSet, int index) throws SQLException {
+		admin.setUsername(resultSet.getString(index++));
+		admin.setPassword(resultSet.getString(index++));
+		admin.setEmail(resultSet.getString(index++));
 	}
 	
 	// The main method creates the database tables and loads the initial data.
