@@ -26,6 +26,8 @@ public class testAdmin{
 		
 		user.setUsername(username);
 		
+		
+		
 	}
 	
 	@Test
