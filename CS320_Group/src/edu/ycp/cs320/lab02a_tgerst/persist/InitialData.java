@@ -57,7 +57,7 @@ public class InitialData {
 					
 					// auto-generate Data ID, instead
 					Integer.parseInt(i.next());
-					data.setDataId(dataID++);
+					//data.setDataId(dataID++);
 					
 					
 					// AQI | mainPollutant | humidity | windSpeed |windDirection | pressure | temperature | time
@@ -69,7 +69,6 @@ public class InitialData {
 					data.setPressure(i.next());
 					data.setTemperature(i.next());
 					data.setTime(i.next());
-					//data.setModuleID(Integer.parseInt(i.next()));
 					dataList.add(data);
 				}
 				System.out.println("dataList loaded from CSV file");			

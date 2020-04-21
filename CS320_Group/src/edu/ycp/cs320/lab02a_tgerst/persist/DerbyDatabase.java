@@ -125,7 +125,7 @@ public class DerbyDatabase implements IDatabase {
 							"	windDirection varchar(40)," +
 							"	pressure varchar(40)," +
 							"	temperature varchar(40)," +
-							"	timedate varchar(40)" +
+							"	timedate timestamp" +
 							")"
 					);	
 					
