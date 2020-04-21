@@ -29,6 +29,7 @@ public class ReadCSV implements Closeable {
 		List<String> tuple = new ArrayList<String>();
 		StringTokenizer tok = new StringTokenizer(line, "|");
 		while (tok.hasMoreTokens()) {
+			System.out.println(tuple);
 			tuple.add(tok.nextToken().trim());
 		}
 		return tuple;

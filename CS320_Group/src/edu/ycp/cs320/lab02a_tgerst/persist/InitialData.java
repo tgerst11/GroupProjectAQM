@@ -46,7 +46,7 @@ public class InitialData {
 			ReadCSV readData = new ReadCSV("data.csv");
 			try {
 				// auto-generated primary key for table books
-				//Integer dataID = 1;
+				Integer dataID = 1;
 				while (true) {
 					List<String> tuple = readData.next();
 					if (tuple == null) {
@@ -55,10 +55,10 @@ public class InitialData {
 					Iterator<String> i = tuple.iterator();
 					Module data = new Module();
 					
-					/* auto-generate Data ID, instead
+					// auto-generate Data ID, instead
 					Integer.parseInt(i.next());
-					data.getDataId(dataID++);
-					*/
+					data.setDataId(dataID++);
+					
 					
 					// AQI | mainPollutant | humidity | windSpeed |windDirection | pressure | temperature | time
 					data.setAQI(i.next());
