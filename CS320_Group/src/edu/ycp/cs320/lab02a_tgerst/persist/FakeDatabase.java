@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.ycp.cs320.lab02a_tgerst.model.Admin;
+import edu.ycp.cs320.lab02a_tgerst.model.Module;
 
 public class FakeDatabase implements IDatabase {
 	
@@ -20,6 +21,12 @@ public class FakeDatabase implements IDatabase {
 
 	@Override
 	public List<Admin> validateCred(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Module> findAllModules() {
 		// TODO Auto-generated method stub
 		return null;
 	}

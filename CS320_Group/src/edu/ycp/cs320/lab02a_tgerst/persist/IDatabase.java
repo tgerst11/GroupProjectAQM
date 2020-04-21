@@ -3,6 +3,7 @@ package edu.ycp.cs320.lab02a_tgerst.persist;
 import java.util.List;
 
 import edu.ycp.cs320.lab02a_tgerst.model.Admin;
+import edu.ycp.cs320.lab02a_tgerst.model.Module;
 
 
 public interface IDatabase {
