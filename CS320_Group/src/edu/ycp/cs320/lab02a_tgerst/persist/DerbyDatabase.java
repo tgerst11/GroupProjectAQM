@@ -180,7 +180,7 @@ public class DerbyDatabase implements IDatabase {
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
 				List<Admin> adminList;
-				List<Data> dataList;
+				List<Module> dataList;
 				List<Location> locationList;
 				List<Module> moduleList;
 				

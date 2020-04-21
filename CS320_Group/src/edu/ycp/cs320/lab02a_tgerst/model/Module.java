@@ -14,9 +14,10 @@ public class Module {
 	}
 	
 	//Module id. Is this needed?
-	public void setDataId(int data_id){
+	public void setDataId(Integer data_id){
 		this.data_id = data_id;
 	}
+	
 	public int getDataId() {
 		return data_id;
 	}

@@ -41,30 +41,35 @@ public class InitialData {
 		
 		
 		// reads initial Data from CSV file and returns a List of Data
-		public static List<Data> getData() throws IOException {
-			List<Data> dataList = new ArrayList<Data>();
+		public static List<Module> getData() throws IOException {
+			List<Module> dataList = new ArrayList<Module>();
 			ReadCSV readData = new ReadCSV("data.csv");
 			try {
 				// auto-generated primary key for table books
-				Integer dataID = 1;
+				//Integer dataID = 1;
 				while (true) {
 					List<String> tuple = readData.next();
 					if (tuple == null) {
 						break;
 					}
 					Iterator<String> i = tuple.iterator();
-					Data data = new Data();
+					Module data = new Module();
 					
-					// auto-generate Data ID, instead
+					/* auto-generate Data ID, instead
 					Integer.parseInt(i.next());
-					data.setDataID(dataID++);
+					data.getDataId(dataID++);
+					*/
 					
+					// AQI | mainPollutant | humidity | windSpeed |windDirection | pressure | temperature | time
+					data.setAQI(i.next());
+					data.setMainPol(i.next());
+					data.setHumidity(i.next());
+					data.setWindSpeed(i.next());
+					data.setWindDir(i.next());
+					data.setPressure(i.next());
+					data.setTemperature(i.next());
 					data.setTime(i.next());
-					data.setPercentHumidity(Float.parseFloat(i.next()));
-					data.setTemperature(Float.parseFloat(i.next()));
-					data.setAirPressure(Float.parseFloat(i.next()));
-					data.setVOC(Float.parseFloat(i.next()));
-					data.setModuleID(Integer.parseInt(i.next()));
+					//data.setModuleID(Integer.parseInt(i.next()));
 					dataList.add(data);
 				}
 				System.out.println("dataList loaded from CSV file");			
@@ -89,14 +94,14 @@ public class InitialData {
 					Location location = new Location();
 					
 					// auto-generate Data ID, instead
-					Integer.parseInt(i.next());
-					location.setLocationID(locationID++);
+					//Integer.parseInt(i.next());
+					//location.setLocationID(locationID++);
 					
-					location.setLatitude(Double.parseDouble(i.next()));
-					location.setLongitude(Double.parseDouble(i.next()));
-					location.setVerticalDirection(i.next());
-					location.setHorizontalDirection(i.next());
-					location.setModuleID(Integer.parseInt(i.next()));
+					//coordinates | city | state | country 
+					location.setCoordinates(i.next());
+					location.setCity(i.next());
+					location.setState(i.next());
+					location.setCountry(i.next());
 					locationList.add(location);
 				}
 				System.out.println("locationList loaded from CSV file");			
@@ -120,8 +125,8 @@ public class InitialData {
 					Module module = new Module();
 
 					module.setModuleId(Integer.parseInt(i.next()));	
-					module.setCoordinates(Integer.parseInt(i.next()));	
-					module.setCity(i.next());
+					module.setLocationId(Integer.parseInt(i.next()));	
+					module.setName(i.next());
 					module.setStatus(i.next());
 					moduleList.add(module);
 				}
