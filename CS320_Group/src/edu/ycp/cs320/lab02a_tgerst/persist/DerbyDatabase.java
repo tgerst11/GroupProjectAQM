@@ -129,6 +129,7 @@ public class DerbyDatabase implements IDatabase {
 							")"
 					);	
 					
+					
 					stmt2.executeUpdate();
 						
 					System.out.println("Data table created");
