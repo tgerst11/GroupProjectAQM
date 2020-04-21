@@ -47,14 +47,12 @@ public class testModule {
 		//banana.setName(name);
 		//banana.setPosition(position);
 		
-		banana.setModuleId( id);
 		banana.setStatus(status);
 		banana.setAQI(AQI);
 		banana.setCity(city);
 		banana.setCoordinates(coordinates);
 		banana.setHumidity(humidity);
 		banana.setMainPol(mainPol);
-		banana.setModuleId(id);
 		banana.setPressure(pressure);
 		banana.setState(state);
 		banana.setStatus(status);
@@ -87,11 +85,6 @@ public class testModule {
 	@Test
 	public void testMainPol() {
 		assertEquals(banana.getMainPol(), mainPol);
-	}
-	
-	@Test
-	public void testModuleId() {
-		assertEquals(banana.getModuleId(), id);
 	}
 	
 	@Test

@@ -118,13 +118,13 @@ public class DerbyDatabase implements IDatabase {
 							"create table data (" +								
 							"	data_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +
-							"	aqi Object," +
-							"	mainPollutant Object," +
-							"	humidity Object," +
-							"	windSpeed Object," +
-							"	windDirection Object," +
-							"	pressure Object," +
-							"	temperature Object," +
+							"	aqi varchar(40)," +
+							"	mainPollutant varchar(40)," +
+							"	humidity varchar(40)," +
+							"	windSpeed varchar(40)," +
+							"	windDirection varchar(40)," +
+							"	pressure varchar(40)," +
+							"	temperature varchar(40)," +
 							"	time varchar(40)" +
 							")"
 					);	
@@ -138,10 +138,10 @@ public class DerbyDatabase implements IDatabase {
 							"create table locations (" +								
 							"	location_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +
-							"	coordinates Object," +
-							"	city Object," +
-							"	state Object," +
-							"	country Object" +
+							"	coordinates varchar(40)," +
+							"	city varchar(40)," +
+							"	state varchar(40)," +
+							"	country varchar(40)" +
 							")"
 					);	
 					

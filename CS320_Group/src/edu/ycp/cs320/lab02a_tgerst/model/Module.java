@@ -153,5 +153,10 @@ public class Module {
 	public void testData() {
 		// TODO: Implement
 	}
+
+	public void setModuleId(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
