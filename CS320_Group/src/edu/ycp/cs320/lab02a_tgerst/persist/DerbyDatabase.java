@@ -283,5 +283,52 @@ public class DerbyDatabase implements IDatabase {
 		System.out.println("Data DB successfully initialized!");
 	}
 
+	public List<Module> findAllModules() {
+		return executeTransaction(new Transaction<List<Module>>() {
+			@Override
+			public List<Module> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					stmt = conn.prepareStatement(
+							"select * from module " +
+							" order by city asc"
+					);
+					
+					List<Module> result = new ArrayList<Module>();
+					
+					resultSet = stmt.executeQuery();
+					
+					// for testing that a result was returned
+					Boolean found = false;
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						Module module = new Module();
+						loadModule(module, resultSet, 1);
+						
+						result.add(module);
+					}
+					
+					// check if any authors were found
+					if (!found) {
+						System.out.println("No modules were found in the database");
+					}
+					
+					return result;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
+	}
+
+	private void loadModule(Module module, ResultSet resultSet, int index) throws SQLException {
+		//TODO STUFF HERE
+	}
+	
 	
 }
