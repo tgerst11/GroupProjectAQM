@@ -152,7 +152,7 @@ public class DerbyDatabase implements IDatabase {
 					
 					stmt4 = conn.prepareStatement(
 							"create table modules (" +								
-							"	module_id integer," +
+							"	data_id integer," +
 							"	location_id integer," +
 							"	name varchar(40)," +
 							"	status varchar(40)" +
