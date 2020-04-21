@@ -325,6 +325,52 @@ public class DerbyDatabase implements IDatabase {
 			}
 		});
 	}
+	
+	@Override
+	public List<Module> findDataByModuleID(int module_id) {
+		return executeTransaction(new Transaction<List<Module>>() {
+			@Override
+			public List<Module> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					stmt = conn.prepareStatement(
+							"select * from data " +
+							" where data.data_id = ?"
+					);
+					
+					stmt.setInt(1, module_id);
+					
+					List<Module> result = new ArrayList<Module>();
+					
+					resultSet = stmt.executeQuery();
+					
+					// for testing that a result was returned
+					Boolean found = false;
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						Module module = new Module();
+						loadData(module, resultSet, 1);
+						
+						result.add(module);
+					}
+					
+					// check if any authors were found
+					if (!found) {
+						System.out.println("No modules were found in the database");
+					}
+					
+					return result;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
+	}
 
 	private void loadModule(Module module, ResultSet resultSet, int index) throws SQLException {
 		module.setDataId(resultSet.getInt(index++));
@@ -332,6 +378,17 @@ public class DerbyDatabase implements IDatabase {
 		module.setName(resultSet.getString(index++));
 		module.setStatus(resultSet.getString(index++));
 	}
-	
+
+	private void loadData(Module module, ResultSet resultSet, int index) throws SQLException {	
+		module.setAQI(resultSet.getString(index++));
+		module.setMainPol(resultSet.getString(index++));
+		module.setHumidity(resultSet.getString(index++));
+		module.setWindSpeed(resultSet.getString(index++));
+		module.setWindDir(resultSet.getString(index++));
+		module.setPressure(resultSet.getString(index++));
+		module.setTemperature(resultSet.getString(index++));
+		module.setTime(resultSet.getString(index++));
+		
+	}
 	
 }

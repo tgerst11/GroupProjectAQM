@@ -11,6 +11,8 @@ public interface IDatabase {
 	List<Admin> validateCred(String username, String password);		
 	
 	List<Module> findAllModules();
+
+	List<Module> findDataByModuleID(int module_id);
 	
 	
 }

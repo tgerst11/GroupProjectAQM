@@ -19,9 +19,6 @@ public class AllModulesQuery{
 		
 		InitDatabase.init(keyboard);
 		
-		DatabaseProvider.setInstance(new DerbyDatabase());
-		
-		
 		// get the DB instance and execute transaction
 		IDatabase db = DatabaseProvider.getInstance();
 		List<Module> moduleList = db.findAllModules();

@@ -30,6 +30,12 @@ public class FakeDatabase implements IDatabase {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List<Module> findDataByModuleID(int module_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	/*
 	public void readInitialData() {
