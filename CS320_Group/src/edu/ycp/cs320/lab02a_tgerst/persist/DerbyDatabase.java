@@ -125,7 +125,7 @@ public class DerbyDatabase implements IDatabase {
 							"	windDirection varchar(40)," +
 							"	pressure varchar(40)," +
 							"	temperature varchar(40)," +
-							"	timedate timestamp" +
+							"	timedate varchar(40)" +
 							")"
 					);	
 					
@@ -213,7 +213,7 @@ public class DerbyDatabase implements IDatabase {
 					System.out.println("Admins table populated");
 									
 					insertData = conn.prepareStatement("insert into data (aqi, mainPollutant, humidity, windSpeed, windDirection, pressure, temperature, timedate) values (?, ?, ?, ?, ?, ?, ?, ?)");
-					for (Module module : moduleList) {
+					for (Module module : dataList) {
 						insertData.setString(1, module.getAQI());
 						insertData.setString(2, module.getMainPol());
 						insertData.setString(3, module.getHumidity());
@@ -221,7 +221,7 @@ public class DerbyDatabase implements IDatabase {
 						insertData.setString(5, module.getWindDir());
 						insertData.setString(6, module.getPressure());
 						insertData.setString(7, module.getTemp());
-						insertData.setTimestamp(8, module.getTime());
+						insertData.setString(8, module.getTime());
 						insertData.addBatch();
 					}
 					insertData.executeBatch();

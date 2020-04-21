@@ -57,7 +57,7 @@ public class testModule {
 		banana.setState(state);
 		banana.setStatus(status);
 		banana.setTemperature(temp);
-		banana.setTime(timestamp);
+		banana.setTime((String) timestamp);
 		banana.setWindDir(windDir);
 		banana.setWindSpeed(windSpeed);
 	}

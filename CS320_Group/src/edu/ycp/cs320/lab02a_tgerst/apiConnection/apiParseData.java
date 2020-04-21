@@ -76,7 +76,7 @@ public class apiParseData {
 		mod.setState(state);
 		mod.setCountry(country);
 		mod.setCoordinates(coordinates);
-		mod.setTime(timestamp);
+		mod.setTime((String) timestamp);
 		mod.setTemperature(temp);
 		mod.setAQI(aqi);
 		mod.setPressure(pressure);

@@ -10,7 +10,7 @@ public class Module {
 	private String status, name;
 	private String coordinates, windSpeed, windDir, humidity,pressure, AQI, temp, city, state, country, mainPol;
 	//private java.sql.Timestamp time;
-	private Timestamp time;
+	private String time;
 	
 	//constructor
 	public Module() {
@@ -123,11 +123,11 @@ public class Module {
 	}
 	
 	//timestamp
-	public void setTime(Object timeStamp) {
-		this.time = (Timestamp) timeStamp;
+	public void setTime(String timeStamp) {
+		this.time = timeStamp;
 	}
 	
-	public Timestamp getTime() {
+	public String getTime() {
 		return time;
 	}
 	
