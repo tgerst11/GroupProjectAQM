@@ -124,7 +124,7 @@
 	</div>
 	
 		<div id = "login">
-			<form action="${pageContext.servletContext.contextPath}/homePage" method="get">
+			<form action="${pageContext.servletContext.contextPath}/addModule" method="get">
 				<table>
 					<tr>
 						<td class="label">Username:</td>

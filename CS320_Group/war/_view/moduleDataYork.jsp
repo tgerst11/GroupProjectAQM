@@ -124,11 +124,11 @@
 	</div>
 	
 		<div id = "login">
-			<form action="${pageContext.servletContext.contextPath}/homePage" method="get">
+			<form action="${pageContext.servletContext.contextPath}/addModule" method="get">
 				<table>
 					<tr>
 						<td class="label">Username:</td>
-						<td><input type="text" name="first" size="12" value="${login.username}" /></td>
+						<td><input type="text" name="first" size="12" value="${login.username}" /></td> 
 					</tr>
 					<tr>
 						<td class="label">Password:</td>
