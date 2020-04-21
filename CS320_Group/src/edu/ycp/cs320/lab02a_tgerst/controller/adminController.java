@@ -22,7 +22,7 @@ public class adminController {
 	public boolean checkUsername() {
 		//UPDATE
 		//pull username from the database
-		String username = "UPDATE";
+		String username = "admin";
 		if(this.username == username)
 		{
 			return true;
@@ -33,7 +33,7 @@ public class adminController {
 	public boolean checkPassword() {
 		//UPDATE
 		//pull password from the database
-		String password = "UPDATE";
+		String password = "p@ssword";
 		if(this.password == password)
 		{
 			return true;
@@ -44,7 +44,7 @@ public class adminController {
 	public boolean checkEmail() {
 		//UPDATE
 		//pull email from the database
-		String email = "UPDATE";
+		String email = "admin@ycp.edu";
 		if(this.email == email)
 		{
 			return true;

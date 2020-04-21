@@ -13,7 +13,6 @@ import edu.ycp.cs320.lab02a_tgerst.model.Admin;
 public class HomePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	adminController controller;
 
 	
 	@Override
@@ -40,10 +39,13 @@ public class HomePageServlet extends HttpServlet {
 		
 		// decode POSTed form parameters and dispatch to controller
 	
-		try {
+
 		
 			String username = getStringFromParameter(req,"username");
 			String password = getStringFromParameter(req,"password");
+			
+			System.out.println(username);
+			System.out.println(password);
 			
 			// check for errors in the form data before using is in a calculation
 			if (username == null || password == null) {
@@ -53,25 +55,14 @@ public class HomePageServlet extends HttpServlet {
 			// must create the controller each time, since it doesn't persist between POSTs
 			// the view does not alter data, only controller methods should be used for that
 			// thus, always call a controller method to operate on the data
-			else {
 				
 				
-				controller = new adminController(username, password);
-				
-				if(controller.checkUsername() == true && controller.checkPassword())
-				{
-					req.getRequestDispatcher("/_view/adminPage.jsp").forward(req, resp);
-					System.out.println("ADMIN PAGE");
-				}
+			if(username == "admin" && password == "p@ssword")
+			{
+				req.getRequestDispatcher("/_view/addModule.jsp").forward(req, resp);
+				System.out.println("ADMIN PAGE");
 			}		
-		} catch (NumberFormatException e) {
-			errorMessage = "Invalid Entry";
-		}
-		
-		
-		
-		req.setAttribute("username", req.getParameter("username"));
-		req.setAttribute("password", req.getParameter("password"));
+	
 		
 		// add result objects as attributes
 		// this adds the errorMessage text and the result to the response
@@ -80,9 +71,12 @@ public class HomePageServlet extends HttpServlet {
 		
 		// Forward to view to render the result HTML document
 		
-		req.getRequestDispatcher("/_view/homePage.jsp").forward(req, resp);
+
+		req.getRequestDispatcher("/_view/addModule.jsp").forward(req, resp);
 		System.out.println("HOME PAGE");
+
 	}
+	
 	private String getStringFromParameter(HttpServletRequest req, String name) {
 		return req.getParameter(name);
 	}
