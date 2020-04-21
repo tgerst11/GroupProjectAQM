@@ -18,4 +18,15 @@ public class AddModuleServlet extends HttpServlet {
 		
 		req.getRequestDispatcher("/_view/addModule.jsp").forward(req, resp);
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		
+		System.out.println("ModuleData Servlet: doPost");
+		
+		
+		// Forward to view to render the result HTML document
+		req.getRequestDispatcher("/_view/homePage.jsp").forward(req, resp);
+	}
 }

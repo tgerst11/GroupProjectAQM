@@ -78,7 +78,7 @@
 			<input type="Submit" name="submitaddmodule" value="Add Module to Database">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/homePage" method="post">
+		<form action="${pageContext.servletContext.contextPath}/addModule" method="post">
 			<input type="Submit" name="submithome" value="Home">
 		</form>		
 	</body>
