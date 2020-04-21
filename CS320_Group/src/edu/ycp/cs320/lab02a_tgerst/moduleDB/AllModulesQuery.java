@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import edu.ycp.cs320.lab02a_tgerst.persist.DerbyDatabase;
+import edu.ycp.cs320.lab02a_tgerst.persist.InitDatabase;
 import edu.ycp.cs320.lab02a_tgerst.model.Module;
 import edu.ycp.cs320.lab02a_tgerst.persist.InitialData;
 import edu.ycp.cs320.lab02a_tgerst.persist.DatabaseProvider;
@@ -11,8 +12,12 @@ import edu.ycp.cs320.lab02a_tgerst.persist.IDatabase;
 
 public class AllModulesQuery{
 	public static void main(String[] args) throws Exception {
+		
+		Scanner keyboard = new Scanner(System.in);
 
 		// Create the default IDatabase instance
+		
+		InitDatabase.init(keyboard);
 		
 		DatabaseProvider.setInstance(new DerbyDatabase());
 		
@@ -27,10 +32,8 @@ public class AllModulesQuery{
 		}
 		else {
 			for (Module module : moduleList) {
-				//print the tings here 
-				
-				
-				
+				//print the tings here
+				System.out.println(module.getName() + "," + module.getStatus());	
 			}
 		}
 	}

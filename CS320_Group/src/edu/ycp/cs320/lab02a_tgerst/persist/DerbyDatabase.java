@@ -292,8 +292,8 @@ public class DerbyDatabase implements IDatabase {
 				
 				try {
 					stmt = conn.prepareStatement(
-							"select * from module " +
-							" order by city asc"
+							"select * from modules " +
+							" order by modules.name"
 					);
 					
 					List<Module> result = new ArrayList<Module>();
@@ -327,7 +327,10 @@ public class DerbyDatabase implements IDatabase {
 	}
 
 	private void loadModule(Module module, ResultSet resultSet, int index) throws SQLException {
-		//TODO STUFF HERE
+		module.setDataId(resultSet.getInt(index++));
+		module.setLocationId(resultSet.getInt(index++));
+		module.setName(resultSet.getString(index++));
+		module.setStatus(resultSet.getString(index++));
 	}
 	
 	
