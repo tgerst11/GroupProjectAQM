@@ -1,19 +1,17 @@
 package edu.ycp.cs320.lab02a_tgerst.persist;
 
 import java.io.IOException;
-import java.security.Timestamp;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.ycp.cs320.lab02a_tgerst.model.Admin;
-import edu.ycp.cs320.lab02a_tgerst.model.Data;
 import edu.ycp.cs320.lab02a_tgerst.model.Location;
+import edu.ycp.cs320.lab02a_tgerst.model.Data;
 import edu.ycp.cs320.lab02a_tgerst.model.Module;
 
 
@@ -216,14 +214,14 @@ public class DerbyDatabase implements IDatabase {
 									
 					insertData = conn.prepareStatement("insert into data (aqi, mainPollutant, humidity, windSpeed, windDirection, pressure, temperature, timedate) values (?, ?, ?, ?, ?, ?, ?, ?)");
 					for (Module module : moduleList) {
-						insertData.setString(1, (String) module.getAQI());
-						insertData.setString(2, (String) module.getMainPol());
-						insertData.setString(3, (String) module.getHumidity());
-						insertData.setString(4, (String) module.getWindSpeed());
-						insertData.setString(5, (String) module.getWindDir());
-						insertData.setString(6, (String) module.getPressure());
-						insertData.setString(7, (String) module.getTemp());
-						insertData.setTimestamp(8, (java.sql.Timestamp) module.getTime());
+						insertData.setString(1, module.getAQI());
+						insertData.setString(2, module.getMainPol());
+						insertData.setString(3, module.getHumidity());
+						insertData.setString(4, module.getWindSpeed());
+						insertData.setString(5, module.getWindDir());
+						insertData.setString(6, module.getPressure());
+						insertData.setString(7, module.getTemp());
+						insertData.setTimestamp(8, module.getTime());
 						insertData.addBatch();
 					}
 					insertData.executeBatch();
@@ -232,10 +230,10 @@ public class DerbyDatabase implements IDatabase {
 					
 					insertLocation = conn.prepareStatement("insert into locations (coordinates, city, state, country ) values (?, ?, ?, ?)");
 					for (Location location : locationList) {
-						insertData.setString(1, (String) location.getCoordinates());
-						insertData.setString(2, location.getCity());
-						insertData.setString(3, location.getState());
-						insertData.setString(4, location.getCountry());
+						insertLocation.setString(1, location.getCoordinates());
+						insertLocation.setString(2, location.getCity());
+						insertLocation.setString(3, location.getState());
+						insertLocation.setString(4, location.getCountry());
 						insertLocation.addBatch();
 					}
 					insertLocation.executeBatch();

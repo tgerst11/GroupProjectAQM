@@ -6,7 +6,8 @@ public class Module {
 	private int data_id, location_id;
 	//need to implement a status
 	private String status, name;
-	private Object coordinates, timestamp, windSpeed, windDir, humidity,pressure, AQI, temp, city, state, country, mainPol;
+	private String coordinates, windSpeed, windDir, humidity,pressure, AQI, temp, city, state, country, mainPol;
+	private java.sql.Timestamp time;
 	
 	//constructor
 	public Module() {
@@ -39,34 +40,34 @@ public class Module {
 	
 	//City
 	public void setCity(Object city) {
-		this.city = city;
+		this.city = (String) city;
 	}
 	
-	public Object getCity() {
+	public String getCity() {
 		return city;
 	}
 	
 	//state
 	public void setState(Object state) {
-		this.state=state;
+		this.state=(String) state;
 	}
-	public Object getState() {
+	public String getState() {
 		return state;
 	}
 	
 	//Country
 	public void setCountry(Object country) {
-		this.country= country;
+		this.country= (String) country;
 	}
-	public Object getCountry() {
+	public String getCountry() {
 		return country;
 	}
 	
 	//Main Pollutant
 	public void setMainPol(Object mainPol) {
-		this.mainPol= mainPol;
+		this.mainPol= (String) mainPol;
 	}
-	public Object getMainPol() {
+	public String getMainPol() {
 		return mainPol;
 	}
 
@@ -80,67 +81,67 @@ public class Module {
 	
 	//temperature
 	public void setTemperature(Object temp) {
-		this.temp = temp;
+		this.temp = (String) temp;
 	}
-	public Object getTemp() {
+	public String getTemp() {
 		return temp;
 	}
 	
 	//AQI
 	public void setAQI(Object aqi) {
-		this.AQI = aqi;
+		this.AQI = (String) aqi;
 	}
-	public Object getAQI() {
+	public String getAQI() {
 		return AQI;
 	}
 	
 	//Atmospheric Pressure
 	public void setPressure(Object pressure) {
-		this.pressure = pressure;
+		this.pressure = (String) pressure;
 	}
-	public Object getPressure() {
+	public String getPressure() {
 		return pressure;
 	}
 	
 	//humidity
 	public void setHumidity(Object humidity) {
-		this.humidity = humidity;
+		this.humidity = (String) humidity;
 	}
-	public Object getHumidity() {
+	public String getHumidity() {
 		return humidity;
 	}
 	
 	//wind direction
 	public void setWindDir(Object windDir) {
-		this.windDir = windDir;
+		this.windDir = (String) windDir;
 	}
-	public Object getWindDir() {
+	public String getWindDir() {
 		return windDir;
 	}
 	
 	//timestamp
 	public void setTime(Object timeStamp) {
-		this.timestamp = timeStamp;
+		this.time = (java.sql.Timestamp) timeStamp;
 	}
 	
-	public Object getTime() {
-		return timestamp;
+	public java.sql.Timestamp getTime() {
+		return time;
 	}
 	
 	//coordinates
 	public void setCoordinates(Object coordinates) {
-		this.coordinates = coordinates;
+		this.coordinates = (String) coordinates;
 	}
 	
-	public Object getCoordinates() {
+	public String getCoordinates() {
 		return coordinates;
 	}
 	
 	//windSpeed
 	public void setWindSpeed(Object windSpeed) {
-		this.windSpeed = windSpeed;
+		this.windSpeed = (String) windSpeed;
 	}
-	public Object getWindSpeed() {
+	public String getWindSpeed() {
 		return windSpeed;
 	}
 	

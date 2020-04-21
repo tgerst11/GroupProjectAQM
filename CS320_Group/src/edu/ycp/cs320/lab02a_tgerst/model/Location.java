@@ -3,7 +3,8 @@ package edu.ycp.cs320.lab02a_tgerst.model;
 
 public class Location{
 	
-	private Object coordinates;
+	private String coordinates;
+	private String cords;
 	private String city, state, country;
 	private int location_id;
 	
@@ -13,7 +14,7 @@ public class Location{
 	
 
 	public void setCoordinates(Object coordinates) {
-		this.coordinates = coordinates;
+		this.coordinates = (String) coordinates;
 	}
 	
 	public void setCity(String city) {
@@ -28,7 +29,7 @@ public class Location{
 		this.country = country;
 	}
 	
-	public Object getCoordinates() {
+	public String getCoordinates() {
 		return coordinates;
 	}
 	
