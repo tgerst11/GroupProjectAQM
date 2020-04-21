@@ -128,7 +128,7 @@
 				<table>
 					<tr>
 						<td class="label">Username:</td>
-						<td><input type="text" name="first" size="12" value="${login.username}" /></td>
+						<td><input type="text" name="first" size="12" value="${login.username}" /></td> 
 					</tr>
 					<tr>
 						<td class="label">Password:</td>
