@@ -112,17 +112,20 @@ public class DerbyDatabase implements IDatabase {
 					stmt1.executeUpdate();
 					
 					System.out.println("Admins table created");
-									
+	
+// AQI | mainPollutant | humidity | windSpeed |windDirection | pressure | temperature | time
 					stmt2 = conn.prepareStatement(
 							"create table data (" +								
 							"	data_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +
-							"	time varchar(40)," +
-							"	humidity float," +
-							"	temp float," +
-							"	air_pressure float," +
-							"	voc float," +
-							"	module_id integer" +
+							"	aqi Object," +
+							"	mainPollutant Object," +
+							"	humidity Object," +
+							"	windSpeed Object," +
+							"	windDirection Object," +
+							"	pressure Object," +
+							"	temperature Object," +
+							"	time varchar(40)" +
 							")"
 					);	
 					
@@ -130,15 +133,15 @@ public class DerbyDatabase implements IDatabase {
 						
 					System.out.println("Data table created");
 					
+//coordinates | city | state | country 
 					stmt3 = conn.prepareStatement(
 							"create table locations (" +								
 							"	location_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +
-							"	longitude float," +
-							"	latitude float," +
-							"	vertical_direction varchar(40)," +
-							"	horizontal_direction varchar(40)," +
-							"	module_id integer" +
+							"	coordinates Object," +
+							"	city Object," +
+							"	state Object," +
+							"	country Object" +
 							")"
 					);	
 					
@@ -208,38 +211,39 @@ public class DerbyDatabase implements IDatabase {
 					
 					System.out.println("Admins table populated");
 									
-					insertData = conn.prepareStatement("insert into data (time, humidity, temp, air_pressure, voc, module_id) values (?, ?, ?, ?, ?, ?)");
-					for (Data data : dataList) {
-						insertData.setString(1, data.getTime());
-						insertData.setFloat(2, data.getPercentHumidity());
-						insertData.setFloat(3, data.getTemperature());
-						insertData.setFloat(4, data.getAirPressure());
-						insertData.setFloat(5, data.getVOC());
-						insertData.setInt(6, data.getModuleID());
+					insertData = conn.prepareStatement("insert into data (aqi, mainPollutant, humidity, windSpeed, windDirection, pressure, temperature, timedate) values (?, ?, ?, ?, ?, ?, ?, ?)");
+					for (Module module : moduleList) {
+						insertData.setObject(1, module.getAQI());
+						insertData.setObject(2, module.getMainPol());
+						insertData.setObject(3, module.getHumidity());
+						insertData.setObject(4, module.getWindSpeed());
+						insertData.setObject(5, module.getWindDir());
+						insertData.setObject(6, module.getPressure());
+						insertData.setObject(7, module.getTemp());
+						insertData.setObject(8, module.getTime());
 						insertData.addBatch();
 					}
 					insertData.executeBatch();
 					
 					System.out.println("Data table populated");
 					
-					insertLocation = conn.prepareStatement("insert into locations (longitude, latitude, vertical_direction, horizontal_direction, module_id) values (?, ?, ?, ?, ?)");
+					insertLocation = conn.prepareStatement("insert into locations (coordinates, city, state, country ) values (?, ?, ?, ?)");
 					for (Location location : locationList) {
-						insertLocation.setDouble(1, location.getLongitude());
-						insertLocation.setDouble(2, location.getLatitude());
-						insertLocation.setString(3, location.getVerticalDirection());
-						insertLocation.setString(4, location.getHorizontalDirection());
-						insertLocation.setInt(5, location.getModuleID());
+						insertData.setObject(1, location.getCoordinates());
+						insertData.setString(2, location.getCity());
+						insertData.setString(3, location.getState());
+						insertData.setString(4, location.getCountry());
 						insertLocation.addBatch();
 					}
 					insertLocation.executeBatch();
 					
 					System.out.println("Location table populated");
 					
-					insertModule = conn.prepareStatement("insert into modules (module_id, location_id, name, status) values (?, ?, ?, ?)");
+					insertModule = conn.prepareStatement("insert into modules (data_id, location_id, name, status) values (?, ?, ?, ?)");
 					for (Module module : moduleList) {
-						insertModule.setDouble(1, module.getModuleId());
-						insertModule.setObject(2, module.getCoordinates());
-						insertModule.setObject(3, module.getCity());
+						insertModule.setInt(1, module.getDataId());
+						insertModule.setInt(2, module.getLocationId());
+						insertModule.setString(3, module.getName());
 						insertModule.setString(4, module.getStatus());
 						insertModule.addBatch();
 					}
