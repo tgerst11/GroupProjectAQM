@@ -1,5 +1,7 @@
 package edu.ycp.cs320.lab02a_tgerst.model;
 
+import java.sql.Timestamp;
+
 public class Module {
 
 	//attributes
@@ -7,7 +9,8 @@ public class Module {
 	//need to implement a status
 	private String status, name;
 	private String coordinates, windSpeed, windDir, humidity,pressure, AQI, temp, city, state, country, mainPol;
-	private java.sql.Timestamp time;
+	//private java.sql.Timestamp time;
+	private Timestamp time;
 	
 	//constructor
 	public Module() {
@@ -121,10 +124,10 @@ public class Module {
 	
 	//timestamp
 	public void setTime(Object timeStamp) {
-		this.time = (java.sql.Timestamp) timeStamp;
+		this.time = (Timestamp) timeStamp;
 	}
 	
-	public java.sql.Timestamp getTime() {
+	public Timestamp getTime() {
 		return time;
 	}
 	
