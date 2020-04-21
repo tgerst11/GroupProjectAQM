@@ -3,9 +3,9 @@ package edu.ycp.cs320.lab02a_tgerst.model;
 public class Module {
 
 	//attributes
-	private int module_id;
+	private int data_id, location_id;
 	//need to implement a status
-	private String status;
+	private String status, name;
 	private Object coordinates, timestamp, windSpeed, windDir, humidity,pressure, AQI, temp, city, state, country, mainPol;
 	
 	//constructor
@@ -14,11 +14,26 @@ public class Module {
 	}
 	
 	//Module id. Is this needed?
-	public void setModuleId(int module_id){
-		this.module_id = module_id;
+	public void setDataId(int data_id){
+		this.data_id = data_id;
 	}
-	public int getModuleId() {
-		return module_id;
+	public int getDataId() {
+		return data_id;
+	}
+	
+	public void setLocationId(int location_id){
+		this.location_id = location_id;
+	}
+	public int getLocationId() {
+		return location_id;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
 	}
 	
 	//City
