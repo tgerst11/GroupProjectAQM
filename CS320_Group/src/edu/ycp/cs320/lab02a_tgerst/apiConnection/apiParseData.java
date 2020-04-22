@@ -20,7 +20,7 @@ public class apiParseData {
 		//AirVisual API key: 7e0e33b0-3788-49d8-bdd4-692e0397a293
 
 		//input = URLEncoder.encode(input, "UTF-8").replaceAll("\\+", "%20");
-		String url = "http://api.airvisual.com/v2/city?city=Los%20Angeles&state=California&country=USA&key=7e0e33b0-3788-49d8-bdd4-692e0397a293";
+		String url = "http://api.airvisual.com/v2/city?city=Harrisburg&state=Pennsylvania&country=USA&key=7e0e33b0-3788-49d8-bdd4-692e0397a293";
 		
 		URL api = new URL(url);
 		
