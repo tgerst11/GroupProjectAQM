@@ -4,7 +4,6 @@ package edu.ycp.cs320.lab02a_tgerst.model;
 public class Location{
 	
 	private String coordinates;
-	private String cords;
 	private String city, state, country;
 	private int location_id;
 	
