@@ -80,7 +80,7 @@
 				</tr>
 				<tr>
 					<td>
-						<form action="${pageContext.servletContext.contextPath}/moduleDataHerhsy" method="get">
+						<form action="${pageContext.servletContext.contextPath}/moduleDataHershey" method="get">
 							<input name="direct" type="submit" value="Hershey PA" />
 						</form>
 					</td>
