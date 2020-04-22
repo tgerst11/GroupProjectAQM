@@ -71,19 +71,20 @@ public class apiParseData {
 		Object windDirection = weather.get("wd");
 		Object aqi = pollution.get("aqius");
 		Object mainPol = pollution.get("mainus");
+		
 	 
-		mod.setCity(city);
-		mod.setState(state);
-		mod.setCountry(country);
-		mod.setCoordinates(coordinates);
-		mod.setTime((String) timestamp);
-		mod.setTemperature(temp);
-		mod.setAQI(aqi);
-		mod.setPressure(pressure);
-		mod.setHumidity(humidity);
-		mod.setWindSpeed(windSpeed);
-		mod.setWindDir(windDirection);
-		mod.setMainPol(mainPol);
+		mod.setCity(city.toString());
+		mod.setState(state.toString());
+		mod.setCountry(country.toString());
+		mod.setCoordinates(coordinates.toString());
+		mod.setTime(timestamp.toString());
+		mod.setTemperature(temp.toString());
+		mod.setAQI(aqi.toString());
+		mod.setPressure(pressure.toString());
+		mod.setHumidity(humidity.toString());
+		mod.setWindSpeed(windSpeed.toString());
+		mod.setWindDir(windDirection.toString());
+		mod.setMainPol(mainPol.toString());
 		/*
 		System.out.println("city- "+ city);
 		System.out.println("state- "+ state);

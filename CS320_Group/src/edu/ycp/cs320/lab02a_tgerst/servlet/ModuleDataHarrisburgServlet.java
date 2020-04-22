@@ -27,6 +27,7 @@ public class ModuleDataHarrisburgServlet extends HttpServlet {
 		controller.call();
 		} 
 		catch (Exception e){
+			
 			System.out.println("There has been an error populating your model");
 		}
 		
