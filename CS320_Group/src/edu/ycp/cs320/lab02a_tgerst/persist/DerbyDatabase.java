@@ -118,6 +118,7 @@ public class DerbyDatabase implements IDatabase {
 							"create table data (" +								
 							"	data_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +
+							"	location_id integer," +
 							"	aqi varchar(40)," +
 							"	mainPollutant varchar(40)," +
 							"	humidity varchar(40)," +
@@ -212,16 +213,17 @@ public class DerbyDatabase implements IDatabase {
 					
 					System.out.println("Admins table populated");
 									
-					insertData = conn.prepareStatement("insert into data (aqi, mainPollutant, humidity, windSpeed, windDirection, pressure, temperature, timedate) values (?, ?, ?, ?, ?, ?, ?, ?)");
+					insertData = conn.prepareStatement("insert into data (location_id, aqi, mainPollutant, humidity, windSpeed, windDirection, pressure, temperature, timedate) values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 					for (Module module : dataList) {
-						insertData.setString(1, module.getAQI());
-						insertData.setString(2, module.getMainPol());
-						insertData.setString(3, module.getHumidity());
-						insertData.setString(4, module.getWindSpeed());
-						insertData.setString(5, module.getWindDir());
-						insertData.setString(6, module.getPressure());
-						insertData.setString(7, module.getTemp());
-						insertData.setString(8, module.getTime());
+						insertData.setInt(1, module.getLocationId());
+						insertData.setString(2, module.getAQI());
+						insertData.setString(3, module.getMainPol());
+						insertData.setString(4, module.getHumidity());
+						insertData.setString(5, module.getWindSpeed());
+						insertData.setString(6, module.getWindDir());
+						insertData.setString(7, module.getPressure());
+						insertData.setString(8, module.getTemp());
+						insertData.setString(9, module.getTime());
 						insertData.addBatch();
 					}
 					insertData.executeBatch();

@@ -106,6 +106,8 @@
         }
         #login {
 					float: left;
+					background-color:#efefef;
+					border: 1px solid #efefef;
 		}
 		
 		.tg  {
