@@ -19,19 +19,25 @@ public class AddLocation{
 		
 		InitDatabase.init(keyboard);
 		
+		System.out.print("Enter cooridnates: ");
+		String coordinates = keyboard.nextLine();
+		
+		System.out.print("Enter name: ");
+		String name = keyboard.nextLine();
+		
+		System.out.print("Enter status: ");
+		String status = keyboard.nextLine();
+		
 		// get the DB instance and execute transaction
 		IDatabase db = DatabaseProvider.getInstance();
-		List<Module> moduleList = db.findAllModules();
+		int location_id = db.addLocation(coordinates, name, status);
 		
 		// check if anything was returned and output the list
-		if (moduleList.isEmpty()) {
+		if (location_id > 0) {
 			System.out.println("There are no modules in the database");
 		}
 		else {
-			for (Module module : moduleList) {
-				//print the tings here
-				System.out.println(module.getName() + "," + module.getStatus());	
-			}
+				System.out.println("Failed");	
 		}
 	}
 }
