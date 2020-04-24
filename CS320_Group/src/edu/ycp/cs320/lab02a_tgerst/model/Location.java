@@ -28,6 +28,10 @@ public class Location{
 		this.country = country;
 	}
 	
+	public void setLocationID(int location_id) {
+		this.location_id = location_id;
+	}
+	
 	public String getCoordinates() {
 		return coordinates;
 	}

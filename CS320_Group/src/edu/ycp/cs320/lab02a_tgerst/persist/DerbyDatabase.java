@@ -445,9 +445,64 @@ public class DerbyDatabase implements IDatabase {
 	}
 	
 	@Override
-	public int addLocation(String coordinates, String name, String status) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int addLocation(String coordinates, String city, String state, String country) {
+		return executeTransaction(new Transaction<Integer>() {
+			@Override
+			public Integer execute(Connection conn) throws SQLException {
+				PreparedStatement stmt1 = null;
+				PreparedStatement stmt2 = null;
+				ResultSet resultSet1 = null;
+				Location location = new Location();
+				int location_id = 0;
+				
+				try {
+					stmt1 = conn.prepareStatement(
+							("insert into locations (coordinates, city, state, country) values (?, ?, ?, ?)")
+					);
+					
+					stmt1.setString(1, coordinates);
+					stmt1.setString(2, city);
+					stmt1.setString(3, state);
+					stmt1.setString(4, country);
+					
+					int result = 0;
+					
+					stmt1.executeUpdate();
+					
+					stmt2 = conn.prepareStatement(
+							"select * from locations " +
+							" where locations.city = ?"
+					);
+					
+					stmt2.setString(1, city);
+					
+					List<Location> result2 = new ArrayList<Location>();
+					
+					resultSet1 = stmt2.executeQuery();
+					
+					// for testing that a result was returned
+					Boolean found = false;
+					
+					while (resultSet1.next()) {
+						found = true;
+						loadLocation(location, resultSet1, 1);
+					}
+					
+					location_id = location.getLocationID();
+					
+					// check if any authors were found
+					if (!found) {
+						System.out.println("No modules were found in the database");
+					}
+					
+					return location_id;
+				} finally {
+					DBUtil.closeQuietly(resultSet1);
+					DBUtil.closeQuietly(stmt1);
+					DBUtil.closeQuietly(stmt2);
+				}
+			}
+		});
 	}
 
 	private void loadModule(Module module, ResultSet resultSet, int index) throws SQLException {
@@ -455,6 +510,14 @@ public class DerbyDatabase implements IDatabase {
 		module.setLocationId(resultSet.getInt(index++));
 		module.setName(resultSet.getString(index++));
 		module.setStatus(resultSet.getString(index++));
+	}
+	
+	private void loadLocation(Location location, ResultSet resultSet, int index) throws SQLException {
+		location.setLocationID(resultSet.getInt(index++));
+		location.setCoordinates(resultSet.getString(index++));
+		location.setCity(resultSet.getString(index++));
+		location.setState(resultSet.getString(index++));
+		location.setCountry(resultSet.getString(index++));
 	}
 
 	private void loadData(Module module, ResultSet resultSet, int index) throws SQLException {	

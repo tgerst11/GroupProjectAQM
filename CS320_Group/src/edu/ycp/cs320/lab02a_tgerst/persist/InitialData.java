@@ -93,8 +93,8 @@ public class InitialData {
 					Location location = new Location();
 					
 					// auto-generate Data ID, instead
-					//Integer.parseInt(i.next());
-					//location.setLocationID(locationID++);
+					Integer.parseInt(i.next());
+					location.setLocationID(locationID++);
 					
 					//coordinates | city | state | country 
 					location.setCoordinates(i.next());

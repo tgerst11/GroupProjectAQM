@@ -22,22 +22,25 @@ public class AddLocation{
 		System.out.print("Enter cooridnates: ");
 		String coordinates = keyboard.nextLine();
 		
-		System.out.print("Enter name: ");
-		String name = keyboard.nextLine();
+		System.out.print("Enter city: ");
+		String city = keyboard.nextLine();
 		
-		System.out.print("Enter status: ");
-		String status = keyboard.nextLine();
+		System.out.print("Enter state: ");
+		String state = keyboard.nextLine();
+		
+		System.out.print("Enter country: ");
+		String country = keyboard.nextLine();
 		
 		// get the DB instance and execute transaction
 		IDatabase db = DatabaseProvider.getInstance();
-		int location_id = db.addLocation(coordinates, name, status);
+		int location_id = db.addLocation(coordinates, city, state, country);
 		
 		// check if anything was returned and output the list
 		if (location_id > 0) {
-			System.out.println("There are no modules in the database");
+			System.out.println("The location you entered has been added to the database with the Location ID of " + location_id);
 		}
 		else {
-				System.out.println("Failed");	
+				System.out.println("Failed to enter location");	
 		}
 	}
 }

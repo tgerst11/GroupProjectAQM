@@ -43,8 +43,9 @@ public class FakeDatabase implements IDatabase {
 		return null;
 	}
 
+
 	@Override
-	public int addLocation(String coordinates, String name, String status) {
+	public int addLocation(String coordinates, String city, String state, String country) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
