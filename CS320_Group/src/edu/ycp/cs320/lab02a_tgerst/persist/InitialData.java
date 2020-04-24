@@ -124,7 +124,7 @@ public class InitialData {
 					Iterator<String> i = tuple.iterator();
 					Module module = new Module();
 
-					module.setModuleId(Integer.parseInt(i.next()));	
+					module.setDataId(Integer.parseInt(i.next()));	
 					module.setLocationId(Integer.parseInt(i.next()));	
 					module.setName(i.next());
 					module.setStatus(i.next());
