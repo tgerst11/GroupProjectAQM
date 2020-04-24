@@ -87,7 +87,12 @@
 			margin-bottom: 20px;
             border-bottom: 2px solid black;
 		}
-		#data{
+		#dataA{
+			margin-left: 200px;
+			margin-top: 0px;
+			float: left;
+		}
+		#dataB{
 			margin-left: 200px;
 			margin-top: 0px;
 			float: middle;
@@ -213,7 +218,7 @@
 		</c:if>
 			
 		
-		<div id = "data">
+		<div id = "dataA">
 			<table class="tg">
 			  <tr>
 			    <th class="tg-5p9v">Location</th>
@@ -233,8 +238,8 @@
 			  </tr>
 			</table>
 		</div>
-		
-		<div id = "data">
+		 
+		<div id = "dataB">
 			<table class="tg">
 			  <tr>
 			    <th class="tg-5p9v">Data</th>
