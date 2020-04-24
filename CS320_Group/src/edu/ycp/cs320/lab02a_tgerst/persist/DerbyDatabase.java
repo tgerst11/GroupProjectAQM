@@ -371,6 +371,78 @@ public class DerbyDatabase implements IDatabase {
 			}
 		});
 	}
+	
+	@Override
+	public List<Module> findDataByModuleLocation(String module_name) {
+		return executeTransaction(new Transaction<List<Module>>() {
+			@Override
+			public List<Module> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt1 = null;
+				PreparedStatement stmt2 = null;
+				ResultSet resultSet1 = null;
+				ResultSet resultSet2 = null;
+				Module module = new Module();
+				int data_id;
+				
+				try {
+					stmt1 = conn.prepareStatement(
+							"select * from modules " +
+							" where modules.name = ?"
+					);
+					
+					stmt1.setString(1, module_name);
+					
+					List<Module> result = new ArrayList<Module>();
+					
+					resultSet1 = stmt1.executeQuery();
+					
+					// for testing that a result was returned
+					Boolean found = false;
+					
+					while (resultSet1.next()) {
+						found = true;
+						loadModule(module, resultSet1, 1);
+			
+					}
+					
+					data_id = module.getDataId();
+					
+					System.out.println(data_id);
+					
+					stmt2 = conn.prepareStatement(
+							"select * from data " +
+							" where data.data_id = ?"
+					);
+					
+					stmt2.setInt(1, data_id);
+					
+					List<Module> result2 = new ArrayList<Module>();
+					
+					resultSet2 = stmt2.executeQuery();
+					
+					while (resultSet2.next()) {
+						found = true;
+						
+						loadData(module, resultSet2, 1);
+						
+						result.add(module);
+					}
+					
+					// check if any authors were found
+					if (!found) {
+						System.out.println("No modules were found in the database");
+					}
+					
+					return result;
+				} finally {
+					DBUtil.closeQuietly(resultSet1);
+					DBUtil.closeQuietly(resultSet2);
+					DBUtil.closeQuietly(stmt1);
+					DBUtil.closeQuietly(stmt2);
+				}
+			}
+		});
+	}
 
 	private void loadModule(Module module, ResultSet resultSet, int index) throws SQLException {
 		module.setDataId(resultSet.getInt(index++));
@@ -390,5 +462,5 @@ public class DerbyDatabase implements IDatabase {
 		module.setTime(resultSet.getString(index++));
 		
 	}
-	
+
 }
