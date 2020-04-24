@@ -102,6 +102,62 @@
         #login {
 					float: left;
 		}
+		
+		.tg  {
+					border-collapse:collapse;
+					border-spacing:0;
+		}
+		
+		.tg td{
+					font-family:Arial, sans-serif;
+					font-size:14px;padding:10px 5px;
+					border-style:solid;border-width:1px;
+					overflow:hidden;
+					word-break:normal;
+					border-color:black;
+		}
+		
+		.tg th{
+					font-family:Arial, sans-serif;
+					font-size:14px;
+					font-weight:normal;
+					padding:10px 5px;
+					border-style:solid;
+					border-width:1px;
+					overflow:hidden;
+					word-break:normal;
+					border-color:black;
+		}
+		
+		.tg .tg-z4dy{
+					background-color:#cbcefb;
+					color:#cbcefb;
+					text-align:left;
+					vertical-align:top
+		}
+		
+		.tg .tg-kftd{
+					background-color:#efefef;
+					text-align:left;
+					vertical-align:top
+		}
+		
+		.tg .tg-5p9v{
+					background-color:#cbcefb;
+					color:#333333;
+					text-align:left;
+					vertical-align:top
+		}
+		
+		.tg .tg-7euo{
+					background-color:#ffffff;
+					color:#333333;
+					text-align:left;
+					vertical-align:top
+		}
+
+		
+		
 		</style>
 	</head>
 
@@ -156,64 +212,68 @@
 			<div class="error">${errorMessage}</div>
 		</c:if>
 			
-		<div id = "location">
-			<table>
-				<th>
-					Location
-				</th>
-				<tr>
-					<td class="label">Latitude</td>
-					<td>${location0}</td>
-				</tr>
-				<tr>
-					<td class="label">Longitude</td>
-					<td>${location1}</td>
-				</tr>
-				<tr>
-					<td class="label">Altitude</td>
-					<td>${location2}</td>
-				</tr>
+		
+		<div id = "data">
+			<table class="tg">
+			  <tr>
+			    <th class="tg-5p9v">Location</th>
+			    <th class="tg-z4dy"></th>
+			  </tr>
+			  <tr>
+			    <td class="tg-7euo">City</td>
+			    <td class="tg-7euo">York</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-kftd">State</td>
+			    <td class="tg-kftd">Pennsylvania</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-7euo">Country</td>
+			    <td class="tg-7euo">United States</td>
+			  </tr>
 			</table>
 		</div>
 		
 		<div id = "data">
-			<table>
-				<th>
-					Data Reading
-				</th>
-				<tr>
-					<td class="label">Carbon Dioxide</td>
-					<td>${reading0}</td>
-				</tr>
-				<tr>
-					<td class="label">Nitrogen</td>
-					<td>${reading1}</td>
-				</tr>
-				<tr>
-					<td class="label">Oxygen</td>
-					<td>${reading2}</td>
-				</tr>
-				<tr>
-					<td class="label">Argon</td>
-					<td>${reading3}</td>
-				</tr>
-				<tr>
-					<td class="label">Methane</td>
-					<td>${reading4}</td>
-				</tr>
-				<tr>
-					<td class="label">Neon</td>
-					<td>${reading5}</td>
-				</tr>
-				<tr>
-					<td class="label">Helium</td>
-					<td>${reading6}</td>
-				</tr>
-				<tr>
-					<td class="label">Krypton</td>
-					<td>${reading7}</td>
-				</tr>
+			<table class="tg">
+			  <tr>
+			    <th class="tg-5p9v">Data</th>
+			    <th class="tg-z4dy"></th>
+			  </tr>
+			  <tr>
+			    <td class="tg-7euo">AQI</td>
+			    <td class="tg-7euo">~~~~~~~~~~</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-kftd">Main Pollutant</td>
+			    <td class="tg-kftd">~~~~~~~~~</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-7euo">Humidity</td>
+			    <td class="tg-7euo">~~~~~~~~~~</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-kftd">Wind Speed</td>
+			    <td class="tg-kftd">~~~~~~~~~~</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-7euo">Wind Direction</td>
+			    <td class="tg-7euo">~~~~~~~~~~</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-kftd">Coordinates</td>
+			    <td class="tg-kftd">~~~~~~~~~~</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-7euo">Pressure</td>
+			    <td class="tg-7euo">~~~~~~~~~~</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-kftd">Temperature</td>
+			    <td class="tg-kftd">~~~~~~~~~~</td>
+			  </tr>
 			</table>
 		</div>
+		
 	</body>
 </html>
