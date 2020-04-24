@@ -15,4 +15,6 @@ public interface IDatabase {
 	List<Module> findDataByModuleID(int module_id);
 	
 	List<Module> findDataByModuleLocation(String module_name);
+	
+	int addLocation (String coordinates, String name, String status);
 }

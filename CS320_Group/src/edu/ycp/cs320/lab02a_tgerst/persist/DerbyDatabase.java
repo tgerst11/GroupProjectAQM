@@ -443,6 +443,12 @@ public class DerbyDatabase implements IDatabase {
 			}
 		});
 	}
+	
+	@Override
+	public int addLocation(String coordinates, String name, String status) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	private void loadModule(Module module, ResultSet resultSet, int index) throws SQLException {
 		module.setDataId(resultSet.getInt(index++));
@@ -462,5 +468,7 @@ public class DerbyDatabase implements IDatabase {
 		module.setTime(resultSet.getString(index++));
 		
 	}
+
+	
 
 }

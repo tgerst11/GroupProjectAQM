@@ -42,6 +42,12 @@ public class FakeDatabase implements IDatabase {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int addLocation(String coordinates, String name, String status) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	/*
 	public void readInitialData() {
