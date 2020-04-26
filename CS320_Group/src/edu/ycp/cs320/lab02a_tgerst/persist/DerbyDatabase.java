@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.ycp.cs320.booksdb.persist.DBUtil;
+import edu.ycp.cs320.booksdb.persist.DerbyDatabase.Transaction;
 import edu.ycp.cs320.lab02a_tgerst.model.Admin;
 import edu.ycp.cs320.lab02a_tgerst.model.Location;
 import edu.ycp.cs320.lab02a_tgerst.model.Data;
@@ -506,6 +508,104 @@ public class DerbyDatabase implements IDatabase {
 			}
 		});
 	}
+	
+	public Integer insertData (final String city, final String coordinates, final String state, final String country, final String ts, final String temp, final String pressure, final String humidity, final String windSpeed, final String windDirection, final String aqi, final String mainPol) {
+		return executeTransaction(new Transaction<Integer>() {
+			@Override
+			public Integer execute(Connection conn) throws SQLException {
+				PreparedStatement stmt1 = null;
+				PreparedStatement stmt2 = null;
+				PreparedStatement stmt3 = null;
+				PreparedStatement stmt4 = null;
+				
+				ResultSet resultSet1 = null;
+				ResultSet resultSet2 = null;
+				ResultSet resultSet3 = null;
+				String location_id= null;
+				
+				try {
+					stmt1 = conn.prepareStatement(
+							"select location_id from locations " +
+							"  where city = ? "
+					);
+					stmt1.setString(1, city);
+					resultSet1 = stmt1.executeQuery();
+					
+					//if city exists
+					if(resultSet1.next()) {
+						location_id = resultSet1.getString(1);
+						System.out.println("City found with location_id "+ location_id);
+						
+					}
+					
+					//if city does not exist
+					else {
+						System.out.println("Not found. Adding into locations table...");
+							stmt2 = conn.prepareStatement(
+									"INSERT INTO locations (coordinates, city, state, country) " +
+									" values (?, ?, ?, ?) "
+							);
+							stmt2.setString(1, coordinates);
+							stmt2.setString(2, city);
+							stmt2.setString(3, state);
+							stmt2.setString(4, country);
+							
+							stmt2.executeUpdate();
+							
+							System.out.println(city + "added to locations table with location_id" +location_id);
+							
+							stmt3 = conn.prepareStatement(
+									"select location_id from locations " +
+									"  where city = ? "
+							);
+							stmt3.setString(1, city);
+							resultSet2 = stmt3.executeQuery();
+							
+							if (resultSet2.next())
+							{
+								location_id = resultSet2.getString(1);
+								System.out.println("Newly added city found!");
+							}
+							else	// really should throw an exception here - the new author should have been inserted, but we didn't find them
+							{
+								System.out.println("Oops, something went wrong. Didn't find the newly added city.");
+							}
+					}
+					//At this point, you should have the location id. Time to insert all the data
+					stmt4 = conn.prepareStatement(
+							"insert into data (location_id, aqi, mainpollutant, humidity, windspeed, winddirection, pressure, temperature, timedate) " +
+							"  values(?, ?, ?, ?, ?, ?, ?, ?, ?) "
+					);
+					stmt4.setString(1, location_id);
+					stmt4.setString(2, aqi);
+					stmt4.setString(3, mainPol);
+					stmt4.setString(4, humidity);
+					stmt4.setString(5, windSpeed);
+					stmt4.setString(6, windDirection);
+					stmt4.setString(7, pressure);
+					stmt4.setString(8, temp);
+					stmt4.setString(9, ts);
+					
+					// execute the update
+					stmt4.executeUpdate();
+					
+					System.out.println("Data added successfully.");
+					 int data = Integer.parseInt(location_id);
+					 return data;
+				}
+				finally{
+					DBUtil.closeQuietly(stmt1);
+					DBUtil.closeQuietly(stmt2);					
+					DBUtil.closeQuietly(stmt3);
+					DBUtil.closeQuietly(stmt4);
+					DBUtil.closeQuietly(resultSet1);
+					DBUtil.closeQuietly(resultSet2);
+					DBUtil.closeQuietly(resultSet3);
+				}		
+			}
+		});
+	}		
+				
 
 	private void loadModule(Module module, ResultSet resultSet, int index) throws SQLException {
 		module.setDataId(resultSet.getInt(index++));
@@ -533,7 +633,4 @@ public class DerbyDatabase implements IDatabase {
 		module.setTime(resultSet.getString(index++));
 		
 	}
-
-	
-
 }

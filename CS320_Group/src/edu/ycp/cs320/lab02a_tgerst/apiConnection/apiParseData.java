@@ -8,17 +8,17 @@ import java.util.Scanner;
 
 import org.json.JSONObject;
 import edu.ycp.cs320.lab02a_tgerst.model.Module;
+import edu.ycp.cs320.lab02a_tgerst.persist.InitDatabase;
 
 public class apiParseData {
 	private Module mod;
 	
-	public void setModel(Module model) {
-		this.mod = model;
+	public void setModel(Module module) {
+		this.mod= module;
 	}
 	
-	public void call() throws Exception{
+public void call() throws Exception{
 		//AirVisual API key: 7e0e33b0-3788-49d8-bdd4-692e0397a293
-
 		//input = URLEncoder.encode(input, "UTF-8").replaceAll("\\+", "%20");
 		String url = "http://api.airvisual.com/v2/city?city=Harrisburg&state=Pennsylvania&country=USA&key=7e0e33b0-3788-49d8-bdd4-692e0397a293";
 		
@@ -69,21 +69,21 @@ public class apiParseData {
 		Object humidity = weather.get("hu");
 		Object windSpeed = weather.get("ws");
 		Object windDirection = weather.get("wd");
-		Object aqi = pollution.get("aqius");
+		Object aqi= pollution.get("aqius");
 		Object mainPol = pollution.get("mainus");
 		
-		city= city.toString();
-		state= state.toString();
-		country= country.toString();
-		coordinates= coordinates.toString();
-		timestamp= timestamp.toString();
-		temp= temp.toString();
-		aqi= aqi.toString();
-		pressure= pressure.toString();
-		humidity= humidity.toString();
-		windSpeed= windSpeed.toString();
-		windDirection= windDirection.toString();
-		mainPol= mainPol.toString();
+		mod.setCity(city.toString());
+		mod.setState(state.toString());
+		mod.setCountry(country.toString());
+		mod.setCoordinates(coordinates.toString());
+		mod.setTime(timestamp.toString());
+		mod.setTemperature(temp.toString());
+		mod.setAQI(aqi.toString());
+		mod.setPressure(pressure.toString());
+		mod.setHumidity(humidity.toString());
+		mod.setWindSpeed(windSpeed.toString());
+		mod.setWindDir(windDirection.toString());
+		mod.setMainPol(mainPol.toString());
 		
 		/*
 		System.out.println("city- "+ city);
@@ -99,7 +99,5 @@ public class apiParseData {
 		System.out.println("wind direction-" + windDirection);
 		System.out.println("main pollutant-"+ mainPol);
 		*/
-		
-		
 	}
 }
