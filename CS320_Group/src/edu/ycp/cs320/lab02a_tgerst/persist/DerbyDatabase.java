@@ -9,8 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.ycp.cs320.booksdb.persist.DBUtil;
-import edu.ycp.cs320.booksdb.persist.DerbyDatabase.Transaction;
 import edu.ycp.cs320.lab02a_tgerst.model.Admin;
 import edu.ycp.cs320.lab02a_tgerst.model.Location;
 import edu.ycp.cs320.lab02a_tgerst.model.Data;
