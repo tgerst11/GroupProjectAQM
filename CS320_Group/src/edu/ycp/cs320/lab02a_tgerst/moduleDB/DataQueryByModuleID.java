@@ -36,8 +36,74 @@ public static void main(String[] args) throws Exception {
 			for (Module module : moduleList) {
 				//print the tings here
 				System.out.println(module.getAQI() +","+ module.getHumidity() +","+ module.getMainPol() +","+ module.getPressure() +","+ module.getTemp() +","+ module.getWindDir() +","+ module.getWindSpeed());	
+				//getDate(module.getTime());
 			}
 		}
+	}
+
+	public static String getDate(String timeStamp)
+	{
+		//String timeStamp = "2020-04-27T15:00:00.000Z";
+		int i = 0;
+		int charAt = 0;
+		char c;
+		String date;
+		
+		while(charAt == 0) {
+			c = timeStamp.charAt(i);
+			
+			if(c != '1' && c != '2' && c != '3' && c != '4' && c != '5' && c != '6' && c != '7' && c != '8' && c != '9' && c != '0' && c != '-')
+			{
+				charAt = i;
+			}
+			
+			i++;
+		}
+		
+		date = timeStamp.substring(0, charAt);
+		
+		System.out.println(date);
+		
+		return date;
+	}
+	
+	public static String getTime(String timeStamp)
+	{
+		//String timeStamp = "2020-04-27T15:00:00.000Z";
+		int i = 0;
+		int start = 0;
+		int charAt = 0;
+		char c;
+		String time;
+		boolean dateFound = false;
+		
+		while(charAt == 0) {
+			c = timeStamp.charAt(i);
+			if(dateFound)
+			{
+				if(c != '1' && c != '2' && c != '3' && c != '4' && c != '5' && c != '6' && c != '7' && c != '8' && c != '9' && c != '0' && c != '-' && c != ':')
+				{
+					charAt = i;
+				}
+			}
+			//timeStamp.indexOf(getDate());
+			else
+			{
+				if(c != '1' && c != '2' && c != '3' && c != '4' && c != '5' && c != '6' && c != '7' && c != '8' && c != '9' && c != '0' && c != '-' && c != ':')
+				{
+					i++;
+					start = i;
+					dateFound = true;
+				}
+			}
+			i++;
+		}
+		
+		time = timeStamp.substring(start, charAt);
+		
+		System.out.println("Time: " + time);
+		
+		return time;
 	}
 	
 }
