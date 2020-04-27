@@ -57,8 +57,8 @@ public class InitialData {
 					
 					// auto-generate Data ID, instead
 					Integer.parseInt(i.next());
-					//data.setDataId(dataID++);
-					
+					data.setDataId(dataID++);
+					data.setLocationId(Integer.parseInt(i.next()));
 					
 					// AQI | mainPollutant | humidity | windSpeed |windDirection | pressure | temperature | time
 					data.setAQI(i.next());
