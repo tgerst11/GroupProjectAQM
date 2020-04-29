@@ -163,6 +163,121 @@
 					vertical-align:top
 		}
 
+		@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+ 
+  font-weight: 300;
+  line-height: 1.42em;
+  color:#A7A1AE;
+
+}
+
+h1 {
+  font-size:3em; 
+  font-weight: 300;
+  line-height:1em;
+  text-align: center;
+  color: #FFFF00;
+}
+
+h2 {
+  font-size:1em; 
+  font-weight: 300;
+  text-align: center;
+  display: block;
+  line-height:1em;
+  padding-bottom: 2em;
+  color: #FB667A;
+}
+
+h2 a {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FB667A;
+  text-decoration: none;
+}
+
+.container th h1 {
+  font-weight: bold;
+  font-size: 1em;
+  text-align: left;
+  color: #FFFF00;
+}
+
+.container td {
+	  font-weight: normal;
+	  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.container {
+	float: bottom;
+	text-align: left;
+	overflow: hidden;
+	width: 80%;
+	margin-top: 150px;
+    display: table;
+    background-color:#1F2739;
+    opacity: 0.9;
+}
+
+.container td, .container th {
+	padding-bottom: 2%;
+	padding-top: 2%;
+  	padding-left:2%;  
+}
+
+/* Background-color of the odd rows */
+.container tr:nth-child(odd) {
+	background-color: #323C50;
+	opacity: 0.9;
+}
+
+/* Background-color of the even rows */
+.container tr:nth-child(even) {
+	background-color: #2C3446;
+	opacity: 0.9;
+}
+
+.container th {
+	background-color: #1F2739;
+	opacity: 0.9;
+}
+
+.container td:first-child { color: #FB667A;
+opacity: 0.9; }
+
+.container tr:hover {
+    background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	-moz-box-shadow: 0 6px 6px -6px #0E1119;
+	box-shadow: 0 6px 6px -6px #0E1119;
+	opacity: 0.9;
+}
+
+.container td:hover {
+  background-color: #ff4542;
+  opacity: 0.9;
+  color: #691817;
+  font-weight: bold;
+  
+  box-shadow: #691817 -1px 1px, #691817 -2px 2px, #691817 -3px 3px, #691817 -4px 4px, #691817 -5px 5px, #691817 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+	  transition-duration: 0.4s;
+	  transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
+}
 		
 		
 		</style>
@@ -220,67 +335,96 @@
 		</c:if>
 			
 		
-		<div id = "dataA">
-			<table class="tg">
-			  <tr>
-			    <th class="tg-5p9v">Location</th>
-			    <th class="tg-z4dy"></th>
-			  </tr>
-			  <tr>
-			    <td class="tg-7euo">City</td>
-			    <td class="tg-7euo">York</td>
-			  </tr>
-			  <tr>
-			    <td class="tg-kftd">State</td>
-			    <td class="tg-kftd">Pennsylvania</td>
-			  </tr>
-			  <tr>
-			    <td class="tg-7euo">Country</td>
-			    <td class="tg-7euo">United States</td>
-			  </tr>
-			</table>
-		</div>
-		 
-		<div id = "dataB">
-			<table class="tg">
-			  <tr>
-			    <th class="tg-5p9v">Data</th>
-			    <th class="tg-z4dy"></th>
-			  </tr>
-			  <tr>
-			    <td class="tg-7euo">AQI</td>
-			    <td class="tg-7euo">~~~~~~~~~~</td>
-			  </tr>
-			  <tr>
-			    <td class="tg-kftd">Main Pollutant</td>
-			    <td class="tg-kftd">~~~~~~~~~</td>
-			  </tr>
-			  <tr>
-			    <td class="tg-7euo">Humidity</td>
-			    <td class="tg-7euo">~~~~~~~~~~</td>
-			  </tr>
-			  <tr>
-			    <td class="tg-kftd">Wind Speed</td>
-			    <td class="tg-kftd">~~~~~~~~~~</td>
-			  </tr>
-			  <tr>
-			    <td class="tg-7euo">Wind Direction</td>
-			    <td class="tg-7euo">~~~~~~~~~~</td>
-			  </tr>
-			  <tr>
-			    <td class="tg-kftd">Coordinates</td>
-			    <td class="tg-kftd">~~~~~~~~~~</td>
-			  </tr>
-			  <tr>
-			    <td class="tg-7euo">Pressure</td>
-			    <td class="tg-7euo">~~~~~~~~~~</td>
-			  </tr>
-			  <tr>
-			    <td class="tg-kftd">Temperature</td>
-			    <td class="tg-kftd">~~~~~~~~~~</td>
-			  </tr>
-			</table>
-		</div>
-		
+		<table class="container">
+	<thead>
+		<tr>
+			<th><h1>Date</h1></th>
+			<th><h1>Time</h1></th>
+			<th><h1>AQI</h1></th>
+			<th><h1>Main Pollutant</h1></th>
+			<th><h1>Humidity</h1></th>
+			<th><h1>Wind Speed</h1></th>
+			<th><h1>Wind Direction</h1></th>
+			<th><h1>Coordinates</h1></th>
+			<th><h1>Pressure</h1></th>
+			<th><h1>Temperature</h1></th>
+		</tr>
+
+	</thead>
+	<tbody>
+		<tr>
+			<td>4/27</td>
+			<td>01:32:50</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+		</tr>
+		<tr>
+			<td>4/27</td>
+			<td>00:51:22</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+		</tr>
+		<tr>
+			<td>4/28</td>
+			<td>00:24:34</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+		</tr>
+    <tr>
+			<td>4/28</td>
+			<td>00:12:10</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+		</tr>
+    <tr>
+			<td>4/29</td>
+			<td>00:46:19</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+		</tr>
+    <tr>
+			<td>4/29</td>
+			<td>00:31:52</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+			<td>4444444</td>
+		</tr>
+	</tbody>
+</table>
 	</body>
 </html>
