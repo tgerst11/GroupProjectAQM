@@ -86,6 +86,7 @@
             font-weight: bold;
 			margin-bottom: 20px;
             border-bottom: 2px solid black;
+             color: #000000;
 		}
 		#dataA{
 			margin-left: 200px;
