@@ -171,6 +171,7 @@ body {
   font-weight: 300;
   line-height: 1.42em;
   color:#A7A1AE;
+  text-align: center;
 
 }
 
@@ -197,13 +198,14 @@ h2 a {
   text-transform: uppercase;
   color: #FB667A;
   text-decoration: none;
+  text-align: center;
 }
 
 .container th h1 {
   font-weight: bold;
   font-size: 1em;
   text-align: left;
-  color: #FFFF00;
+  color: #FCE166;
 }
 
 .container td {
@@ -221,7 +223,7 @@ h2 a {
 	width: 80%;
 	margin-top: 150px;
     display: table;
-    background-color:#1F2739;
+    background-color:black;
     opacity: 0.9;
 }
 
@@ -233,39 +235,38 @@ h2 a {
 
 /* Background-color of the odd rows */
 .container tr:nth-child(odd) {
-	background-color: #323C50;
+	background-color: #383434;
 	opacity: 0.9;
 }
 
 /* Background-color of the even rows */
 .container tr:nth-child(even) {
-	background-color: #2C3446;
+	background-color: #1f1f1f;
 	opacity: 0.9;
 }
 
 .container th {
-	background-color: #1F2739;
+	background-color:black;
 	opacity: 0.9;
 }
 
-.container td:first-child { color: #FB667A;
-opacity: 0.9; }
+.container td:first-child { color: #ffc642;
+ }
 
 .container tr:hover {
-    background-color: #464A52;
--webkit-box-shadow: 0 6px 6px -6px #0E1119;
-	-moz-box-shadow: 0 6px 6px -6px #0E1119;
+    background-color: #0b487d;
+-webkit-box-shadow: 0 6px 6px -6px #00ff00;
+	-moz-box-shadow: 0 6px 6px -6px #ff0000;
 	box-shadow: 0 6px 6px -6px #0E1119;
 	opacity: 0.9;
 }
 
 .container td:hover {
-  background-color: #ff4542;
-  opacity: 0.9;
-  color: #691817;
+  background-color: #FCE166;
+  color: black;
   font-weight: bold;
   
-  box-shadow: #691817 -1px 1px, #691817 -2px 2px, #691817 -3px 3px, #691817 -4px 4px, #691817 -5px 5px, #691817 -6px 6px;
+  box-shadow: #FEDF08 -1px 1px, #FEDF08 -2px 2px, #FEDF08 -3px 3px, #FEDF08 -4px 4px, #FEDF08 -5px 5px, #FEDF08 -6px 6px;
   transform: translate3d(6px, -6px, 0);
   
   transition-delay: 0s;
