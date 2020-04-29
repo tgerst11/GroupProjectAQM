@@ -22,28 +22,21 @@ public class ModuleController {
 		db = DatabaseProvider.getInstance();		
 	}
 	
-	/*public ArrayList<Module> getModuleData(String lastName) {
+	public List<Module> getModuleData (String module_name){
+		IDatabase db = DatabaseProvider.getInstance();
+		List<Module> moduleList = db.findDataByModuleLocation(module_name);
 		
-		// get the list of (Author, Book) pairs from DB
-		List<Pair<Author, Book>> authorBookList = db.findAuthorAndBookByAuthorLastName(lastName);
-		ArrayList<Book> books = null;
-		
-		if (authorBookList.isEmpty()) {
-			System.out.println("No books found for author <" + lastName + ">");
-			return null;
+		// check if anything was returned and output the list
+		if (moduleList.isEmpty()) {
+			System.out.println("There are no modules in the database");
 		}
 		else {
-			books = new ArrayList<Book>();
-			for (Pair<Author, Book> authorBook : authorBookList) {
-				Author author = authorBook.getLeft();
-				Book book = authorBook.getRight();
-				books.add(book);
-				System.out.println(author.getLastname() + "," + author.getFirstname() + "," + book.getTitle() + "," + book.getIsbn() + ", " + book.getPublished());
-			}			
+			for (Module module : moduleList) {
+				//print the tings here
+				System.out.println(module.getAQI() +","+ module.getHumidity() +","+ module.getMainPol() +","+ module.getPressure() +","+ module.getTemp() +","+ module.getWindDir() +","+ module.getWindSpeed());
+			}
 		}
-		
-		// return of books for this author
-		return books;
-	}*/
+		return moduleList;
+	}
 	
 }
