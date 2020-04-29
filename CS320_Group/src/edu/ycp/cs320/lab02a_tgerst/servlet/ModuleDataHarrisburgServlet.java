@@ -1,6 +1,7 @@
 package edu.ycp.cs320.lab02a_tgerst.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,21 +21,15 @@ public class ModuleDataHarrisburgServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		Module mod = new Module();
+		List<Module> data = null;
 		
-		apiParseData controller = new apiParseData();
+		controller = new ModuleController();
 		
-		controller.setModel(mod);
-		//populate the model with API data
-		try {
-		controller.call();
-		} 
-		catch (Exception e){
-			
-			System.out.println("There has been an error populating your model");
-		}
+		String module_name = "Harrisburg";
 		
-		req.setAttribute("module", mod);
+		data = controller.getModuleData(module_name);
+		
+		req.setAttribute("data",  data);
 		
 		System.out.println("ModuleData Servlet: doGet");	
 		

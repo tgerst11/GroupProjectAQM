@@ -353,78 +353,20 @@ h2 a {
 
 	</thead>
 	<tbody>
-		<tr>
-			<td>4/27</td>
-			<td>01:32:50</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
+		<c:forEach items="${data}" var="point">
+			<tr>
+				<td>4/27</td>
+				<td>00:51:22</td>
+				<td>${point.AQI}</td>
+				<td>${point.mainPol}</td>
+				<td>${point.humidity}</td>
+				<td>${point.windSpeed}</td>
+				<td>${point.windDir}</td>	
+				<td>${point.coordinates}</td>
+				<td>${point.pressure}</td>
+				<td>${point.temp}</td>		            
 		</tr>
-		<tr>
-			<td>4/27</td>
-			<td>00:51:22</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-		</tr>
-		<tr>
-			<td>4/28</td>
-			<td>00:24:34</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-		</tr>
-    <tr>
-			<td>4/28</td>
-			<td>00:12:10</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-		</tr>
-    <tr>
-			<td>4/29</td>
-			<td>00:46:19</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-		</tr>
-    <tr>
-			<td>4/29</td>
-			<td>00:31:52</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-			<td>4444444</td>
-		</tr>
+		</c:forEach>
 	</tbody>
 </table>
 	</body>

@@ -384,7 +384,7 @@ public class DerbyDatabase implements IDatabase {
 				ResultSet resultSet1 = null;
 				ResultSet resultSet2 = null;
 				Module module = new Module();
-				int data_id;
+				int location_id;
 				
 				try {
 					stmt1 = conn.prepareStatement(
@@ -407,16 +407,14 @@ public class DerbyDatabase implements IDatabase {
 			
 					}
 					
-					data_id = module.getDataId();
-					
-					System.out.println(data_id);
+					location_id = module.getLocationId();
 					
 					stmt2 = conn.prepareStatement(
 							"select * from data " +
-							" where data.data_id = ?"
+							" where data.location_id = ?"
 					);
 					
-					stmt2.setInt(1, data_id);
+					stmt2.setInt(1, location_id);
 					
 					List<Module> result2 = new ArrayList<Module>();
 					
@@ -425,9 +423,10 @@ public class DerbyDatabase implements IDatabase {
 					while (resultSet2.next()) {
 						found = true;
 						
-						loadData(module, resultSet2, 1);
+						Module returnModule = new Module();
+						loadData(returnModule, resultSet2, 1);
 						
-						result.add(module);
+						result.add(returnModule);
 					}
 					
 					// check if any authors were found
@@ -621,6 +620,8 @@ public class DerbyDatabase implements IDatabase {
 	}
 
 	private void loadData(Module module, ResultSet resultSet, int index) throws SQLException {	
+		module.setDataId(resultSet.getInt(index++));
+		module.setLocationId(resultSet.getInt(index++));
 		module.setAQI(resultSet.getString(index++));
 		module.setMainPol(resultSet.getString(index++));
 		module.setHumidity(resultSet.getString(index++));
