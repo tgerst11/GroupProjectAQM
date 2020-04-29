@@ -2,50 +2,35 @@ package edu.ycp.cs320.lab02a_tgerst.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.ycp.cs320.lab02a_tgerst.controller.ModuleController;
+import edu.ycp.cs320.lab02a_tgerst.model.Module;
+
 
 public class ModuleDataLancasterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private ModuleController controller = null;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		ArrayList<String> Location = new ArrayList();
-		Location.add("35.6762° N");
-		Location.add("139.6503° E");
-		Location.add("5,000 feet");
+		List<Module> data = null;
 		
-		ArrayList<String> Reading = new ArrayList();
-		Reading.add("0.04%");
-		Reading.add("78%");
-		Reading.add("21%");
-		Reading.add("0.9%");
-		Reading.add("0.000187%");
-		Reading.add("0.0018%");
-		Reading.add("0.0005%");
-		Reading.add("0.0001%");
+		controller = new ModuleController();
 		
-
+		String module_name = "Lancaster";
 		
-		req.setAttribute("location0", Location.get(0));
-		req.setAttribute("location1", Location.get(1));
-		req.setAttribute("location2", Location.get(2));
+		data = controller.getModuleData(module_name);
 		
-		req.setAttribute("reading0", Reading.get(0));
-		req.setAttribute("reading1", Reading.get(1));
-		req.setAttribute("reading2", Reading.get(2));
-		req.setAttribute("reading3", Reading.get(3));
-		req.setAttribute("reading4", Reading.get(4));
-		req.setAttribute("reading5", Reading.get(5));
-		req.setAttribute("reading6", Reading.get(6));
-		req.setAttribute("reading7", Reading.get(7));
-
+		req.setAttribute("data",  data);
 
 		System.out.println("ModuleData Servlet: doGet");	
 		
