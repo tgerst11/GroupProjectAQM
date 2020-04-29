@@ -410,11 +410,12 @@ public class DerbyDatabase implements IDatabase {
 					location_id = module.getLocationId();
 					
 					stmt2 = conn.prepareStatement(
-							"select * from data " +
-							" where data.location_id = ?"
+							"select * from data, locations " +
+							" where data.location_id = ? and locations.location_id = ? "
 					);
 					
 					stmt2.setInt(1, location_id);
+					stmt2.setInt(2, location_id);
 					
 					List<Module> result2 = new ArrayList<Module>();
 					
@@ -425,6 +426,11 @@ public class DerbyDatabase implements IDatabase {
 						
 						Module returnModule = new Module();
 						loadData(returnModule, resultSet2, 1);
+						
+						Location returnLocation = new Location();
+						loadLocation(returnLocation, resultSet2, 11);
+						
+						returnModule.setCoordinates(returnLocation.getCoordinates());
 						
 						result.add(returnModule);
 					}
