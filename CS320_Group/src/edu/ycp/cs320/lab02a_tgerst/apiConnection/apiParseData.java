@@ -76,7 +76,7 @@ public void call() throws Exception{
 		mod.setState(state.toString());
 		mod.setCountry(country.toString());
 		mod.setCoordinates(coordinates.toString());
-		mod.setTime(timestamp.toString());
+		mod.setTimeStamp(timestamp.toString());
 		mod.setTemperature(temp.toString());
 		mod.setAQI(aqi.toString());
 		mod.setPressure(pressure.toString());

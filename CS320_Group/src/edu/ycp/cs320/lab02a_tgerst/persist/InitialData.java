@@ -68,7 +68,7 @@ public class InitialData {
 					data.setWindDir(i.next());
 					data.setPressure(i.next());
 					data.setTemperature(i.next());
-					data.setTime(i.next());
+					data.setTimeStamp(i.next());
 					dataList.add(data);
 				}
 				System.out.println("dataList loaded from CSV file");			

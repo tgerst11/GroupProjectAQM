@@ -346,8 +346,8 @@ h2 a {
 			<tbody>
 				<c:forEach items="${data}" var="point">
 					<tr>
-						<td>4/27</td>
-						<td>00:51:22</td>
+						<td>${point.date}</td>
+						<td>${point.time}</td>
 						<td>${point.AQI}</td>
 						<td>${point.mainPol}</td>
 						<td>${point.humidity}</td>

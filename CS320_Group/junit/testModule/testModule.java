@@ -58,7 +58,7 @@ public class testModule {
 		banana.setState(state);
 		banana.setStatus(status);
 		banana.setTemperature(temp);
-		banana.setTime(time);
+		banana.setTimeStamp(time);
 		banana.setWindDir(windDir);
 		banana.setWindSpeed(windSpeed);
 		banana.setCountry(country);
@@ -116,7 +116,7 @@ public class testModule {
 	
 	@Test
 	public void testTime() {
-		assertEquals(banana.getTime(), time);
+		assertEquals(banana.getTimeStamp(), time);
 	}
 	
 	@Test

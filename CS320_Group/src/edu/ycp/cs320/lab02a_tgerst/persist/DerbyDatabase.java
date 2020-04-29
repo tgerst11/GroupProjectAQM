@@ -223,7 +223,7 @@ public class DerbyDatabase implements IDatabase {
 						insertData.setString(6, module.getWindDir());
 						insertData.setString(7, module.getPressure());
 						insertData.setString(8, module.getTemp());
-						insertData.setString(9, module.getTime());
+						insertData.setString(9, module.getTimeStamp());
 						insertData.addBatch();
 					}
 					insertData.executeBatch();
@@ -629,7 +629,7 @@ public class DerbyDatabase implements IDatabase {
 		module.setWindDir(resultSet.getString(index++));
 		module.setPressure(resultSet.getString(index++));
 		module.setTemperature(resultSet.getString(index++));
-		module.setTime(resultSet.getString(index++));
+		module.setTimeStamp(resultSet.getString(index++));
 		
 	}
 }

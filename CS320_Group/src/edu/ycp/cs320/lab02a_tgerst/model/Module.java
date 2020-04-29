@@ -10,7 +10,7 @@ public class Module {
 	private String status, name;
 	private String coordinates, windSpeed, windDir, humidity,pressure, AQI, temp, city, state, country, mainPol;
 	//private java.sql.Timestamp time;
-	private String time;
+	private String timestamp, time, date;
 	
 	//constructor
 	public Module() {
@@ -123,8 +123,37 @@ public class Module {
 	}
 	
 	//timestamp
-	public void setTime(String timeStamp) {
-		this.time = timeStamp;
+	public void setTimeStamp(String timeStamp) {
+		this.timestamp = timeStamp;
+	}
+	
+	public String getTimeStamp() {
+		return timestamp;
+	}
+	
+	public void setTimeAndDate(String timeStamp){
+		int i = 0;
+		int charAt = 0;
+		char c;
+		String date;
+		
+		while(charAt == 0) {
+			c = timeStamp.charAt(i);
+			
+			if(c != '1' && c != '2' && c != '3' && c != '4' && c != '5' && c != '6' && c != '7' && c != '8' && c != '9' && c != '0' && c != '-')
+			{
+				charAt = i;
+			}
+			
+			i++;
+		}
+		
+		this.date = timeStamp.substring(0, charAt);
+		this.time = timeStamp.substring(charAt + 1, timeStamp.length() - 1);
+	}
+	
+	public String getDate() {
+		return date;
 	}
 	
 	public String getTime() {
@@ -146,22 +175,6 @@ public class Module {
 	}
 	public String getWindSpeed() {
 		return windSpeed;
-	}
-	
-	
-	//supplemental from UML diagram. Still needed?
-
-	public void readSensorData() {
-		// TODO: Implement
-	}
-	
-	public void testData() {
-		// TODO: Implement
-	}
-
-	public void setModuleId(int id) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 }
