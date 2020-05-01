@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.ycp.cs320.lab02a_tgerst.model.Data;
+import edu.ycp.cs320.GroupAQM.model.Data;
 
 public class testData {
 	

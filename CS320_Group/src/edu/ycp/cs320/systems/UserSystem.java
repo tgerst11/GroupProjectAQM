@@ -2,7 +2,7 @@ package edu.ycp.cs320.systems;
 
 import java.util.HashMap;
 
-import edu.ycp.cs320.lab02a_tgerst.model.Admin;
+import edu.ycp.cs320.GroupAQM.model.Admin;
 
 class UserSystem {
 	private Admin admin;

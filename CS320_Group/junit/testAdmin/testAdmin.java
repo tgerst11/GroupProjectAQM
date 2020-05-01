@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.ycp.cs320.lab02a_tgerst.model.Admin;
+import edu.ycp.cs320.GroupAQM.model.Admin;
 
 public class testAdmin{
 	private Admin user;

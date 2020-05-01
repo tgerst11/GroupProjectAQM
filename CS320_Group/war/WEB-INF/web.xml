@@ -8,37 +8,37 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>HomePageServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.HomePageServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.HomePageServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ModuleDataHarrisburgServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleDataHarrisburgServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleDataHarrisburgServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ModuleDataYorkServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleDataYorkServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleDataYorkServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ModuleDataHersheyServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleDataHersheyServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleDataHersheyServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ModuleDataLancasterServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleDataLancasterServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleDataLancasterServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ModuleListServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ModuleListServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleListServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>AddModuleServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.AddModuleServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.AddModuleServlet</servlet-class>
   </servlet>
   
   <!-- AJAX servlets. -->
   <servlet>
     <servlet-name>ModuleDataAjaxServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02a_tgerst.servlet.ajax.ModuleDataAjaxServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ajax.ModuleDataAjaxServlet</servlet-class>
   </servlet>
 
   <!-- Servlet mappings -->

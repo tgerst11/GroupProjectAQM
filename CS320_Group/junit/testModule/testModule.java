@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.ycp.cs320.lab02a_tgerst.apiConnection.apiParseData;
-import edu.ycp.cs320.lab02a_tgerst.model.Location;
-import edu.ycp.cs320.lab02a_tgerst.model.Module;
+import edu.ycp.cs320.GroupAQM.apiConnection.apiParseData;
+import edu.ycp.cs320.GroupAQM.model.Location;
+import edu.ycp.cs320.GroupAQM.model.Module;
 
 public class testModule {
 		

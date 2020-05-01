@@ -11,10 +11,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import edu.ycp.cs320.lab02a_tgerst.model.Module;
-import edu.ycp.cs320.lab02a_tgerst.persist.DatabaseProvider;
-import edu.ycp.cs320.lab02a_tgerst.persist.DerbyDatabase;
-import edu.ycp.cs320.lab02a_tgerst.persist.IDatabase;
+import edu.ycp.cs320.GroupAQM.model.Module;
+import edu.ycp.cs320.GroupAQM.persist.DatabaseProvider;
+import edu.ycp.cs320.GroupAQM.persist.DerbyDatabase;
+import edu.ycp.cs320.GroupAQM.persist.IDatabase;
 
 public class DataQueryByLocation {
 

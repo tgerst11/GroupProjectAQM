@@ -2,7 +2,7 @@ package edu.ycp.cs320.systems;
 
 import java.util.ArrayList;
 
-import edu.ycp.cs320.lab02a_tgerst.model.Module;
+import edu.ycp.cs320.GroupAQM.model.Module;
 
 public class ServerSystem {
 	private Module module;
