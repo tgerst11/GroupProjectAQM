@@ -221,17 +221,18 @@ h2 a {
 	float: bottom;
 	text-align: left;
 	overflow: hidden;
-	width: 80%;
+	width: 87%;
 	margin-top: 150px;
     display: table;
     background-color:black;
     opacity: 0.9;
+    table-layout: fixed;
 }
 
 .container td, .container th {
 	padding-bottom: 2%;
 	padding-top: 2%;
-  	padding-left:2%;  
+  	padding-left:1%;  
 }
 
 /* Background-color of the odd rows */
