@@ -66,7 +66,7 @@
         			*/
         			background-color:#00000;
         	
-        			background-image: url(././images/harrisburgpic.jpg);
+        			background-image: url(././images/homebak.jpg);
         			/*
         			change depending on place?
         			*/
@@ -86,8 +86,9 @@
 			font-size: 200%;
             font-weight: bold;
 			margin-bottom: 20px;
+			padding-bottom: 6px;
             border-bottom: 3px solid black;
-            color: white;
+            color: black;
 		}
 		#data{
 			margin-left: 200px;
