@@ -39,4 +39,21 @@ public class ModuleController {
 		return moduleList;
 	}
 	
+	public List<Module> getAllModules(){
+		IDatabase db = DatabaseProvider.getInstance();
+		List<Module> modules = db.findAllModules();
+		
+		if(modules.isEmpty()) {
+			System.out.println("No modules in the database");
+		}
+		else {
+			for (Module module : modules) {
+				//print the tings here
+				System.out.println(module.getName());
+			}
+		}
+		return modules;
+		
+	}
+	
 }

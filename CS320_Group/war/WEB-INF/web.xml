@@ -11,8 +11,8 @@
     <servlet-class>edu.ycp.cs320.GroupAQM.servlet.HomePageServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>ModuleDataHarrisburgServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleDataHarrisburgServlet</servlet-class>
+    <servlet-name>ModuleDataServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleDataServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ModuleDataYorkServlet</servlet-name>
@@ -47,8 +47,8 @@
     <url-pattern>/homePage</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>ModuleDataHarrisburgServlet</servlet-name>
-    <url-pattern>/moduleDataHarrisburg</url-pattern>
+    <servlet-name>ModuleDataServlet</servlet-name>
+    <url-pattern>/moduleData</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ModuleDataYorkServlet</servlet-name>

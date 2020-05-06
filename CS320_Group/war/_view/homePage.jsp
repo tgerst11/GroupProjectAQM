@@ -3,9 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <html>
-	<head>
-		<title>Home Page of the York College AQM</title>
-		
+
+
+		<head>
 		<style type="text/css">
 		
                 
@@ -25,6 +25,7 @@
                 box-sizing: border-box;
                 background: rgba(0,0,0,0.5);
                 padding: 100px;
+                float: left;
                 }
                 
                 h3{
@@ -76,6 +77,18 @@
                 color: #000000;
                 font-size: 15px;
                 background-color: lightblue;
+               
+                cursor: pointer;
+                border-radius:20px;
+                }
+                .check input[type = submit]{
+                border:none;
+                height: 40px;
+                outline:none;
+                color: #000000;
+                font-size: 15px;
+                background-color: lightblue;
+               
                 cursor: pointer;
                 border-radius:20px;
                 }
@@ -83,8 +96,13 @@
                 .form-area input[type=submit]:hover{
                 background-color: gray;
                 color:#ffffff;
+           
                 
-                
+                }
+                .check input[type=submit]:hover{
+                background-color: gray;
+                color:#ffffff;
+        
                 }
                 .form-area a{
                 color:#fffffff;
@@ -96,10 +114,11 @@
         		body{
         			width:100%;
         			height:100%;
-        			height: 768px;
+        			height:700px;
+        			width: 1024px;
         			background-size:cover;
         			/*background-color:#00000;*/
-        			background-image: url(././images/background.jpg);
+        			background-image: url(././images/homebak.jpg);
         			background-repeat:no-repeat;  
         			
         			/*
@@ -109,12 +128,7 @@
         			*/
       		
         		}
-        				
-        		.header{
-        			padding: 0px;
-        		
-        
-        		}
+        			
         		
         		ul{
         			margin: 0px;
@@ -177,48 +191,81 @@
         			display: block;
         		}
         		
-        		.logo{
-        			width:5px;
-    				padding-top: 5px;
-    				padding-left: 0px;
-    				padding-bottom: 0px;
-        		}
-        		
-      
-        		
-        		.welcome{
-        			position: absolute;
-        			right: 100px;
-        			left: 700px;
-        			top: 250px;
-        			text-align: center;
-        			font-weight: bold;
-        			font-family: arial;
-        			font-size: 70px;
-        		}
       
         		#login {
         			float: left;
         			font-weight: bold;
         		}
-        		.select{
-        		position:absolute;
-     			top:40%;
-                left:60%;
-        		
+
+        		.footer{
+        		background-opacity: 50%;
+        		position: fixed;
+        		left:0;
+        		bottom:0;
+        		width: 100%;
+        		font-family: sans-serif;
+        		font-size: 10px;
+        		text-align: center;
+        		color: white;
+        		background: rgba(255,255,255,0.3);
         		
         		}
         		
+        		.header{
+        		background: rgba(0,0,0,0.5);
+        		position: fixed;
+        		left:0;
+        		top:20px;
+        		width: 100%;
+        		font-family: Tahoma;
+        		color: white;
+        		text-align: center;
+        		font-size: 50px;
+        		padding: 10px;
+        	
+        		}
+        		
+        		.check{
+        		font-family: Tahoma;
+                position: absolute;
+                top:50%;
+               	left: 70%;
+                transform: translate(-50%,-50%);
+                box-sizing: border-box;
+                background: rgba(0,0,0,0.5);
+                padding:40px;
+                float: left;
+           
+        		}
+        		.module{
+        		margin:0;
+                text-align: center;
+                font-weight: bold;
+                color: #ffffff;
+                margin-bottom: 30px;
+        		}
+     			
+     			.radio{
+     			color: white;
+     			margin-right: 0;
+     			padding-left: 10px;
+     			}
+     		
+     			
+        		
         </style>
 
+	<title>Home Page of the York College AQM</title>
+	
 		
 	</head>
 
 	<body>
-	
-	<div class = "header">
+	<div class= "header">
+		Real-time &amp; Historical Air Quality Reports
+		</div>
 		
-		
+		 <!--
         <ul>
         <div class = "select">
         <li> <a href = "${pageContext.servletContext.contextPath}/moduleList"> Module List </a>
@@ -233,7 +280,7 @@
        </ul>
       
        
-      <!--  
+     
       <div class = "logo">
 		<img src = "<c:url value = '././images/logo.JPG'/>" alt = "AQM Logo" width= "100"/>
 		</div>
@@ -248,15 +295,32 @@
 				<input name="direct" type="submit" value="Module List" />
 		</form>
 		-->
-		</div>
+	
 		<div class = "form-area">
 	
-		<form action="${pageContext.servletContext.contextPath}/homePage" method="post">
+		<form action="${pageContext.servletContext.contextPath}/moduleData" method="post">
 		<p>Username:</p>
 		<input type="text" name="username" placeholder="Enter username" size="12" value="${username}"/>
 		<p>Password:</p>
 		<input type="text" name="password" placeholder="Enter password" size="12" value="${password}" />
 		<input type="submit" name = "submit" value= "Sign In">
+		</form>
+		</div>
+	
+		<div class = "check">
+		<div class = "module">
+		 Select a Module
+		 </div>
+		<form action="${pageContext.servletContext.contextPath}/moduleData" method= "get">
+		<c:forEach items="${modules}" var="module">
+		 <div class = "radio">
+		  <input type="radio" id="${module.name}" name="module" value="${module.name}"> <!-- change value to be the city -->
+		  <label for="${module.name}">${module.name}</label><br>
+		  <br>
+		  </div>
+		  </c:forEach>
+		  
+		  <input type="submit" name = "submit" value= "Choose Selected Modules" >
 		</form>
 		<!-- 
 		<form action="${pageContext.servletContext.contextPath}/homePage" method="post">
@@ -285,8 +349,13 @@
 		</div>
 		<form action="${pageContext.servletContext.contextPath}/homePage" method="post">
 			</form>
-		
+	
 			
 
 	</body>
+	
+	<div class = "footer">
+	<p>Made with &lt;3 by a team of 4 York College of Pennsylvania CS320 Spring 2020 Students: David, Dylan, Mikayla, and Trevor</p>
+	</div>
+	
 </html>

@@ -314,7 +314,7 @@ public class DerbyDatabase implements IDatabase {
 						result.add(module);
 					}
 					
-					// check if any authors were found
+					// check if any modules were found
 					if (!found) {
 						System.out.println("No modules were found in the database");
 					}

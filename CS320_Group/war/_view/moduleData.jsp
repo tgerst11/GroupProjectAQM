@@ -280,7 +280,7 @@ h2 a {
 
 	<body>
 	<div id="header">
-				Module Data Harrisburg, PA
+				Module Data ${moduleName}
 			</div>
 	<div class = "header">
         <ul>

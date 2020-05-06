@@ -13,7 +13,7 @@ import edu.ycp.cs320.GroupAQM.controller.ModuleController;
 import edu.ycp.cs320.GroupAQM.model.Module;
 
 
-public class ModuleDataHarrisburgServlet extends HttpServlet {
+public class ModuleDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private ModuleController controller = null;
@@ -23,18 +23,20 @@ public class ModuleDataHarrisburgServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		List<Module> data = null;
-		
 		controller = new ModuleController();
 		
-		String module_name = "Harrisburg";
+		String module_name = req.getParameter("module");
+		
+		System.out.println(module_name);
 		
 		data = controller.getModuleData(module_name);
 		
 		req.setAttribute("data",  data);
+		req.setAttribute("moduleName", module_name);
+		System.out.println("ModuleData Servlet: doGet");
+		System.out.println(module_name);
 		
-		System.out.println("ModuleData Servlet: doGet");	
-		
-		req.getRequestDispatcher("/_view/moduleDataHarrisburg.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/moduleData.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -45,7 +47,7 @@ public class ModuleDataHarrisburgServlet extends HttpServlet {
 		
 		
 		// Forward to view to render the result HTML document
-		req.getRequestDispatcher("/_view/moduleDataHarrisburg.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/moduleData.jsp").forward(req, resp);
 	}
 	
 }
