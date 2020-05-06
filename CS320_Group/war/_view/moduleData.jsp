@@ -223,7 +223,8 @@ h2 a {
     display: table;
     background-color:black;
     opacity: 0.9;
-     table-layout: fixed;
+    table-layout: fixed;
+    padding-bottom: 20px;
 }
 
 .container td, .container th {
@@ -323,5 +324,110 @@ h2 a {
 				</c:forEach>
 			</tbody>
 		</table>
+		<script>
+			window.onload = function () {
+
+			var chart = new CanvasJS.Chart("chartContainer", {
+			theme:"light2",
+			animationEnabled: true,
+			title:{
+				text: "Data History"
+			},
+			axisY :{
+				includeZero: false,
+
+			},
+			toolTip: {
+				shared: "true"
+			},
+			legend:{
+				cursor:"pointer",
+				itemclick : toggleDataSeries
+			},
+			data: [{
+				type: "spline",
+				visible: false,
+				showInLegend: true,
+				yValueFormatString: "##.00mn",
+				name: "AQI",
+				dataPoints: [
+					<c:forEach items="${data}" var="point">
+	            		{ label: ${point.date}, y: ${point.AQI} }
+					</c:forEach>
+				]
+			},
+			{
+				type: "spline", 
+				showInLegend: true,
+				visible: false,
+				yValueFormatString: "##.00mn",
+				name: "Humidity",
+				dataPoints: [
+					<c:forEach items="${data}" var="point">
+	            		{ label: ${point.date}, y: ${point.humidity} }
+					</c:forEach>
+				]
+			},
+			{
+				type: "spline",
+				visible: false,
+				showInLegend: true,
+				yValueFormatString: "##.00mn",
+				name: "Wind Speed",
+				dataPoints: [
+					<c:forEach items="${data}" var="point">
+	            		{ label: ${point.date}, y: ${point.windSpeed} }
+					</c:forEach>
+				]
+			},
+			{
+				type: "spline", 
+				showInLegend: true,
+				yValueFormatString: "##.00mn",
+				name: "Wind Direction",
+				dataPoints: [
+					<c:forEach items="${data}" var="point">
+	            		{ label: ${point.date}, y: ${point.windDir} }
+					</c:forEach>
+				]
+			},
+			{
+				type: "spline", 
+				showInLegend: true,
+				yValueFormatString: "##.00mn",
+				name: "Pressure",
+				dataPoints: [
+					<c:forEach items="${data}" var="point">
+	            		{ label: ${point.date}, y: ${point.pressure} }
+					</c:forEach>
+				]
+			},
+			{
+				type: "spline", 
+				showInLegend: true,
+				yValueFormatString: "##.00mn",
+				name: "Temperature",
+				dataPoints: [
+					<c:forEach items="${data}" var="point">
+	            		{ label: ${point.date}, y: ${point.temp} }
+					</c:forEach>
+				]
+			}]
+	});
+	chart.render();
+
+	function toggleDataSeries(e) {
+		if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){
+			e.dataSeries.visible = false;
+		} else {
+			e.dataSeries.visible = true;
+		}
+	chart.render();
+	}
+
+	}
+	</script>
+	<div id="chartContainer" style="height: 370px; width: 75%; margin-left:250px; padding-top:10px;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	</body>
 </html>
