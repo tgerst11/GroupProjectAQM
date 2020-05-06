@@ -43,9 +43,7 @@ public class ModuleDataServlet extends HttpServlet {
 		//now we have a module (mod) that has the new information 
 		controller.addData(mod);
 		
-		controller.getModuleData(module_name);
-		
-		
+		data = controller.getModuleData(module_name);
 		
 		req.setAttribute("data",  data);
 		req.setAttribute("moduleName", module_name);

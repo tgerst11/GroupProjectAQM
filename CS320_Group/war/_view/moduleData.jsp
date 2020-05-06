@@ -82,7 +82,7 @@
 				name: "AQI",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
-	            		{ label: ${point.date}, y: ${point.AQI} }
+	            		{ label: ${point.date}, y: ${point.AQI} },
 					</c:forEach>
 				]
 			},
@@ -94,7 +94,7 @@
 				name: "Humidity",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
-	            		{ label: ${point.date}, y: ${point.humidity} }
+	            		{ label: ${point.date}, y: ${point.humidity} },
 					</c:forEach>
 				]
 			},
@@ -106,7 +106,7 @@
 				name: "Wind Speed",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
-	            		{ label: ${point.date}, y: ${point.windSpeed} }
+	            		{ label: ${point.date}, y: ${point.windSpeed} },
 					</c:forEach>
 				]
 			},
@@ -117,7 +117,7 @@
 				name: "Wind Direction",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
-	            		{ label: ${point.date}, y: ${point.windDir} }
+	            		{ label: ${point.date}, y: ${point.windDir} },
 					</c:forEach>
 				]
 			},
@@ -128,7 +128,7 @@
 				name: "Pressure",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
-	            		{ label: ${point.date}, y: ${point.pressure} }
+	            		{ label: ${point.date}, y: ${point.pressure} },
 					</c:forEach>
 				]
 			},
@@ -139,7 +139,7 @@
 				name: "Temperature",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
-	            		{ label: ${point.date}, y: ${point.temp} }
+	            		{ label: ${point.date}, y: ${point.temp} },
 					</c:forEach>
 				]
 			}]
@@ -157,7 +157,6 @@
 
 	}
 	</script>
-	<div id="chartContainer" style="height: 370px; width: 75%; margin-left:250px; padding-top:10px;"></div>
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	</body>
 </html>

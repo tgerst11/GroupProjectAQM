@@ -243,3 +243,5 @@
      			.error {
 					color: red;
 				}
+				
+				<div id="chartContainer" style="height: 370px; width: 75%; margin-left:250px; padding-top:10px;"></div>
