@@ -56,4 +56,12 @@ public class ModuleController {
 		
 	}
 	
+	public void addData(Module mod) {
+		IDatabase db = DatabaseProvider.getInstance();
+		int status = db.insertData(mod.getCity(), mod.getCoordinates(), mod.getState(), mod.getCountry(), mod.getTimeStamp(), mod.getTemp(), mod.getPressure(), mod.getHumidity(), mod.getWindSpeed(), mod.getWindDir(), mod.getAQI(), mod.getMainPol());
+		if (status != 0) {
+			System.out.println("New module data added successfully!");
+		}
+	}
+	
 }

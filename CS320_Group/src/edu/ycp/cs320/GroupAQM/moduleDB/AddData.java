@@ -18,8 +18,7 @@ public class AddData {
 		controller.setModel(mod);
 		
 		try {
-			//add string for city
-			//controller.call();
+			controller.call(mod.getCity());
 			} 
 			catch (Exception e){
 				
@@ -53,8 +52,8 @@ public class AddData {
 		controller.setModel(mod);
 		
 		try {
-			//add string for city
-			//controller.call();
+		
+			controller.call(mod.getCity());
 			} 
 			catch (Exception e){
 				
