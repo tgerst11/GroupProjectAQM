@@ -10,10 +10,17 @@ import edu.ycp.cs320.GroupAQM.moduleDB.AddData;
 //import org.eclipse.jetty.server.Server;
 
 public class RunData {
+	@SuppressWarnings("null")
 	public static void main(String[] args) throws Exception {
 		
 		Scanner keyboard = new Scanner(System.in);
 		int hours = -1;
+		String city[] = new String[4];
+		city[0] = "Harriburg";
+		city[1] = "Hershey";
+		city[2] = "York";
+		city[3] = "Lancaster";
+		
 		
 		System.out.print("How many hours would you like this to run? (0 for infinite): ");
 		hours = keyboard.nextInt();
@@ -25,10 +32,15 @@ public class RunData {
 		
 		while(hours > counter || hours == 0)
 		{
-			System.out.println(AddData.addData(which));
 			counter ++;
-			//TimeUnit.SECONDS.sleep(5);
-			TimeUnit.HOURS.sleep(1);
+
+			for(String c : city)
+			{
+			System.out.println(AddData.addData(which));
+			System.out.println(c);
+			}
+			TimeUnit.SECONDS.sleep(5);
+			//TimeUnit.HOURS.sleep(1);
 		}
 	}
 }
