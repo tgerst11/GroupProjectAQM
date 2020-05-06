@@ -1,0 +1,19 @@
+.error {
+				color: red;
+				font-weight: bold;
+			}
+			
+			.success {
+				color: blue;
+				font-weight: bold;
+			}
+			
+			.success_title {
+				color: darkblue;
+				font-style: italic;
+				font-weight: bold;			
+			}
+			
+			tr.label {
+				text-align: right;
+			}

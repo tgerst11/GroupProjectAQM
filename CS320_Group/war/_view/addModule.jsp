@@ -6,26 +6,8 @@
 	<head>
 		<title>Add Module</title>
 		<style type="text/css">
-			.error {
-				color: red;
-				font-weight: bold;
-			}
-			
-			.success {
-				color: blue;
-				font-weight: bold;
-			}
-			
-			.success_title {
-				color: darkblue;
-				font-style: italic;
-				font-weight: bold;			
-			}
-			
-			tr.label {
-				text-align: right;
-			}
-		</style>
+		<%@include file="/addModule.css"%>
+	</style>
 	</head>
 
 	<body>
