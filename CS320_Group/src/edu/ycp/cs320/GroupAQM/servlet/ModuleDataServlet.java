@@ -44,8 +44,6 @@ public class ModuleDataServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		System.out.println("ModuleData Servlet: doPost");
-		
-		
 		// Forward to view to render the result HTML document
 		req.getRequestDispatcher("/_view/moduleData.jsp").forward(req, resp);
 	}

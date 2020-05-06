@@ -251,7 +251,9 @@
      			padding-left: 10px;
      			}
      		
-     			
+     			.error {
+					color: red;
+				}
         		
         </style>
 
@@ -261,6 +263,7 @@
 	</head>
 
 	<body>
+	
 	<div class= "header">
 		Real-time &amp; Historical Air Quality Reports
 		</div>
@@ -298,13 +301,16 @@
 	
 		<div class = "form-area">
 	
-		<form action="${pageContext.servletContext.contextPath}/moduleData" method="post">
+		<form action="${pageContext.servletContext.contextPath}/homePage" method="post">
 		<p>Username:</p>
 		<input type="text" name="username" placeholder="Enter username" size="12" value="${username}"/>
 		<p>Password:</p>
 		<input type="text" name="password" placeholder="Enter password" size="12" value="${password}" />
-		<input type="submit" name = "submit" value= "Sign In">
+		<input type="submit" name = "login" value= "Sign In">
 		</form>
+		<c:if test="${! empty errorMessage}">
+			<div class="error">${errorMessage}</div>
+		</c:if>
 		</div>
 	
 		<div class = "check">

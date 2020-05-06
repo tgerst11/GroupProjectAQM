@@ -15,22 +15,6 @@
     <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleDataServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>ModuleDataYorkServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleDataYorkServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ModuleDataHersheyServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleDataHersheyServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ModuleDataLancasterServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleDataLancasterServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ModuleListServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.GroupAQM.servlet.ModuleListServlet</servlet-class>
-  </servlet>
-  <servlet>
     <servlet-name>AddModuleServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.GroupAQM.servlet.AddModuleServlet</servlet-class>
   </servlet>
@@ -49,22 +33,6 @@
   <servlet-mapping>
     <servlet-name>ModuleDataServlet</servlet-name>
     <url-pattern>/moduleData</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ModuleDataYorkServlet</servlet-name>
-    <url-pattern>/moduleDataYork</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ModuleDataHersheyServlet</servlet-name>
-    <url-pattern>/moduleDataHershey</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ModuleDataLancasterServlet</servlet-name>
-    <url-pattern>/moduleDataLancaster</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ModuleListServlet</servlet-name>
-    <url-pattern>/moduleList</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AddModuleServlet</servlet-name>

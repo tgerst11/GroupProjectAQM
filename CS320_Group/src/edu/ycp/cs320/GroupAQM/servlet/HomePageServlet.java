@@ -1,6 +1,7 @@
 package edu.ycp.cs320.GroupAQM.servlet;
 
 import java.io.IOException;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,7 +16,8 @@ import edu.ycp.cs320.GroupAQM.model.Module;
 
 public class HomePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	private Admin model;
+	private adminController admincontroller = null;
 	private ModuleController controller = null;
 	
 	@Override
@@ -42,57 +44,78 @@ public class HomePageServlet extends HttpServlet {
 		
 		System.out.println("Home page Servlet: doPost");
 		
-		//implement when we have the persistant admin data working
-		//adminController controller = new adminController(password, password);
-
-		// holds the error message text, if there is any
+		
 		String errorMessage = null;
+		String name         = null;
+		String pw           = null;
+		boolean validLogin  = false;
 
+		// Decode form parameters and dispatch to controller
+		name = req.getParameter("username");
+		pw   = req.getParameter("password");
 		
-		// decode POSTed form parameters and dispatch to controller
-	
+		System.out.println("   Name: <" + name + "> PW: <" + pw + ">");			
 
-			String city = req.getParameter("module");
-			String username = getStringFromParameter(req,"username");
-			String password = getStringFromParameter(req,"password");
+		if (name == null || pw == null || name.equals("") || pw.equals("")) {
+			errorMessage = "Please specify both user name and password";
+			System.out.println("Incomplete");
+			req.setAttribute("username", req.getParameter("username"));
+			req.setAttribute("password", req.getParameter("password"));
+
+			// Add result objects as request attributes
+			req.setAttribute("errorMessage", errorMessage);
 			
-			System.out.println(username);
-			System.out.println(password);
-			System.out.println(city);
+			List<Module> modules = null;
+			controller = new ModuleController();
+			modules = controller.getAllModules();
+			req.setAttribute("modules",  modules);
 			
-			
-			// check for errors in the form data before using is in a calculation
-			if (username == null || password == null) {
-				errorMessage = "Please specify both the username and password";
-			}
-			// otherwise, data is good, do the calculation
-			// must create the controller each time, since it doesn't persist between POSTs
-			// the view does not alter data, only controller methods should be used for that
-			// thus, always call a controller method to operate on the data
+			req.getRequestDispatcher("/_view/homePage.jsp").forward(req, resp);
+		} else {
+			model      = new Admin();
+			admincontroller = new adminController(model);
+			validLogin = admincontroller.validateCredentials(name, pw);
+
+			if (!validLogin) {
+				System.out.println("Invalid Login");
+				errorMessage = "Username and/or password invalid";
+				req.setAttribute("username", req.getParameter("username"));
+				req.setAttribute("password", req.getParameter("password"));
+
+				// Add result objects as request attributes
+				req.setAttribute("errorMessage", errorMessage);
 				
-			//check to see if the user has tried to log in first
-			if(username == "admin" && password == "p@ssword")
-			{
-				req.getRequestDispatcher("/_view/addModule.jsp").forward(req, resp);
-				System.out.println("ADMIN PAGE");
-			}	
-			
-			
-			//otherwise continue to pass the city to the moduleData page
-		
-			
-			
-			
-		// add result objects as attributes
-		// this adds the errorMessage text and the result to the response
-		//req.setAttribute("errorMessage", errorMessage);
-		//req.setAttribute("result", result);
-		
-		// Forward to view to render the result HTML document
-		
-		req.setAttribute("module", city);
-		req.getRequestDispatcher("/_view/moduleData.jsp").forward(req, resp);
+				List<Module> modules = null;
+				controller = new ModuleController();
+				modules = controller.getAllModules();			
+				req.setAttribute("modules",  modules);
+				
+				req.getRequestDispatcher("/_view/homePage.jsp").forward(req, resp);
 
+				return;
+			}
+		}
+
+		// Add parameters as request attributes
+		req.setAttribute("username", req.getParameter("username"));
+		req.setAttribute("password", req.getParameter("password"));
+
+		// Add result objects as request attributes
+		req.setAttribute("errorMessage", errorMessage);
+
+		// if login is valid, start a session
+		if (validLogin) {
+			System.out.println("   Valid login - starting session, redirecting to /addModule");
+
+			// store user object in session
+			req.getSession().setAttribute("user", name);
+
+			// redirect to /index page
+			resp.sendRedirect(req.getContextPath() + "/addModule");
+
+			return;
+		}
+	
 	}
 	
 	private String getStringFromParameter(HttpServletRequest req, String name) {

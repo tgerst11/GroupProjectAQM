@@ -12,6 +12,7 @@
 		
 		header{
         			padding: 0px;
+        			color: white;
 
         		}
         		
@@ -82,10 +83,11 @@
 		}
 		#header{
 			
-			font-size: 150%;
+			font-size: 200%;
             font-weight: bold;
 			margin-bottom: 20px;
-            border-bottom: 2px solid black;
+            border-bottom: 3px solid black;
+            color: white;
 		}
 		#data{
 			margin-left: 200px;
@@ -280,55 +282,14 @@ h2 a {
 
 	<body>
 	<div id="header">
-				Module Data ${moduleName}
+				Module Data: ${moduleName}
 			</div>
 	<div class = "header">
         <ul>
-        <li> <a href = "${pageContext.servletContext.contextPath}/moduleList"> Module List </a>
-        	<ul>
-	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataHarrisburg"> Harrisburg, PA </a></li>
-	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataYork"> York, PA </a></li>
-	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataHershey"> Hershey, PA </a></li>
-	        	<li> <a href = "${pageContext.servletContext.contextPath}/moduleDataLancaster"> Lancaster, PA </a></li>
-        	</ul>
         <li> <a href = "${pageContext.servletContext.contextPath}/homePage"> Home </a></li>
        </ul>
 	
-	</div>
-	
-		<div id = "login">
-			<form action="${pageContext.servletContext.contextPath}/addModule" method="get">
-				<table>
-					<tr>
-						<td class="label">Username:</td>
-						<td><input type="text" name="first" size="12" value="${login.username}" /></td>
-					</tr>
-					<tr>
-						<td class="label">Password:</td>
-						<td><input type="text" name="second" size="12" value="${login.password}" /></td>
-					</tr>
-				</table>
-				<input type="Submit" name="submit" value="Login">
-			</form>
-		</div>
-		
-		<!--
-		<div id = "button">
-			<form action="${pageContext.servletContext.contextPath}/homePage" method="get">
-					<input name="direct" type="submit" value="Home Page" />
-			</form>
-		</div>
-		<div id = "button">
-			<form action="${pageContext.servletContext.contextPath}/moduleList" method="get">
-					<input name="direct" type="submit" value="Module List" />
-			</form>
-		</div>
-		-->
-		
-		<c:if test="${! empty errorMessage}">
-			<div class="error">${errorMessage}</div>
-		</c:if>
-			
+	</div>				
 		<table class="container">
 			<thead>
 				<tr>

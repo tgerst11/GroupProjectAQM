@@ -1,54 +1,24 @@
 package edu.ycp.cs320.GroupAQM.controller;
 
+import edu.ycp.cs320.GroupAQM.model.Admin;
+
 public class adminController {
 	//create a Numbers model
 	private String username;
 	private String password;
 	private String email;
+	private Admin model;
 	
-	public adminController(String username, String password) {
+	public adminController(Admin model) {
 		//create the model
-		this.username = username;
-		this.password = password;
+		this.model = model;
 	}
 	
-	public adminController(String username, String password, String email) {
-		//create the model
-		this.username = username;
-		this.password = password;
-		this.email = email;
+	public boolean checkUserName(String name) {
+		return model.validateUserName(name);
 	}
 	
-	public boolean checkUsername() {
-		//UPDATE
-		//pull username from the database
-		String username = "admin";
-		if(this.username == username)
-		{
-			return true;
-		}
-		return false;
-	}
-	
-	public boolean checkPassword() {
-		//UPDATE
-		//pull password from the database
-		String password = "p@ssword";
-		if(this.password == password)
-		{
-			return true;
-		}
-		return false;
-	}
-	
-	public boolean checkEmail() {
-		//UPDATE
-		//pull email from the database
-		String email = "admin@ycp.edu";
-		if(this.email == email)
-		{
-			return true;
-		}
-		return false;
+	public boolean validateCredentials(String name, String pw) {
+		return model.validatePW(name, pw);
 	}
 }
