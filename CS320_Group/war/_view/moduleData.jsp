@@ -218,8 +218,8 @@ h2 a {
 	float: bottom;
 	text-align: left;
 	overflow: hidden;
-	width: 87%;
-	margin-top: 150px;
+	width: 100%;
+	margin-top: 90px;
     display: table;
     background-color:black;
     opacity: 0.9;
