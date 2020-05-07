@@ -26,12 +26,15 @@ public class ModuleDataServlet extends HttpServlet {
 		
 		List<Module> data = null;
 		controller = new ModuleController();
+	
 		
 		//This gets the city that we want data for
 		String module_name = req.getParameter("module");
 		
+		
 		apiParseData populate = new apiParseData();
 		populate.setModel(mod);
+
 		
 		try {
 		populate.call(module_name);
@@ -39,9 +42,14 @@ public class ModuleDataServlet extends HttpServlet {
 		catch (Exception e){
 			System.out.println("There's been an error adding a new tuple");
 		}
-		
+		System.out.println(mod.getDate());
+		System.out.println(controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getDate());
 		//now we have a module (mod) that has the new information 
-		controller.addData(mod);
+		if (mod.getDate() != controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getDate() && mod.getTime() != controller.getModuleData(module_name).get(controller.getModuleData(module_name).size()-1).getTime()) {
+			System.out.println(mod.getDate());
+			System.out.println(controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getDate());
+			controller.addData(mod);
+		}
 		
 		data = controller.getModuleData(module_name);
 		

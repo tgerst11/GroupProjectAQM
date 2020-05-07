@@ -49,7 +49,7 @@
 						<td>${point.windDir}</td>	
 						<td>${point.coordinates}</td>
 						<td>${point.pressure}</td>
-						<td>${point.temp}</td>		            
+						<td>${point.temp}</td>	         
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -158,5 +158,6 @@
 	}
 	</script>
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<div id="chartContainer" style="height: 500px; width: 75%; margin-left:250px; padding-top:10px;"></div>
 	</body>
 </html>
