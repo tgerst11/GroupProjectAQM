@@ -33,7 +33,7 @@ public class ModuleController {
 			for (Module module : moduleList) {
 				//print the tings here
 				module.setTimeAndDate(module.getTimeStamp());
-				System.out.println(module.getAQI() +","+ module.getHumidity() +","+ module.getMainPol() +","+ module.getPressure() +","+ module.getTemp() +","+ module.getWindDir() +","+ module.getWindSpeed());
+				//System.out.println(module.getAQI() +","+ module.getHumidity() +","+ module.getMainPol() +","+ module.getPressure() +","+ module.getTemp() +","+ module.getWindDir() +","+ module.getWindSpeed());
 			}
 		}
 		return moduleList;

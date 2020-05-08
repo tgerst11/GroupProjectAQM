@@ -37,17 +37,18 @@ public class ModuleDataServlet extends HttpServlet {
 
 		
 		try {
-		populate.call(module_name);
+			populate.call(module_name);
 		}
 		catch (Exception e){
 			System.out.println("There's been an error adding a new tuple");
 		}
-		System.out.println(mod.getDate());
-		System.out.println(controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getDate());
-		//now we have a module (mod) that has the new information 
-		if (mod.getDate() != controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getDate() && mod.getTime() != controller.getModuleData(module_name).get(controller.getModuleData(module_name).size()-1).getTime()) {
-			System.out.println(mod.getDate());
-			System.out.println(controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getDate());
+	
+		if (mod.getTimeStamp().equals(controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getTimeStamp())) {
+			
+			
+		}else {
+			//System.out.println("Added Data " + mod.getTimeStamp());
+			//System.out.println("Last date tuple in database " + controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getTimeStamp());
 			controller.addData(mod);
 		}
 		
