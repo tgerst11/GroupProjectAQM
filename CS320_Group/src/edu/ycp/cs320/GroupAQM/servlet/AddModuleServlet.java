@@ -28,16 +28,21 @@ public class AddModuleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("ModuleData Servlet: doPost");
+		System.out.println("AddModule Servlet: doPost");
 		
-		List<Module> modules = null;
+		String module_name;
+		String errorMessage = null;
+		String successMessage = null;
 		
-		controller = new ModuleController();
+		module_name = req.getParameter("moduleName");
+		System.out.println(module_name);
 		
-		modules = controller.getAllModules();
+		if (module_name.equals("") || module_name == null) {
+			errorMessage = "Please input a module name";
+			req.setAttribute("errorMessage", errorMessage);
+		}
 		
-		req.setAttribute("modules",  modules);
 		// Forward to view to render the result HTML document
-		req.getRequestDispatcher("/_view/homePage.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/addModule.jsp").forward(req, resp);
 	}
 }

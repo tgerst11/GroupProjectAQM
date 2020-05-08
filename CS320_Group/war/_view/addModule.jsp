@@ -19,9 +19,15 @@
 		<div class = "form-area">	
 		<form action="${pageContext.servletContext.contextPath}/addModule" method="post">
 			<p>Module Location Name:</p>
-			<input type="text" name="username" placeholder="Enter a Module Location Name" size="12" value="${username}"/>
+			<input type="text" name="moduleName" placeholder="Enter a Module Location Name" size="12" value="${moduleName}"/>
 			<input type="Submit" name="submitaddmodule" value="Add Module to Database">
 		</form>
+		<c:if test="${! empty errorMessage}">
+			<div class="error">${errorMessage}</div>
+		</c:if>
+		<c:if test="${! empty successMessage}">
+			<div class="success">${successMessage}</div>
+		</c:if>
 		</div>	
 	</body>
 </html>
