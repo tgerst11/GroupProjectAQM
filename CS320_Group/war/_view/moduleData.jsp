@@ -4,23 +4,20 @@
 
 <html>
 	<head>
-		<title>Module Data, ${moduleName}</title>
-		
+		<title>Module Data, ${moduleName}</title>		
 	<style type="text/css">
 		<%@include file="/moduleData.css"%>
 	</style>
-
 	</head>
 
 	<body>
 	<div id="header">
 				Module Data: ${moduleName}
-			</div>
+	</div>
 	<div class = "header">
         <ul>
         <li> <a href = "${pageContext.servletContext.contextPath}/homePage"> Home </a></li>
-       </ul>
-	
+       </ul>	
 	</div>				
 		<table class="container">
 			<thead>
