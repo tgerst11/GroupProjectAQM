@@ -156,3 +156,15 @@ ul li ul li{
 ul li:hover ul li{
     display: block;
 }
+
+.header{
+        		position: fixed;
+        		left:0;
+        		top:20px;
+        		width: 99%;
+        		font-family: Tahoma;
+        		color: white;
+        		text-align: center;
+        		font-size: 50px;
+        		padding: 10px;      	
+}
