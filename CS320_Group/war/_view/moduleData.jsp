@@ -23,7 +23,7 @@
 			<thead>
 				<tr>
 					<th><h1>Date</h1></th>
-					<th><h1>Time</h1></th>
+					<th><h1>Time (CEST)</h1></th>
 					<th><h1>AQI</h1></th>
 					<th><h1>Main Pollutant</h1></th>
 					<th><h1>Humidity (%)</h1></th>
