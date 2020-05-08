@@ -87,7 +87,7 @@
 				type: "spline", 
 				showInLegend: true,
 				visible: false,
-				yValueFormatString: "##.00",
+				yValueFormatString: "##.00%",
 				name: "Humidity",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
@@ -110,7 +110,7 @@
 			{
 				type: "spline", 
 				showInLegend: true,
-				yValueFormatString: "##.00",
+				yValueFormatString: "##.00°",
 				name: "Wind Direction",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
@@ -121,7 +121,7 @@
 			{
 				type: "spline", 
 				showInLegend: true,
-				yValueFormatString: "##.00",
+				yValueFormatString: "##.00 hPa",
 				name: "Pressure",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
@@ -132,7 +132,7 @@
 			{
 				type: "spline", 
 				showInLegend: true,
-				yValueFormatString: "##.00 C",
+				yValueFormatString: "##.00°C",
 				name: "Temperature",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
