@@ -26,12 +26,12 @@
 					<th><h1>Time</h1></th>
 					<th><h1>AQI</h1></th>
 					<th><h1>Main Pollutant</h1></th>
-					<th><h1>Humidity</h1></th>
-					<th><h1>Wind Speed</h1></th>
-					<th><h1>Wind Direction</h1></th>
+					<th><h1>Humidity (%)</h1></th>
+					<th><h1>Wind Speed (m/s)</h1></th>
+					<th><h1>Wind Direction (Heading)</h1></th>
 					<th><h1>Coordinates</h1></th>
-					<th><h1>Pressure</h1></th>
-					<th><h1>Temperature</h1></th>
+					<th><h1>Pressure (hPa)</h1></th>
+					<th><h1>Temperature (°C)</h1></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -75,7 +75,7 @@
 				type: "spline",
 				visible: false,
 				showInLegend: true,
-				yValueFormatString: "##.00 PM",
+				yValueFormatString: "##.00",
 				name: "AQI",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
@@ -99,7 +99,7 @@
 				type: "spline",
 				visible: false,
 				showInLegend: true,
-				yValueFormatString: "##.00 MPH",
+				yValueFormatString: "##.00 m/s",
 				name: "Wind Speed",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
