@@ -114,7 +114,11 @@
 	</body>
 	
 	<div class = "footer">
-	<p>Made with &lt;3 by a team of 4 York College of Pennsylvania CS320 Spring 2020 Students: David, Dylan, Mikayla, and Trevor</p>
+	<p>Made with &lt;3 by a team of 4 <a href="https://youtube.com/watch?v=dQw4w9WgXcQ" >York College of Pennsylvania</a> CS320 Spring 2020 Students: David, Dylan, Mikayla, and Trevor</p>
 	</div>
+	
+	
+	
+	
 	
 </html>
