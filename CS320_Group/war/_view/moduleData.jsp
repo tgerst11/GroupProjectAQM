@@ -91,7 +91,7 @@
 				name: "Humidity",
 				dataPoints: [
 					<c:forEach items="${data}" var="point">
-	            		{ label: "${point.date}", y: ${point.humidity} },
+	            		{ label: "${point.date}", y: ${point.humidity}/100 },
 					</c:forEach>
 				]
 			},
