@@ -8,13 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.ycp.cs320.GroupAQM.apiConnection.apiParseData;
 import edu.ycp.cs320.GroupAQM.controller.ModuleController;
 import edu.ycp.cs320.GroupAQM.model.Module;
 
 public class AddModuleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ModuleController controller = null;
-	
+	private Module mod = new Module();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -39,6 +40,34 @@ public class AddModuleServlet extends HttpServlet {
 		
 		if (module_name.equals("") || module_name == null) {
 			errorMessage = "Please input a module name";
+			req.setAttribute("errorMessage", errorMessage);
+		}
+		
+		if (module_name.equals("Allentown") || module_name.equals("Carlisle") || module_name.equals("Erie") || module_name.equals("Johnstown") || 
+				module_name.equals("Philadelphia") || module_name.equals("Pittsburg") || module_name.equals("Reading") || module_name.equals("Scranton") ||
+				module_name.equals("State College")) 
+		{
+			successMessage = "Module has been found and added to database!";
+			req.setAttribute("successMessage", successMessage);
+			
+			controller = new ModuleController();
+	
+			apiParseData populate = new apiParseData();
+			populate.setModel(mod);
+
+			
+			try {
+				populate.call(module_name);
+			}
+			catch (Exception e){
+				System.out.println("There's been an error adding a new tuple");
+			}
+			//System.out.println("Added Data " + mod.getTimeStamp());
+			//System.out.println("Last date tuple in database " + controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getTimeStamp());
+			controller.addModule(mod);
+			
+		}else {
+			errorMessage = "Sorry about that but we only have this site set up for some select cities in PA.  These cities are Allentown, Carlisle, Erie, Johnstown, Philadelphia, Pittsburgh, Reading, Scranton, and State College";
 			req.setAttribute("errorMessage", errorMessage);
 		}
 		
