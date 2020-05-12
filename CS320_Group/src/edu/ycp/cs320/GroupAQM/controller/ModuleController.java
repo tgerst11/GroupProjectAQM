@@ -64,4 +64,59 @@ public class ModuleController {
 		}
 	}
 	
+	//miscellaneous methods that are used to display data on webpage
+	public String aqiMessage(String AQI) {
+		int aqi=0;
+		String message = null;
+		try {
+			aqi = Integer.parseInt(AQI);
+		}
+		catch (NumberFormatException e) {
+			System.out.println("This string can't be converted to an integer");
+		}
+		
+		if (aqi >=0 && aqi <=50) {
+			message = "Air Quality is satisfactory and air pollution poses little or no risk to the public.";
+		}
+		else if (aqi>= 51 && aqi <=100) {
+			message = "Air quality is acceptable. There may be a risk for those who are sensitive.";
+		}
+		else if (aqi >=101 && aqi <= 150) {
+			message = "Members of sensitive groups may experience health effects. The general public is less likely to be affected";
+		}
+		else if (aqi>= 151 && aqi <=200) {
+			message = "Members of sensitive groups may experience more serious health effects";
+		}
+		else if(aqi >= 201 && aqi <=300) {
+			message = "Health alert: The risk of health effects is increased for everyone. Take caution!";
+		}
+		else {
+			message = "Health warning of emergency conditions: everyone must take caution";
+		}
+		return message;
+	}
+	
+	public String mainPol (String mainPol) {
+		String mainpol=null;
+		if (mainPol.equals("p1")) {
+			mainpol = "Main pollutant is PM10. This includes particulate matter of 10 microns.";
+		}
+		if (mainPol.equals("p2")){
+			mainpol ="Main pollutant is PM2.5. This includes particulate matter of 2.5 microns.";
+		}
+		if (mainPol.equals("o3")){
+			mainpol ="Main pollutant is Ozone (O3).";
+		}
+		if (mainPol.equals("n2")){
+			mainpol ="Main pollutant is Nitrogen Dioxide (NO2).";
+		}
+		if (mainPol.equals("s2")){
+			mainpol ="Main pollutant is Sulfur Dioxide (SO2).";
+		}
+		if (mainPol.equals("co")){
+			mainpol ="Main pollutant is Carbon Monoxide (CO).";
+		}
+		return mainpol;
+	}
+	
 }

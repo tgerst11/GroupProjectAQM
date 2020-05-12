@@ -45,8 +45,7 @@ ul li:hover ul li{
 }
         		
 body{
-    background-color:#00000;
-    background-image: url(././images/homebak.jpg);
+	background: #e8f4f8;
     background-size:cover;
     background-repeat:no-repeat;  		
 }
@@ -59,14 +58,6 @@ table, th, td {
   	border: 1px solid black;
 }
 
-#header{
-	font-size: 200%;
-    font-weight: bold;
-	margin-bottom: 20px;
-	padding-bottom: 6px;
-    border-bottom: 3px solid black;
-    color: black;
-}
 
 #data{
 	margin-left: 200px;
@@ -81,12 +72,6 @@ table, th, td {
 
 #button {
     margin-bottom: 10px;
-}
-
-#login {
-	float: left;
-	background-color:#efefef;
-	border: 1px solid #efefef;
 }
 		
 .tg  {
@@ -200,8 +185,8 @@ h2 a {
 	text-align: left;
 	overflow: hidden;
 	width: 100%;
-	margin-top: 90px;
     display: table;
+    margin-top: 80px;
     background-color:black;
     opacity: 0.9;
     table-layout: fixed;
@@ -259,4 +244,17 @@ h2 a {
 @media (max-width: 800px) {
 .container td:nth-child(4),
 .container th:nth-child(4) { display: none; }
+}
+
+.contentRight{
+	position: absolute;
+	right:0%;
+	left: 75%;
+	top: 200px;
+	font-family: Tahoma;
+	color: #000;
+	font-size: 25px;
+	line-height: 30px;
+	padding: 10px;
+
 }

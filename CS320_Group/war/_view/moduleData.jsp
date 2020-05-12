@@ -11,46 +11,20 @@
 	</head>
 
 	<body>
-	<div id="header">
-				Module Data: ${moduleName}
-	</div>
+	
 	<div class = "header">
         <ul>
         <li> <a href = "${pageContext.servletContext.contextPath}/homePage"> Home </a></li>
        </ul>	
-	</div>				
-		<table class="container">
-			<thead>
-				<tr>
-					<th><h1>Date</h1></th>
-					<th><h1>Time</h1></th>
-					<th><h1>AQI</h1></th>
-					<th><h1>Main Pollutant</h1></th>
-					<th><h1>Humidity (%)</h1></th>
-					<th><h1>Wind Speed (m/s)</h1></th>
-					<th><h1>Wind Direction (Heading)</h1></th>
-					<th><h1>Coordinates</h1></th>
-					<th><h1>Pressure (hPa)</h1></th>
-					<th><h1>Temperature (°C)</h1></th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${data}" var="point">
-					<tr>
-						<td>${point.date}</td>
-						<td>${point.time}</td>
-						<td>${point.AQI}</td>
-						<td>${point.mainPol}</td>
-						<td>${point.humidity}</td>
-						<td>${point.windSpeed}</td>
-						<td>${point.windDir}</td>	
-						<td>${point.coordinates}</td>
-						<td>${point.pressure}</td>
-						<td>${point.temp}</td>	         
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+	</div>
+		
+		<div class= "contentRight">
+		${aqiMessage}
+		<br><br>
+		${mainPolMessage}
+		</div>
+		
+		
 		<script>
 			window.onload = function () {
 
@@ -155,6 +129,40 @@
 	}
 	</script>
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-	<div id="chartContainer" style="height: 500px; width: 75%; margin-left:250px; padding-top:10px;"></div>
+	<div id="chartContainer" style="height: 500px; width: 75%; align: center; padding-top:50px; "></div>
+	
+	<table class="container">
+			<thead>
+				<tr>
+					<th><h1>Date</h1></th>
+					<th><h1>Time</h1></th>
+					<th><h1>AQI</h1></th>
+					<th><h1>Main Pollutant</h1></th>
+					<th><h1>Humidity (%)</h1></th>
+					<th><h1>Wind Speed (m/s)</h1></th>
+					<th><h1>Wind Direction (Heading)</h1></th>
+					<th><h1>Coordinates</h1></th>
+					<th><h1>Pressure (hPa)</h1></th>
+					<th><h1>Temperature (°C)</h1></th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${data}" var="point">
+					<tr>
+						<td>${point.date}</td>
+						<td>${point.time}</td>
+						<td>${point.AQI}</td>
+						<td>${point.mainPol}</td>
+						<td>${point.humidity}</td>
+						<td>${point.windSpeed}</td>
+						<td>${point.windDir}</td>	
+						<td>${point.coordinates}</td>
+						<td>${point.pressure}</td>
+						<td>${point.temp}</td>	         
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	
 	</body>
 </html>

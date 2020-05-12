@@ -25,6 +25,8 @@ public class ModuleDataServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		List<Module> data = null;
+		String aqi_message=null;
+		String main_pol = null;
 		controller = new ModuleController();
 	
 		
@@ -54,7 +56,13 @@ public class ModuleDataServlet extends HttpServlet {
 		
 		data = controller.getModuleData(module_name);
 		
+		aqi_message = controller.aqiMessage(mod.getAQI());
+		
+		main_pol = controller.mainPol(mod.getMainPol());
+		
 		req.setAttribute("data",  data);
+		req.setAttribute("aqiMessage", aqi_message);
+		req.setAttribute("mainPolMessage", main_pol);
 		req.setAttribute("moduleName", module_name);
 		System.out.println("ModuleData Servlet: doGet");
 		
