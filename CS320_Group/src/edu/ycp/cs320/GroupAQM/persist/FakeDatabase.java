@@ -54,6 +54,12 @@ public class FakeDatabase implements IDatabase {
 	public Integer insertData(String city, String coordinates, String state, String country, String ts, String temp, String pressure, String humidity, String windSpeed, String windDirection, String aqi, String mainPol) {
 		return 0;
 	}
+
+	@Override
+	public int addModule(Module mod) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	/*
 	public void readInitialData() {

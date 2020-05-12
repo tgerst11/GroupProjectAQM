@@ -23,8 +23,6 @@
 		<br><br>
 		${mainPolMessage}
 		</div>
-		
-		
 		<script>
 			window.onload = function () {
 

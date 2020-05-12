@@ -153,8 +153,9 @@ public class DerbyDatabase implements IDatabase {
 					
 					stmt4 = conn.prepareStatement(
 							"create table modules (" +								
-							"	data_id integer," +
-							"	location_id integer," +
+							"	data_id integer primary key " +
+							"		generated always as identity (start with 1, increment by 1), " +
+							"	location_id integer, " + 
 							"	name varchar(40)," +
 							"	status varchar(40)" +
 							")"
@@ -242,12 +243,11 @@ public class DerbyDatabase implements IDatabase {
 					
 					System.out.println("Location table populated");
 					
-					insertModule = conn.prepareStatement("insert into modules (data_id, location_id, name, status) values (?, ?, ?, ?)");
+					insertModule = conn.prepareStatement("insert into modules (location_id, name, status) values (?, ?, ?)");
 					for (Module module : moduleList) {
-						insertModule.setInt(1, module.getDataId());
-						insertModule.setInt(2, module.getLocationId());
-						insertModule.setString(3, module.getName());
-						insertModule.setString(4, module.getStatus());
+						insertModule.setInt(1, module.getLocationId());
+						insertModule.setString(2, module.getName());
+						insertModule.setString(3, module.getStatus());
 						insertModule.addBatch();
 					}
 					insertModule.executeBatch();
@@ -607,7 +607,82 @@ public class DerbyDatabase implements IDatabase {
 				}		
 			}
 		});
-	}		
+	}	
+	
+	@Override
+	public int addModule(Module mod) {
+		return executeTransaction(new Transaction<Integer>() {
+			@Override
+			public Integer execute(Connection conn) throws SQLException {
+				PreparedStatement stmt1 = null;
+				PreparedStatement stmt2 = null;
+				PreparedStatement stmt3 = null;
+				PreparedStatement stmt4 = null;
+				ResultSet resultSet2 = null;
+				Module addModule = new Module();
+				String location_id = null;
+				int confirm = 0;
+				try {
+					stmt1 = conn.prepareStatement(
+							("insert into locations (coordinates, city, state, country) values (?, ?, ?, ?)")
+					);
+
+					stmt1.setString(1, mod.getCoordinates());
+					stmt1.setString(2, mod.getCity());
+					stmt1.setString(3, mod.getState());
+					stmt1.setString(4, mod.getCountry());
+					
+					stmt1.executeUpdate();		
+					
+					stmt3 = conn.prepareStatement(
+							"select location_id from locations " +
+							"  where city = ? "
+					);
+					stmt3.setString(1, mod.getCity());
+					resultSet2 = stmt3.executeQuery();
+					
+					if (resultSet2.next())
+					{
+						location_id = resultSet2.getString(1);
+						System.out.println("Newly added city found!");
+						confirm = 1;
+					}
+					
+					stmt4 = conn.prepareStatement(
+							"insert into data (location_id, aqi, mainpollutant, humidity, windspeed, winddirection, pressure, temperature, timedate) " +
+							"  values(?, ?, ?, ?, ?, ?, ?, ?, ?) "
+					);
+					stmt4.setString(1, location_id);
+					stmt4.setString(2, mod.getAQI());
+					stmt4.setString(3, mod.getMainPol());
+					stmt4.setString(4, mod.getHumidity());
+					stmt4.setString(5, mod.getWindSpeed());
+					stmt4.setString(6, mod.getWindDir());
+					stmt4.setString(7, mod.getPressure());
+					stmt4.setString(8, mod.getTemp());
+					stmt4.setString(9, mod.getTimeStamp());
+					
+					// execute the update
+					stmt4.executeUpdate();
+					
+					stmt2 = conn.prepareStatement(
+							("insert into modules (location_id, name, status) values (?, ?, ?)")
+					);
+					stmt2.setString(1, location_id);
+					stmt2.setString(2, mod.getCity());
+					stmt2.setString(3, "ON");
+					
+					stmt2.executeUpdate();
+					
+					return confirm;
+				} finally {
+					DBUtil.closeQuietly(resultSet2);
+					DBUtil.closeQuietly(stmt1);
+					DBUtil.closeQuietly(stmt2);
+				}
+			}
+		});
+	}
 			
 
 	private void loadModule(Module module, ResultSet resultSet, int index) throws SQLException {
@@ -638,5 +713,7 @@ public class DerbyDatabase implements IDatabase {
 		module.setTimeStamp(resultSet.getString(index++));
 		
 	}
+
+	
 
 }

@@ -116,6 +116,8 @@ public class InitialData {
 			List<Module> moduleList = new ArrayList<Module>();
 			ReadCSV readModules = new ReadCSV("module.csv");
 			try {
+				Integer moduleID = 1;
+				Integer locationID = 1;
 				while (true) {
 					List<String> tuple = readModules.next();
 					if (tuple == null) {
@@ -123,9 +125,12 @@ public class InitialData {
 					}
 					Iterator<String> i = tuple.iterator();
 					Module module = new Module();
-
-					module.setDataId(Integer.parseInt(i.next()));	
-					module.setLocationId(Integer.parseInt(i.next()));	
+					
+					Integer.parseInt(i.next());
+					Integer.parseInt(i.next());
+					
+					module.setDataId(moduleID++);	
+					module.setLocationId(locationID++);	
 					module.setName(i.next());
 					module.setStatus(i.next());
 					moduleList.add(module);

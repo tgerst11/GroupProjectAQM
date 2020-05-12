@@ -44,7 +44,7 @@ public class ModuleDataServlet extends HttpServlet {
 		catch (Exception e){
 			System.out.println("There's been an error adding a new tuple");
 		}
-	
+		
 		if (mod.getTimeStamp().equals(controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getTimeStamp())) {
 			
 			

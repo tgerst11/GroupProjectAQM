@@ -119,4 +119,12 @@ public class ModuleController {
 		return mainpol;
 	}
 	
+	public void addModule(Module mod) {
+		IDatabase db = DatabaseProvider.getInstance();
+		int status = db.addModule(mod);
+		if (status != 0) {
+			System.out.println("New module data added successfully!");
+		}
+	}
+	
 }
