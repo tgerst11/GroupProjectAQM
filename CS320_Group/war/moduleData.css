@@ -250,11 +250,17 @@ h2 a {
 	position: absolute;
 	right:0%;
 	left: 75%;
-	top: 200px;
+	top: 125px;
 	font-family: Tahoma;
 	color: #000;
-	font-size: 25px;
+	font-size: 20px;
 	line-height: 30px;
 	padding: 10px;
+	background-color:  white;
+	border: 5px solid black;
 
+}
+.bold{
+	font-weight: bold;
+	font-size: 25px;
 }

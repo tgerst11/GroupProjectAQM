@@ -19,8 +19,12 @@
 	</div>
 		
 		<div class= "contentRight">
+		<div class = "bold">AQI Report: </div>
+		<br>
 		${aqiMessage}
 		<br><br>
+		<div class = "bold">Pollution Report: </div>
+		<br>
 		${mainPolMessage}
 		</div>
 		<script>
