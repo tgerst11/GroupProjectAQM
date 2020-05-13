@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.ycp.cs320.GroupAQM.model.Admin;
-import edu.ycp.cs320.GroupAQM.model.Data;
 import edu.ycp.cs320.GroupAQM.model.Location;
 import edu.ycp.cs320.GroupAQM.model.Module;
 
@@ -265,7 +264,7 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
-	//SQL Methods
+	//START SQL Methods
 	
 	@Override
 	public List<Admin> validateCred(String username, String password) {
@@ -284,7 +283,7 @@ public class DerbyDatabase implements IDatabase {
 		
 		System.out.println("Data DB successfully initialized!");
 	}
-
+	//finds and returns all the modules found in the DB
 	public List<Module> findAllModules() {
 		return executeTransaction(new Transaction<List<Module>>() {
 			@Override
@@ -329,6 +328,7 @@ public class DerbyDatabase implements IDatabase {
 	}
 	
 	@Override
+	//finds and returns all module data with given module_id
 	public List<Module> findDataByModuleID(int module_id) {
 		return executeTransaction(new Transaction<List<Module>>() {
 			@Override
@@ -375,6 +375,7 @@ public class DerbyDatabase implements IDatabase {
 	}
 	
 	@Override
+	//finds and returns all module data when given the module name
 	public List<Module> findDataByModuleLocation(String module_name) {
 		return executeTransaction(new Transaction<List<Module>>() {
 			@Override
@@ -452,6 +453,7 @@ public class DerbyDatabase implements IDatabase {
 	}
 	
 	@Override
+	//adds a new location to the location database
 	public int addLocation(String coordinates, String city, String state, String country) {
 		return executeTransaction(new Transaction<Integer>() {
 			@Override
@@ -511,7 +513,7 @@ public class DerbyDatabase implements IDatabase {
 			}
 		});
 	}
-	
+	//adds data to data database for specified module. Params are new data points.
 	public Integer insertData (final String city, final String coordinates, final String state, final String country, final String ts, final String temp, final String pressure, final String humidity, final String windSpeed, final String windDirection, final String aqi, final String mainPol) {
 		return executeTransaction(new Transaction<Integer>() {
 			@Override
@@ -610,6 +612,7 @@ public class DerbyDatabase implements IDatabase {
 	}	
 	
 	@Override
+	//adds a new module to the database
 	public int addModule(Module mod) {
 		return executeTransaction(new Transaction<Integer>() {
 			@Override

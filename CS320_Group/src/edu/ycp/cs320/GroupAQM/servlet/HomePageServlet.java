@@ -29,9 +29,9 @@ public class HomePageServlet extends HttpServlet {
 		
 		controller = new ModuleController();
 		
-		modules = controller.getAllModules();
+		modules = controller.getAllModules();//prints all module in the database
 		
-		req.setAttribute("modules",  modules);
+		req.setAttribute("modules",  modules);//passes all modules so it can be displayed (radio buttons)
 		
 		System.out.println("Home Page Servlet: doGet");
 

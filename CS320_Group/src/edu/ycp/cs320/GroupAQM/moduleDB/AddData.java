@@ -31,7 +31,7 @@ public class AddData {
 		
 		Integer location_id = db.insertData(mod.getCity(), mod.getCoordinates(), mod.getState(), mod.getCountry(), mod.getTimeStamp(), mod.getTemp(), mod.getPressure(), mod.getHumidity(), mod.getWindSpeed(), mod.getWindDir(), mod.getAQI(), mod.getMainPol());
 		
-		if (location_id > 0)
+		if (location_id > 0) //if the location was found this will be a number.
 		{
 			System.out.println("Successful addition of data.");
 		}

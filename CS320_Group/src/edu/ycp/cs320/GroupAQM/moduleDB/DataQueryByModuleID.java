@@ -34,7 +34,6 @@ public static void main(String[] args) throws Exception {
 		}
 		else {
 			for (Module module : moduleList) {
-				//print the tings here
 				System.out.println(module.getAQI() +","+ module.getHumidity() +","+ module.getMainPol() +","+ module.getPressure() +","+ module.getTemp() +","+ module.getWindDir() +","+ module.getWindSpeed());	
 				//getDate(module.getTime());
 			}

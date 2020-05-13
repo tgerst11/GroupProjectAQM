@@ -3,10 +3,7 @@ package edu.ycp.cs320.GroupAQM.controller;
 import edu.ycp.cs320.GroupAQM.model.Admin;
 
 public class adminController {
-	//create a Numbers model
-	private String username;
-	private String password;
-	private String email;
+	//create a Admin model
 	private Admin model;
 	
 	public adminController(Admin model) {

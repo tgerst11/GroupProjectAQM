@@ -9,7 +9,7 @@ import edu.ycp.cs320.GroupAQM.moduleDB.AddData;
 
 //import org.eclipse.jetty.server.Server;
 
-public class RunData {
+public class RunData {//pulls data from API for each module every specified time duration
 	@SuppressWarnings("null")
 	public static void main(String[] args) throws Exception {
 		
@@ -23,7 +23,7 @@ public class RunData {
 		
 		
 		System.out.print("How many hours would you like this to run? (0 for infinite): ");
-		hours = keyboard.nextInt();
+		hours = keyboard.nextInt();//time duration
 		
 		System.out.print("Which database (0=fake, 1=derby): ");
 		int which = keyboard.nextInt();

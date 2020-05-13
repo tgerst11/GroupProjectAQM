@@ -6,11 +6,10 @@ import edu.ycp.cs320.GroupAQM.persist.DatabaseProvider;
 import edu.ycp.cs320.GroupAQM.persist.DerbyDatabase;
 import edu.ycp.cs320.GroupAQM.persist.IDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ModuleController {
-	//create a Numbers model
+	//create a module model
 	private Module model;
 	
 	private IDatabase db    = null;
@@ -30,10 +29,10 @@ public class ModuleController {
 			System.out.println("There are no modules in the database");
 		}
 		else {
+			//returns all data, adds to moduleList, and prints data for specified module. Used for moduleData page.
 			for (Module module : moduleList) {
-				//print the tings here
 				module.setTimeAndDate(module.getTimeStamp());
-				//System.out.println(module.getAQI() +","+ module.getHumidity() +","+ module.getMainPol() +","+ module.getPressure() +","+ module.getTemp() +","+ module.getWindDir() +","+ module.getWindSpeed());
+				//Testing: System.out.println(module.getAQI() +","+ module.getHumidity() +","+ module.getMainPol() +","+ module.getPressure() +","+ module.getTemp() +","+ module.getWindDir() +","+ module.getWindSpeed());
 			}
 		}
 		return moduleList;
@@ -47,8 +46,8 @@ public class ModuleController {
 			System.out.println("No modules in the database");
 		}
 		else {
+			//adds all modules to list, prints out name, and returns all modules in db. Used for homePage. 
 			for (Module module : modules) {
-				//print the tings here
 				System.out.println(module.getName());
 			}
 		}
@@ -56,16 +55,19 @@ public class ModuleController {
 		
 	}
 	
-	public void addData(Module mod) {
+	public void addData(Module mod) { //Adds data within module parameter to db.
 		IDatabase db = DatabaseProvider.getInstance();
 		int status = db.insertData(mod.getCity(), mod.getCoordinates(), mod.getState(), mod.getCountry(), mod.getTimeStamp(), mod.getTemp(), mod.getPressure(), mod.getHumidity(), mod.getWindSpeed(), mod.getWindDir(), mod.getAQI(), mod.getMainPol());
 		if (status != 0) {
 			System.out.println("New module data added successfully!");
 		}
+		else {
+			System.out.println("New module data FAILED!");
+		}
 	}
 	
 	//miscellaneous methods that are used to display data on webpage
-	public String aqiMessage(String AQI) {
+	public String aqiMessage(String AQI) {//returns appropriate message based on given AQI
 		int aqi=0;
 		String message = null;
 		try {
@@ -96,7 +98,7 @@ public class ModuleController {
 		return message;
 	}
 	
-	public String mainPol (String mainPol) {
+	public String mainPol (String mainPol) {//returns appropriate method based on given main pollutant param.
 		String mainpol=null;
 		if (mainPol.equals("p1")) {
 			mainpol = "Main pollutant is PM10. This includes particulate matter of 10 microns.";
@@ -119,7 +121,7 @@ public class ModuleController {
 		return mainpol;
 	}
 	
-	public void addModule(Module mod) {
+	public void addModule(Module mod) { //adds a new module to the database. Used on addModule page for admin.
 		IDatabase db = DatabaseProvider.getInstance();
 		int status = db.addModule(mod);
 		if (status != 0) {

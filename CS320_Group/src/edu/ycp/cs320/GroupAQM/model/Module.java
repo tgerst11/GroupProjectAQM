@@ -1,23 +1,18 @@
 package edu.ycp.cs320.GroupAQM.model;
 
-import java.sql.Timestamp;
-
 public class Module {
 
 	//attributes
 	private int data_id, location_id;
-	//need to implement a status
 	private String status, name;
 	private String coordinates, windSpeed, windDir, humidity,pressure, AQI, temp, city, state, country, mainPol;
-	//private java.sql.Timestamp time;
 	private String timestamp, time, date;
 	
 	//constructor
 	public Module() {
 
 	}
-	
-	//Module id. Is this needed?
+
 	public void setDataId(Integer data_id){
 		this.data_id = data_id;
 	}
@@ -135,7 +130,6 @@ public class Module {
 		int i = 0;
 		int charAt = 0;
 		char c;
-		String date;
 		
 		while(charAt == 0) {
 			c = timeStamp.charAt(i);

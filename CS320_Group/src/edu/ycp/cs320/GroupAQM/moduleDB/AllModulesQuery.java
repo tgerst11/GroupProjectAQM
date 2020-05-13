@@ -5,10 +5,8 @@ import java.util.Scanner;
 
 import edu.ycp.cs320.GroupAQM.model.Module;
 import edu.ycp.cs320.GroupAQM.persist.DatabaseProvider;
-import edu.ycp.cs320.GroupAQM.persist.DerbyDatabase;
 import edu.ycp.cs320.GroupAQM.persist.IDatabase;
 import edu.ycp.cs320.GroupAQM.persist.InitDatabase;
-import edu.ycp.cs320.GroupAQM.persist.InitialData;
 
 public class AllModulesQuery{
 	public static void main(String[] args) throws Exception {
@@ -29,7 +27,6 @@ public class AllModulesQuery{
 		}
 		else {
 			for (Module module : moduleList) {
-				//print the tings here
 				System.out.println(module.getName() + "," + module.getStatus());	
 			}
 		}

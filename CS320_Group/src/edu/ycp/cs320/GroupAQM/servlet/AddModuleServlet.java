@@ -38,11 +38,13 @@ public class AddModuleServlet extends HttpServlet {
 		module_name = req.getParameter("moduleName");
 		System.out.println(module_name);
 		
+		//if no input and submitted
 		if (module_name.equals("") || module_name == null) {
 			errorMessage = "Please input a module name";
 			req.setAttribute("errorMessage", errorMessage);
 		}
 		
+		//checks to see if the name matches any of the available API cities. Note: There are wayy more than this.
 		if (module_name.equals("Allentown") || module_name.equals("Carlisle") || module_name.equals("Erie") || module_name.equals("Johnstown") || 
 				module_name.equals("Philadelphia") || module_name.equals("Pittsburgh") || module_name.equals("Reading") || module_name.equals("Scranton") ||
 				module_name.equals("State College")) 
@@ -57,14 +59,15 @@ public class AddModuleServlet extends HttpServlet {
 
 			
 			try {
-				populate.call(module_name);
+				populate.call(module_name);//populates new city module with API data
 			}
 			catch (Exception e){
 				System.out.println("There's been an error adding a new tuple");
 			}
+			//Testing:
 			//System.out.println("Added Data " + mod.getTimeStamp());
 			//System.out.println("Last date tuple in database " + controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getTimeStamp());
-			controller.addModule(mod);
+			controller.addModule(mod);//adds populated module to the database
 			
 		}else {
 			errorMessage = "Sorry about that but we only have this site set up for some select cities in PA.  These cities are Allentown, Carlisle, Erie, Johnstown, Philadelphia, Pittsburgh, Reading, Scranton, and State College";

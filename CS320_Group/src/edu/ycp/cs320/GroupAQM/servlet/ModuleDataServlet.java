@@ -39,7 +39,7 @@ public class ModuleDataServlet extends HttpServlet {
 
 		
 		try {
-			populate.call(module_name);
+			populate.call(module_name);//pulls most recent data from API
 		}
 		catch (Exception e){
 			System.out.println("There's been an error adding a new tuple");
@@ -49,21 +49,23 @@ public class ModuleDataServlet extends HttpServlet {
 			
 			
 		}else {
+			//Testing:
 			//System.out.println("Added Data " + mod.getTimeStamp());
 			//System.out.println("Last date tuple in database " + controller.getModuleData(module_name).get(controller.getModuleData(module_name).size() - 1).getTimeStamp());
-			controller.addData(mod);
+			controller.addData(mod);//stores newly pulled data in database
 		}
 		
+		//pulls all data from the database
 		data = controller.getModuleData(module_name);
 		
-		aqi_message = controller.aqiMessage(mod.getAQI());
+		aqi_message = controller.aqiMessage(mod.getAQI());//gets appropriate AQI message
 		
-		main_pol = controller.mainPol(mod.getMainPol());
+		main_pol = controller.mainPol(mod.getMainPol());//gets appropriate pollutant message
 		
-		req.setAttribute("data",  data);
-		req.setAttribute("aqiMessage", aqi_message);
-		req.setAttribute("mainPolMessage", main_pol);
-		req.setAttribute("moduleName", module_name);
+		req.setAttribute("data",  data); //passes all pulled data for module
+		req.setAttribute("aqiMessage", aqi_message);//passes aqi message
+		req.setAttribute("mainPolMessage", main_pol);//passes pollutant message
+		req.setAttribute("moduleName", module_name); //passes module name
 		System.out.println("ModuleData Servlet: doGet");
 		
 		req.getRequestDispatcher("/_view/moduleData.jsp").forward(req, resp);
